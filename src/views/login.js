@@ -1,5 +1,5 @@
 // file login finished
-import imgLogin from './imgSN/hombre-entrenando-verde.png';
+import imgLogin from '../assets/img/hombre-entrenando-verde.png';
 
 function login(navigateTo) {
   const section = document.createElement('section');

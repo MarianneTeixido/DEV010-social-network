@@ -1,6 +1,6 @@
 // file home.js
 // file main.js finished
-import imgHome from './imgSN/entrenando-azul.png';
+import imgHome from '../assets/img/entrenando-azul.png';
 
 function home(navigateTo) {
   const section = document.createElement('section');

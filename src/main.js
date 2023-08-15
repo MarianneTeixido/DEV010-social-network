@@ -1,7 +1,7 @@
 // file main.js finished
-import home from './home.js';
-import login from './login.js';
-import error from './error.js';
+import home from './views/home';
+import login from './views/login';
+import error from './views/error';
 
 /* -------------Navegación----------------------------------------*/
 

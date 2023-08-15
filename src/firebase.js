@@ -7,8 +7,6 @@ import { getFirestore, collection, getDocs } from 'firebase/firestore';
 //Objeto de configuración Firebase que pasa la función de inicialización
 //Devuelve una instancia de aplicación Firebase
 //SDK
-//JS module bundlers
-//Browser Modules permiten importar código como módulos
 
 const app = initializeApp({
     apiKey: "AIzaSyCabIXmNKkbhps1_MJUAYHUcVXKuTs9Tn4",
@@ -28,11 +26,11 @@ const app = initializeApp({
   //Detecta el estado de autentificación
   onAuthStateChanged(auth, user => {
   if(user != null){
+
     console.log('logged in');
   }else{
   console.log('No user');
   }
-  
   });
   
   export default initializeApp;

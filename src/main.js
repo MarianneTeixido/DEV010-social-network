@@ -3,8 +3,7 @@ import home from './home.js';
 import login from './login.js';
 import error from './error.js';
 
-
-//-------------Navegación----------------------------------------//
+/* -------------Navegación----------------------------------------*/
 
 const routes = [
   { path: '/', component: home },
@@ -17,7 +16,7 @@ const root = document.getElementById('root');
 
 function navigateTo(hash) {
   const route = routes.find((routeFound) => routeFound.path === hash);
-  
+
   if (route && route.component) {
     window.history.pushState(
       {},
@@ -29,7 +28,7 @@ function navigateTo(hash) {
       root.removeChild(root.firstChild);
     }
     root.appendChild(route.component(navigateTo));
-   } else {
+  } else {
     navigateTo('/error');
   }
 }

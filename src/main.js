@@ -2,6 +2,7 @@
 import home from './home.js';
 import login from './login.js';
 import error from './error.js';
+import initializeApp from '/firebase.js';
 
 
 //-------------Navegación----------------------------------------//

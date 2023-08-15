@@ -3,6 +3,9 @@ import home from './home.js';
 import login from './login.js';
 import error from './error.js';
 
+
+//-------------Navegación----------------------------------------//
+
 const routes = [
   { path: '/', component: home },
   { path: '/login', component: login },

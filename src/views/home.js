@@ -10,14 +10,16 @@ function home(navigateTo) {
   const button = document.createElement('button');
   const image = document.createElement('img');
 
-  button.textContent = 'Saltar';
+  section.className = 'home';
+
+  button.textContent = 'Skip';
   button.addEventListener('click', () => {
     navigateTo('/login');
   });
 
-  title.textContent = '¡Bienvenida/o a VitalHub!';
-  homeText.textContent = 'Porque creemos en el balance...';
-  homeText2.textContent = 'Comparte tus recetas y rutinas de ejercicio en un entorno saludable.';
+  title.textContent = '¡Welcome to VitalHub!';
+  homeText.textContent = 'Because we belive in banlance ...';
+  homeText2.textContent = 'Share your recipes and exercise routines in a healthy environment.';
   image.src = imgHome;
   image.alt = 'Training';
 

@@ -11,14 +11,16 @@ function login(navigateTo) {
   const inputPass = document.createElement('input');
   const buttonLogin = document.createElement('button');
 
-  inputEmail.placeholder = 'Escribe tu email';
-  inputPass.placeholder = 'Contraseña';
+  section.className = 'login';
 
-  title.textContent = 'Inicia sesión';
+  inputEmail.placeholder = 'Write your email';
+  inputPass.placeholder = 'Password';
+
+  title.textContent = 'Login';
   imageLogin.src = imgLogin;
-  buttonLogin.textContent = 'Iniciar sesión';
+  buttonLogin.textContent = 'Go';
 
-  buttonReturn.textContent = 'Regresar a inicio';
+  buttonReturn.textContent = 'Back to home';
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
   });

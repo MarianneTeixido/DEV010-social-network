@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+
+}
+
+h1{
+    font-size: 10vw;
+    height: fit-content;
+    width: fit-content;
+}
+
+h2,h3{
+    font-size: 8vw;
+}
+
+p {
+    font-size: 5vw;
+}
+button {
+    width: 15vw;
+    height: 5vh;
+    display: grid;
+}
+
+/*Home*/
+.home img{
+    width: 100%;
+	height: auto;
+    margin: 0;
+	padding: 0 10% 0 10%;
+}
+
+/*Login*/
+.login img {
+    width: 100%;
+	height: auto;
+    margin: 0;
+	padding: 0 10% 0 10%; 
+}

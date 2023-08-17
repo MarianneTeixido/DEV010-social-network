@@ -1,29 +1,52 @@
 // file home.js
 // file main.js finished
-import imgHome from '../assets/img/entrenando-azul.png';
 
 function home(navigateTo) {
-  const section = document.createElement('section');
-  const title = document.createElement('h2');
-  const homeText = document.createElement('h3');
-  const homeText2 = document.createElement('p');
-  const button = document.createElement('button');
-  const image = document.createElement('img');
+  // <section class="section-home">
+  //     <div class="titles ">
+  //     <button id="button">SKIP</button>
+  //     <h2 class="welcome">¡Welcome to VitalHub!</h2>
+  //     <div>
+  //       <img
+  //         class="img"
+  //         src="./assets/img/entrenando-azul.png"
+  //         alt="imagen entrenando-azul"
+  //       />
+  //     </div>
+  //     <h3>Because we belive in banlance ...</h3>
+  //     <p>Share your recipes and exercise routines in a healthy environment.</p>
 
-  section.className = 'home';
-
-  button.textContent = 'Skip';
-  button.addEventListener('click', () => {
-    navigateTo('/login');
+  //   </div>
+  //   </section>
+  const section = document.createElement("section");
+  section.classList.add("section-home");
+  const divTitle = document.createElement("div");
+  divTitle.classList.add("titles");
+  const button = document.createElement("button");
+  button.setAttribute("id", "button");
+  button.innerHTML = "SKIP";
+  button.addEventListener("click", () => {
+    navigateTo("/login");
   });
 
-  title.textContent = '¡Welcome to VitalHub!';
-  homeText.textContent = 'Because we belive in banlance ...';
-  homeText2.textContent = 'Share your recipes and exercise routines in a healthy environment.';
-  image.src = imgHome;
-  image.alt = 'Training';
+  const welcome = document.createElement("h2");
+  welcome.classList.add("welcome");
+  welcome.innerHTML = "¡Welcome to VitalHub!";
+  const divImg = document.createElement("div");
+  const img = document.createElement("img");
+  img.classList.add("img");
+  img.src = "../assets/img/entrenando-azul.png";
+  img.alt = "imagen entrenando-azul";
 
-  section.append(button, title, image, homeText, homeText2);
+  const homeText = document.createElement("h3");
+  homeText.innerHTML = "Because we belive in balance ...";
+  const homeText2 = document.createElement("p");
+  homeText2.innerHTML =
+    "Share your recipes and exercise routines in a healthy environment.";
+  divImg.appendChild(img);
+  divTitle.append(button, welcome, divImg, homeText, homeText2);
+  section.appendChild(divTitle);
+
   return section;
 }
 

@@ -13,15 +13,15 @@ function login(navigateTo) {
   const inputPass = document.createElement('input');
   const buttonLogin = document.createElement('button');
 
-  inputEmail.placeholder = 'Escribe tu email';
+  inputEmail.placeholder = 'Write your email';
   inputEmail.type = 'email'; // Input para insertar email
-  inputPass.placeholder = 'Contraseña';
+  inputPass.placeholder = 'Password';
   inputPass.type = 'password'; // Contraseña no visible
   inputPass.pattern = '.{6,}';
 
-  title.textContent = 'Inicia sesión';
+  title.textContent = 'Log In';
   imageLogin.src = imgLogin;
-  buttonLogin.textContent = 'Iniciar sesión';
+  buttonLogin.textContent = 'Log In';
   buttonLogin.addEventListener('click', async (e) => {
     e.preventDefault(); // Evita que se recargue la página web
     // eslint-disable-next-line max-len
@@ -37,7 +37,7 @@ function login(navigateTo) {
     }
   });
 
-  buttonReturn.textContent = 'Regresar a inicio';
+  buttonReturn.textContent = 'Back to home';
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
   });

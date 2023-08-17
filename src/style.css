@@ -1,0 +1,120 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+
+*{
+    padding: 0;
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+
+}
+
+h1{
+    font-size: 10vw;
+    height: fit-content;
+    width: fit-content;
+}
+
+h2,h3{
+    font-size: 8vw;
+}
+
+p {
+    font-size: 5vw;
+}
+button {
+    width: 15vw;
+    height: 5vh;
+    display: grid;
+}
+
+/*Home*/
+/* .home img{
+    width: 100%;
+	height: auto;
+    margin: 0;
+	padding: 0 10% 0 10%;
+}
+
+/*Login*/
+/* .login img {
+    width: 100%;
+	height: auto;
+    margin: 0;
+	padding: 0 10% 0 10%; 
+} */ 
+
+ /* estilos de onboarding  */
+
+ @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Lato", sans-serif;
+  box-sizing: border-box;
+}
+
+.section-home {
+  width: 100%;
+  height: 100vh;
+  
+ 
+ 
+}
+.titles{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  text-align: center;
+  
+ 
+}
+
+#button {
+  width: 15vw;
+  height: 5vh;
+ margin-left: 70%;
+ margin-top: 30px;
+ border-radius: 10px;
+ background-color: #3F51B5;
+ color: white;
+ border: none;
+
+
+}
+
+h1 {
+  font-size: 10vw;
+  height: fit-content;
+  width: fit-content;
+ 
+}
+
+h2,
+h3 {
+  font-size: 8vw;
+  padding: 30px;
+  color: #00BCD4;
+}
+.welcome{
+  color: #00BCD4;
+  font-size: 10vw;
+}
+p {
+  font-size: 5vw;
+  color: #00BCD4;
+ 
+ 
+}
+
+.img {
+  width: 100%;
+  height: auto;
+ margin-top: 30px;
+  padding: 0 10% 0 10%;
+  object-fit: cover;
+ 
+
+}
+
+/* termina onboarding */

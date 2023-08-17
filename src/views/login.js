@@ -1,6 +1,6 @@
 // file login finished
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from 'firebase/auth';
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../firebase.js';
 import imgLogin from '../assets/img/hombre-entrenando-verde.png';
 
 function login(navigateTo) {
@@ -17,7 +17,7 @@ function login(navigateTo) {
   inputEmail.type = 'email'; // Input para insertar email
   inputPass.placeholder = 'Password';
   inputPass.type = 'password'; // Contraseña no visible
-  inputPass.pattern = '.{6,}';
+  inputPass.pattern = '.{6,}'; // No acepta contraseñas de menos de 6 caracteres
 
   title.textContent = 'Log In';
   imageLogin.src = imgLogin;
@@ -33,13 +33,29 @@ function login(navigateTo) {
       const userCredentials = await createUserWithEmailAndPassword(auth, email, userPassword);
       console.log(userCredentials);
     } catch (error) {
-      console.log(error)
+      console.log(error.code);
+
+      if (error.code === 'auth/email-already-in-use') {
+        alert('This email is already in use');
+      } else if (error.code === 'auth/invalid-email') {
+        alert('Invalid email, please  try again');
+      } else if (error.code === 'auth/weak-password') {
+        alert('Your password is too short, please try again');
+      } else if (error.code) {
+        alert('Something went wrong, please try again');
+      }
     }
+
+    navigateTo('/feed');
   });
 
   buttonReturn.textContent = 'Back to home';
   buttonReturn.addEventListener('click', () => {
     navigateTo('/');
+  });
+
+  onAuthStateChanged(auth, async (user) => {
+    console.log(user);
   });
 
   form.append(inputEmail, inputPass, buttonLogin);

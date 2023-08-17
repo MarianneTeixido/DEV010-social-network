@@ -2,6 +2,7 @@
 import home from './views/home';
 import login from './views/login';
 import error from './views/error';
+import feed from './views/feed';
 
 /* -------------Navegación----------------------------------------*/
 
@@ -9,6 +10,7 @@ const routes = [
   { path: '/', component: home },
   { path: '/login', component: login },
   { path: '/error', component: error },
+  { path: '/feed', component: feed },
 ];
 
 const defaultRoute = '/';

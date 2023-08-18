@@ -1,5 +1,6 @@
 // file main.js finished
 import home from './views/home';
+import signup from './views/signup';
 import login from './views/login';
 import error from './views/error';
 import feed from './views/feed';
@@ -8,6 +9,7 @@ import feed from './views/feed';
 
 const routes = [
   { path: '/', component: home },
+  { path: '/signup', component: signup },
   { path: '/login', component: login },
   { path: '/error', component: error },
   { path: '/feed', component: feed },

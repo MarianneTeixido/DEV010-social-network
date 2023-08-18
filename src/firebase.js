@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app'; // Función para inicializar la app
 // eslint-disable-next-line import/no-unresolved
 import { getAuth } from 'firebase/auth';
-// import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore } from 'firebase/firestore';
 
 // -------------Firebase----------------------------------------//
 // Objeto de configuración Firebase que pasa la función de inicialización
@@ -22,7 +22,7 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 
-// const db = getFirestore(firebaseApp);
+export const db = getFirestore(app);
 // const todosCol = collection(db,'todos');
 // const snapshot = await getDocs(todosCol);
 

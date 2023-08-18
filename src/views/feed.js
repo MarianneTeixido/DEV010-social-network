@@ -1,12 +1,17 @@
 import { getDocs, collection } from 'firebase/firestore';
 import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase.js';
+import { setUpPosts } from './post.js';
 
 function feed(/* navigateTo */) {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
       const querySnapshot = await getDocs(collection(db, 'Post'));
-      console.log(querySnapshot.docs);
+      const sectionPosts = document.createElement('section');
+      const title = document.createElement('h2');
+      title.textContent = 'Posts';
+      setUpPosts(querySnapshot.docs);
+      sectionPosts.append(title);
     // } else {
     //   loginCheck(user);
     }

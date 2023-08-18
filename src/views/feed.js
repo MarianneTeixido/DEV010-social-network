@@ -5,8 +5,8 @@ import { auth, db } from '../firebase.js';
 function feed(/* navigateTo */) {
   onAuthStateChanged(auth, async (user) => {
     if (user) {
-      const querySnapshot = await getDocs(collection(db, 'Prueba'));
-      console.log(querySnapshot);
+      const querySnapshot = await getDocs(collection(db, 'Post'));
+      console.log(querySnapshot.docs);
     // } else {
     //   loginCheck(user);
     }

@@ -2,6 +2,8 @@
 import home from './views/home';
 import login from './views/login';
 import error from './views/error';
+import signUp from './views/signUp';
+import feed from './views/feed';
 
 /* -------------Navegación----------------------------------------*/
 
@@ -9,6 +11,8 @@ const routes = [
   { path: '/', component: home },
   { path: '/login', component: login },
   { path: '/error', component: error },
+  { path: '/signUp', component: signUp },
+  { path: '/feed', component: feed },
 ];
 
 const defaultRoute = '/';
@@ -21,7 +25,7 @@ function navigateTo(hash) {
     window.history.pushState(
       {},
       route.path,
-      window.location.origin + route.path,
+      window.location.origin + route.path
     );
 
     if (root.firstChild) {

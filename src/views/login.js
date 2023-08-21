@@ -13,7 +13,7 @@ function login(navigateTo) {
       <input
         type="email"
         name="email"
-        placeholder="White your email"
+        placeholder="Write your email"
         required
         />
       <label for="">Contraseña</label>

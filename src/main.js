@@ -4,6 +4,7 @@ import login from './views/login';
 import error from './views/error';
 import signUp from './views/signUp';
 import feed from './views/feed';
+import { validateUserSession } from './lib/auth';
 
 /* -------------Navegación----------------------------------------*/
 
@@ -25,7 +26,7 @@ function navigateTo(hash) {
     window.history.pushState(
       {},
       route.path,
-      window.location.origin + route.path
+      window.location.origin + route.path,
     );
 
     if (root.firstChild) {
@@ -40,7 +41,8 @@ function navigateTo(hash) {
 window.onpopstate = () => {
   navigateTo(window.location.pathname);
 };
-
+// Observador de la sesion del usuario
+// validateUserSession(navigateTo);
 navigateTo(window.location.pathname || defaultRoute);
 // import { myFunction } from './lib/index.js';
 

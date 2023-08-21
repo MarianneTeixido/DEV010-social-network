@@ -6,24 +6,24 @@ function signUp(navigateTo) {
   divContainer.classList.add('container-input');
   divContainer.innerHTML = `
     <button class="return">Volver</button>
-        <h2>¡Bienvenid@!</h2>
-        <form>
+        <h2 class="title">¡Bienvenid@!</h2>
+        <form class="form-input" action="" onsubmit="">
             <label for="">Nombre</label>
-            <input type="text" id="" name="name" placeholder="Escribe tu Nombre">
+            <input type="text" name="name" placeholder="Escribe tu Nombre" required />
           
             <label for="">Apellido</label>
-            <input type="text" id="" name="lastName" placeholder="Escribe tu Apellido">
+            <input type="text" name="lastName" placeholder="Escribe tu Apellido" required />
           
             <label for="">Email</label>
-            <input type="email" id="" name="email" placeholder="Escribe tu Email">
+            <input type="email" name="email" placeholder="Escribe tu Email"  required />
           
             <label for="">Contraseña</label>
-            <input type="password" id="" name="password" minlength="6" maxlength="10" placeholder="Escribe tu contraseña">
+            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Escribe tu contraseña" required />
           
             <label for="">Confirma tu contraseña</label>
-            <input type="password" id="" name="confirmPassword" minlength="6" maxlength="10" placeholder="Ingresa tu contraseña nuevamente">
+            <input type="password" name="confirmPassword" minlength="6" maxlength="10" placeholder="Ingresa tu contraseña nuevamente" required />
           <div>
-            <button id="button-signup" value="Unirme">Unirme</button> 
+            <button id="button-signup" type="submit">Unirme</button> 
         </div>
           </form>
     `;
@@ -32,21 +32,29 @@ function signUp(navigateTo) {
   backButton.addEventListener('click', () => {
     navigateTo('/login');
   });
-  const inputName = divContainer.querySelector('input[name="name"]');
-  const inputLastName = divContainer.querySelector('input[name="lastName"]');
+  // const inputName = divContainer.querySelector('input[name="name"]');
+  // const inputLastName = divContainer.querySelector('input[name="lastName"]');
   const inputEmail = divContainer.querySelector('input[name="email"]');
   const inputPassword = divContainer.querySelector('input[name="password"]');
   const inputConfirmPassword = divContainer.querySelector(
-    'input[name="confirmPassword"]'
+    'input[name="confirmPassword"]',
   );
-  const buttonSignup = divContainer.querySelector('#button-signup');
-  buttonSignup.addEventListener('click', async (e) => {
+
+  const formInput = divContainer.querySelector('.form-input');
+  formInput.addEventListener('submit', async (e) => {
     e.preventDefault();
     const emailValue = inputEmail.value;
     const passwordValue = inputPassword.value;
+    const passwordConfirmValue = inputConfirmPassword.value;
+    if (passwordValue !== passwordConfirmValue) {
+      formInput.reset();
+      return alert('Passwords are not the same');
+    }
     const newUser = await signUpUser(emailValue, passwordValue);
-    console.log('usuario creado:', newUser);
-    navigateTo('/feed');
+    if (newUser !== undefined) {
+      navigateTo('/feed');
+    }
+    return formInput.reset();
   });
 
   return divContainer;

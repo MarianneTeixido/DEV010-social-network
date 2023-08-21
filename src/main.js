@@ -4,7 +4,7 @@ import login from './views/login';
 import error from './views/error';
 import signUp from './views/signUp';
 import feed from './views/feed';
-import { validateUserSession } from './lib/auth';
+// import { validateUserSession } from './lib/auth';
 
 /* -------------Navegación----------------------------------------*/
 

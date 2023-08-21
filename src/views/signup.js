@@ -1,66 +1,63 @@
-// file login finished
-import { createUserWithEmailAndPassword, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../firebase.js';
-import imgLogin from '../assets/img/hombre-entrenando-verde.png';
+import { signUpUser } from '../lib/auth';
 
-function signup(navigateTo) {
-  const section = document.createElement('section');
-  const title = document.createElement('h2');
-  const imageLogin = document.createElement('img');
-  const buttonReturn = document.createElement('button');
-  const form = document.createElement('form');
-  const inputEmail = document.createElement('input');
-  const inputPass = document.createElement('input');
-  const buttonLogin = document.createElement('button');
+// file error.js
+function signUp(navigateTo) {
+  const divContainer = document.createElement('div');
+  divContainer.classList.add('container-input');
+  divContainer.innerHTML = `
+    <button class="return">Volver</button>
+        <h2 class="title">¡Bienvenid@!</h2>
+        <form class="form-input" action="" onsubmit="">
+            <label for="">Nombre</label>
+            <input type="text" name="name" placeholder="Escribe tu Nombre" required />
+          
+            <label for="">Apellido</label>
+            <input type="text" name="lastName" placeholder="Escribe tu Apellido" required />
+          
+            <label for="">Email</label>
+            <input type="email" name="email" placeholder="Escribe tu Email"  required />
+          
+            <label for="">Contraseña</label>
+            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Escribe tu contraseña" required />
+          
+            <label for="">Confirma tu contraseña</label>
+            <input type="password" name="confirmPassword" minlength="6" maxlength="10" placeholder="Ingresa tu contraseña nuevamente" required />
+          <div>
+            <button id="button-signup" type="submit">Unirme</button> 
+        </div>
+          </form>
+    `;
 
-  inputEmail.placeholder = 'Write your email';
-  inputEmail.type = 'email'; // Input para insertar email
-  inputPass.placeholder = 'Password';
-  inputPass.type = 'password'; // Contraseña no visible
-  inputPass.pattern = '.{6,}'; // No acepta contraseñas de menos de 6 caracteres
+  const backButton = divContainer.querySelector('.return');
+  backButton.addEventListener('click', () => {
+    navigateTo('/login');
+  });
+  // const inputName = divContainer.querySelector('input[name="name"]');
+  // const inputLastName = divContainer.querySelector('input[name="lastName"]');
+  const inputEmail = divContainer.querySelector('input[name="email"]');
+  const inputPassword = divContainer.querySelector('input[name="password"]');
+  const inputConfirmPassword = divContainer.querySelector(
+    'input[name="confirmPassword"]',
+  );
 
-  title.textContent = 'Sign Up';
-  imageLogin.src = imgLogin;
-  buttonLogin.textContent = 'Sign Up';
-  buttonLogin.addEventListener('click', async (e) => {
-    e.preventDefault(); // Evita que se recargue la página web
-    // eslint-disable-next-line max-len
-    const email = inputEmail.value; // Toma los valores cuando se da click al botón de iniciar sesión
-    const userPassword = inputPass.value;
-    console.log(email, userPassword);
-
-    try {
-      const userCredentials = await createUserWithEmailAndPassword(auth, email, userPassword);
-      console.log(userCredentials);
-      navigateTo('/feed');
-    } catch (error) {
-      console.log(error.code);
-
-      if (error.code === 'auth/email-already-in-use') {
-        alert('This email is already in use');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('Invalid email, please  try again');
-      } else if (error.code === 'auth/weak-password') {
-        alert('Your password is too short, please try again');
-      } else if (error.code) {
-        alert('Something went wrong, please try again');
-      }
+  const formInput = divContainer.querySelector('.form-input');
+  formInput.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const emailValue = inputEmail.value;
+    const passwordValue = inputPassword.value;
+    const passwordConfirmValue = inputConfirmPassword.value;
+    if (passwordValue !== passwordConfirmValue) {
+      formInput.reset();
+      return alert('Passwords are not the same');
     }
+    const newUser = await signUpUser(emailValue, passwordValue);
+    if (newUser !== undefined) {
+      navigateTo('/feed');
+    }
+    return formInput.reset();
   });
 
-  //   buttonReturn.textContent = 'Back to home';
-  //   buttonReturn.addEventListener('click', () => {
-  //     navigateTo('/');
-  //   });
-
-  onAuthStateChanged(auth, async (user) => {
-    console.log(user);
-  });
-
-  form.append(inputEmail, inputPass, buttonLogin);
-  section.append(title, imageLogin, form, buttonReturn);
-
-  return section;
+  return divContainer;
 }
 
-export default signup;
+export default signUp;

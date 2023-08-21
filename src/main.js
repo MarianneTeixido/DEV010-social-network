@@ -1,17 +1,18 @@
 // file main.js finished
 import home from './views/home';
-import signup from './views/signup';
 import login from './views/login';
 import error from './views/error';
+import signUp from './views/signUp';
 import feed from './views/feed';
+import { validateUserSession } from './lib/auth';
 
 /* -------------Navegación----------------------------------------*/
 
 const routes = [
   { path: '/', component: home },
-  { path: '/signup', component: signup },
   { path: '/login', component: login },
   { path: '/error', component: error },
+  { path: '/signUp', component: signUp },
   { path: '/feed', component: feed },
 ];
 
@@ -40,7 +41,8 @@ function navigateTo(hash) {
 window.onpopstate = () => {
   navigateTo(window.location.pathname);
 };
-
+// Observador de la sesion del usuario
+// validateUserSession(navigateTo);
 navigateTo(window.location.pathname || defaultRoute);
 // import { myFunction } from './lib/index.js';
 

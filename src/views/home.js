@@ -18,8 +18,8 @@ function home(navigateTo) {
 
   //   </div>
   //   </section>
-  const section = document.createElement('section');
-  section.classList.add('section-home');
+  // const section = document.createElement('section');
+  // section.classList.add('section-home');
   const divTitle = document.createElement('div');
   divTitle.classList.add('titles');
   const button = document.createElement('button');
@@ -44,9 +44,8 @@ function home(navigateTo) {
   homeText2.innerHTML = 'Share your recipes and exercise routines in a healthy environment.';
   divImg.appendChild(img);
   divTitle.append(button, welcome, divImg, homeText, homeText2);
-  section.appendChild(divTitle);
 
-  return section;
+  return divTitle;
 }
 
 export default home;

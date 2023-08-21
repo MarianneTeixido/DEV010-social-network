@@ -1,120 +1,308 @@
-/* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
+/* estilos de onboarding  */
 
-*{
-    padding: 0;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-
-}
-
-h1{
-    font-size: 10vw;
-    height: fit-content;
-    width: fit-content;
-}
-
-h2,h3{
-    font-size: 8vw;
-}
-
-p {
-    font-size: 5vw;
-}
-button {
-    width: 15vw;
-    height: 5vh;
-    display: grid;
-}
-
-/*Home*/
-/* .home img{
-    width: 100%;
-	height: auto;
-    margin: 0;
-	padding: 0 10% 0 10%;
-}
-
-/*Login*/
-/* .login img {
-    width: 100%;
-	height: auto;
-    margin: 0;
-	padding: 0 10% 0 10%; 
-} */ 
-
- /* estilos de onboarding  */
-
- @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap');
 
 * {
   padding: 0;
   margin: 0;
-  font-family: "Lato", sans-serif;
+  font-family: 'Lato', sans-serif;
   box-sizing: border-box;
 }
 
-.section-home {
+.titles {
   width: 100%;
+  max-width: 400px;
   height: 100vh;
-  
- 
- 
-}
-.titles{
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  
- 
+  border: 1px solid #e5e8e8;
+  background: #f8f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
 #button {
   width: 15vw;
   height: 5vh;
- margin-left: 70%;
- margin-top: 30px;
- border-radius: 10px;
- background-color: #3F51B5;
- color: white;
- border: none;
-
-
-}
-
-h1 {
-  font-size: 10vw;
-  height: fit-content;
-  width: fit-content;
- 
+  margin-left: 70%;
+  margin-top: 30px;
+  border-radius: 10px;
+  background-color: #3f51b5;
+  color: white;
+  border: none;
 }
 
 h2,
 h3 {
   font-size: 8vw;
   padding: 30px;
-  color: #00BCD4;
+  color: #00bcd4;
 }
-.welcome{
-  color: #00BCD4;
+.welcome {
+  color: #00bcd4;
   font-size: 10vw;
 }
 p {
   font-size: 5vw;
-  color: #00BCD4;
- 
- 
+  color: #00bcd4;
 }
 
 .img {
   width: 100%;
   height: auto;
- margin-top: 30px;
+  margin-top: 30px;
   padding: 0 10% 0 10%;
   object-fit: cover;
- 
-
 }
 
+/* Responsive  Desktop*/
+@media (min-width: 768px) {
+  .img {
+    max-width: 100%;
+    height: 250px;
+  }
+  h3 {
+    font-size: 2vw;
+  }
+  .welcome {
+    font-size: 2vw;
+  }
+  p {
+    font-size: 1.5vw;
+    margin-top: 20px;
+  }
+  .section-home {
+    width: 100%;
+    height: auto;
+  }
+  .titles {
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    flex-direction: column;
+    align-items: center;
+  }
+  #button {
+    width: 5vw;
+    height: 5vh;
+    margin-left: 70%;
+    margin-top: -40px;
+    border-radius: 10px;
+  }
+}
 /* termina onboarding */
+
+/* Inicia estilos login */
+
+.login-container {
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  border: 1px solid #e5e8e8;
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+  background: #f8f9f9;
+  position: relative;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.fa-user {
+  font-size: 10vw;
+  position: absolute;
+  top: 20px;
+  bottom: 0;
+  color: #00bcd4;
+}
+
+h1 {
+  font-size: 8vw;
+  position: absolute;
+  top: 60px;
+}
+#login-form {
+  display: grid;
+  text-align: center;
+}
+label {
+  display: block;
+  text-align: left;
+}
+input::placeholder {
+  text-align: center;
+  font-weight: bolder;
+}
+
+input {
+  background-color: #d6dbdf;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  border-radius: 6px;
+  width: 300px;
+  height: 40px;
+  margin: 10px auto;
+ 
+}
+
+.button-login,
+.button-google {
+  width: 100%;
+  max-width: 100%;
+  height: 6vh;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  margin-top: 15px;
+  position: relative;
+  font-weight: bold;
+  cursor: pointer;
+  background: #d6dbdf;
+}
+.button-google:hover {
+  background: #00bcd4;
+}
+.button-login {
+  background: #00bcd4;
+}
+.fa-google {
+  position: absolute;
+  left: 30px;
+  color: #00bcd4;
+  font-size: 16px;
+}
+.fa-google:hover {
+  color: black;
+}
+.paragraf {
+  margin-top: 15px;
+  color: black;
+}
+.button-forget {
+  margin-top: 20px;
+  text-decoration: none;
+  color: gray;
+}
+
+.button-register {
+  display: block;
+  margin-top: 60px;
+  color: #00bcd4;
+  cursor: pointer;
+}
+/* Termina estilos de login */
+/* Empieza responsive  de login*/
+@media (min-width: 768px) {
+  .login-container {
+    width: 100%;
+    max-width: 400px;
+    height: 90vh;
+    position: relative;
+    border-radius: 8px;
+    display: flex;
+    flex-wrap: wrap;
+   margin-top: 60px;
+
+  }
+  .fa-user {
+    font-size: 3vw;
+    position: absolute;
+    top: 10px;
+  }
+  h1 {
+    font-size: 2vw;
+    position: absolute;
+    top: 60px;
+  }
+  .paragraf {
+    color: black;
+    font-size: 16px;
+  }
+  #login-form {
+    position: absolute;
+   top: 120px;
+  }
+  .fa-google {
+    position: absolute;
+    left: 20px;
+    padding-top: 2px;
+    font-size: 16px;
+  }
+  .button-register {
+margin-top: 40px;
+  }
+}
+/* Termina responsive de login */
+/* Empieza estilos SignUp */
+
+.container-input {
+  width: 100%;
+  max-width: 400px;
+  height: 100vh;
+  border: 1px solid #e5e8e8;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  justify-content: center;
+  border-radius: 10px;
+  background: #f8f9f9;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+.return {
+  display: block;
+  position: absolute;
+  left: 5px;
+  width: 50%;
+  max-width: 20%;
+  padding: 10px;
+  top: 10px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background: #00bcd4;
+}
+.title {
+  font-size: 9vw;
+  margin-top: 20px;
+  color: #cddc39;
+}
+.form-input {
+  margin-top: 20px;
+}
+
+/* input {
+  width: 300px;
+  border-radius: 6px;
+  margin: 10px auto;
+} */
+#button-signup {
+  width: 100%;
+  max-width: 100%;
+  height: 6vh;
+  border-radius: 10px;
+  border: none;
+  font-size: 16px;
+  margin: 10px auto;
+  cursor: pointer;
+  background: #00bcd4;
+}
+/* Termina estilos de signup */
+/* Responsive  signup*/
+@media (min-width: 768px) {
+  .title {
+    font-size: 3vw;
+  }
+  input {
+    width: 300px;
+    height: 50px;
+  }
+}

@@ -21,18 +21,5 @@ const firebaseConfig = {
 // Funciones que toman el servicio de FB como primer parámetro.
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
 export const db = getFirestore(app);
-// const todosCol = collection(db,'todos');
-// const snapshot = await getDocs(todosCol);
 
-// Detecta el estado de autentificación
-// onAuthStateChanged(auth, user => {
-//   if (user != null) {
-//     console.log('logged in');
-//   } else {
-//     console.log('No user');
-//   }
-// });
-
-// export default initializeApp;

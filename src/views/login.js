@@ -1,5 +1,4 @@
 // file login finished
-
 import { loginUser, loginWithGoogle } from '../lib/auth';
 
 function login(navigateTo) {

@@ -21,9 +21,5 @@ const firebaseConfig = {
 // Funciones que toman el servicio de FB como primer parámetro.
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-
 export const db = getFirestore(app);
-// const todosCol = collection(db,'todos');
-// const snapshot = await getDocs(todosCol);
 
-// export default initializeApp;

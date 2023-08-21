@@ -1,9 +1,11 @@
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 // file main.js finished
 import home from './views/home';
 import login from './views/login';
 import error from './views/error';
 import signUp from './views/signUp';
 import feed from './views/feed';
+
 // import { validateUserSession } from './lib/auth';
 
 /* -------------Navegación----------------------------------------*/
@@ -33,8 +35,8 @@ function navigateTo(hash) {
       root.removeChild(root.firstChild);
     }
     root.appendChild(route.component(navigateTo));
-  } else {
-    navigateTo('/error');
+  // } // else {
+  //   navigateTo('/error');
   }
 }
 
@@ -47,3 +49,13 @@ navigateTo(window.location.pathname || defaultRoute);
 // import { myFunction } from './lib/index.js';
 
 // myFunction();
+onAuthStateChanged(getAuth(), (user) => {
+  console.log(user);
+  if (user) {
+    console.log('ok');
+    navigateTo('/feed');
+  } else {
+    console.log('uuu');
+    navigateTo('/login');
+  }
+})

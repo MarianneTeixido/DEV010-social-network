@@ -1,4 +1,4 @@
-import { getDocs, collection, query, onSnapshot } from 'firebase/firestore';
+import { getDocs, collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 // import { onAuthStateChanged } from 'firebase/auth';
 import { auth, db } from '../firebase.js';
 // eslint-disable-next-line import/no-unresolved
@@ -15,13 +15,15 @@ function feed(/* navigateTo */) {
   titlePosts.textContent = 'Posts';
   section.append(titleSection, titlePosts, addPost()); // addPost() imprime el textarea y submit
 
-  const q = query(collection(db, 'Post'));
+  const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');
   const posts = document.createElement('section');
   onSnapshot(q, (querySnapshot) => {
     posts.textContent = ''; // para evitar que se dupliquen las publicaciones con el submit
     querySnapshot.forEach((doc) => {
       const pPosts = document.createElement('p');
+      const userName = document.createElement('p');
+      userName.textContent = doc.data().User;
       pPosts.textContent = doc.data().Content;
       posts.appendChild(pPosts);
     });

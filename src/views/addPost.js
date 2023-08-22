@@ -1,5 +1,5 @@
-import { addDoc, collection } from 'firebase/firestore'; // falta  deleteDoc
-import { db } from '../firebase.js';
+import { addDoc, collection, Timestamp } from 'firebase/firestore'; // falta  deleteDoc
+import { db, auth } from '../firebase.js';
 
 const colRef = collection(db, 'Post');
 
@@ -13,6 +13,8 @@ function addPost() {
   submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     addDoc(colRef, {
+      // User: auth.currentUser.userValue,
+      Date: Timestamp.now(), // agrega la fecha de creación al doc
       Content: textarea.value,
     });
     textarea.value = ''; // limpiar el contenido del textarea con el click en submit

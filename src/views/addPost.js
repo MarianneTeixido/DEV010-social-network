@@ -13,9 +13,9 @@ function addPost() {
   submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     addDoc(colRef, {
-      Title: textarea.value,
       Content: textarea.value,
     });
+    textarea.value = ''; // limpiar el contenido del textarea con el click en submit
   });
   section.append(textarea, submitButton);
   return section;

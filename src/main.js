@@ -50,12 +50,10 @@ navigateTo(window.location.pathname || defaultRoute);
 
 // myFunction();
 onAuthStateChanged(getAuth(), (user) => {
-  console.log(user);
-  if (user) {
-    console.log('ok');
+  if (user && window.location.pathname === '/feed') { // que no mande siempre a feed con usuario logeado
     navigateTo('/feed');
-  } else {
-    console.log('uuu');
+  } else if (!user && window.location.pathname === '/feed') { // que no mande siempre a login sin usuario logeado
+    alert('Please, sign in to see posts');
     navigateTo('/login');
   }
-})
+});

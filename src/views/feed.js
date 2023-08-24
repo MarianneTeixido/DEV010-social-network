@@ -6,31 +6,39 @@ import { db } from '../firebase.js'; // falta auth
 import addPost from './addPost.js'; // textarea y botón de submit
 
 function feed(/* navigateTo */) {
-  const section = document.createElement('section');
-  const titleSection = document.createElement('section');
+  const body = document.createElement('body'); // body del feed
+  const header = document.createElement('header'); // header del feed
   const titleFeed = document.createElement('h2');
   titleFeed.textContent = 'Feed';
-  titleSection.append(titleFeed);
-  const titlePosts = document.createElement('h3');
+  header.append(titleFeed);
+  const titlePosts = document.createElement('h4');
   titlePosts.textContent = 'Posts';
-  section.append(titleSection, titlePosts, addPost()); // addPost() imprime el textarea y submit
+  body.appendChild(header);
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');
-  const posts = document.createElement('section');
+  sectionPosts.append(titlePosts, addPost()); // addPost() imprime el textarea y submit
+  const postsContainer = document.createElement('section');
   onSnapshot(q, (querySnapshot) => {
-    posts.textContent = ''; // para evitar que se dupliquen las publicaciones con el submit
+    postsContainer.innerHTML = ''; // para evitar que se dupliquen las publicaciones con el submit
     querySnapshot.forEach((doc) => {
-      const pPosts = document.createElement('p');
-      const userName = document.createElement('p');
+      const onePost = document.createElement('section'); // sección individual post, para formato
+      onePost.className += 'individual-post'; // asigna clase a posts individuales
+      const typePost = document.createElement('p'); // tipo de post (receta o ejercicio)
+      const datePost = document.createElement('p'); // fecha del post (cambiar formato)
+      const postContent = document.createElement('p'); // contenido del post
+      const userName = document.createElement('p'); // usuario que crea el post
       userName.textContent = doc.data().User;
-      pPosts.textContent = doc.data().Content;
-      posts.appendChild(pPosts);
+      typePost.textContent = doc.data().Type;
+      datePost.textContent = doc.data().Date;
+      postContent.textContent = doc.data().Content;
+      onePost.append(typePost, datePost, postContent); // se añaden elementos a post individual
+      postsContainer.appendChild(onePost); // se añaden posts individuales a section
     });
     // console.log(posts);
-    sectionPosts.appendChild(posts);
-    section.appendChild(sectionPosts);
-    return section;
+    sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
+    body.appendChild(sectionPosts); // se añade contenedor padre a body
+    return body;
   });
   // onAuthStateChanged(auth, async (user) => {
   //   if (user) {
@@ -46,7 +54,7 @@ function feed(/* navigateTo */) {
   //   }
   // });
 
-  return section;
+  return body;
 }
 
 export default feed;

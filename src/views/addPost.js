@@ -1,5 +1,5 @@
 import { addDoc, collection, Timestamp } from 'firebase/firestore'; // falta  deleteDoc
-import { db, auth } from '../firebase.js';
+import { db } from '../firebase.js'; // falta auth
 
 const colRef = collection(db, 'Post');
 

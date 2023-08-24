@@ -6,24 +6,24 @@ function signUp(navigateTo) {
   divContainer.classList.add('container-input');
   divContainer.innerHTML = `
     <button class="return">Volver</button>
-        <h2 class="title">¡Bienvenid@!</h2>
+        <h2 class="title">Welcome!</h2>
         <form class="form-input" action="" onsubmit="">
-            <label for="">Nombre</label>
-            <input type="text" name="name" placeholder="Escribe tu Nombre" required />
+            <label for="">First name</label>
+            <input type="text" name="name" placeholder="Write you first name" required />
           
-            <label for="">Apellido</label>
-            <input type="text" name="lastName" placeholder="Escribe tu Apellido" required />
+            <label for="">Last name</label>
+            <input type="text" name="lastName" placeholder="Write your last name" required />
           
             <label for="">Email</label>
-            <input type="email" name="email" placeholder="Escribe tu Email"  required />
+            <input type="email" name="email" placeholder="Write your email"  required />
           
-            <label for="">Contraseña</label>
-            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Escribe tu contraseña" required />
+            <label for="">Password</label>
+            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Write your password" required />
           
-            <label for="">Confirma tu contraseña</label>
-            <input type="password" name="confirmPassword" minlength="6" maxlength="10" placeholder="Ingresa tu contraseña nuevamente" required />
+            <label for="">Confirm your password</label>
+            <input type="password" name="confirmPassword" minlength="6" maxlength="10" placeholder="Write your password again" required />
           <div>
-            <button id="button-signup" type="submit">Unirme</button> 
+            <button id="button-signup" type="submit">Sign up!</button> 
         </div>
           </form>
     `;

@@ -15,20 +15,20 @@ function login(navigateTo) {
         placeholder="Write your email"
         required
         />
-      <label for="">Contraseña</label>
+      <label for="">Password</label>
       <input
         type="password"
         name="password"
         placeholder="password"
         required
         />
-      <button class="button-login" type="submit">Iniciar Sesion</button>
-      <p class="paragraf">O</p>
+      <button class="button-login" type="submit">Log in</button>
+      <p class="paragraf">Or</p>
       <button class="button-google" type="submit">
-      <i class="fa-brands fa-google"></i>Continuar with Google
+      <i class="fa-brands fa-google"></i>Continue with Google
       </button>
-      <a href=""class="button-forget">Olvide mi contraseña</a>
-      <a class="button-register">¿No tienes cuenta ?¡Unete! </a>
+      <a href=""class="button-forget">Forgot my password</a>
+      <a class="button-register">Don't you have an account? Sign up! </a>
     </form>
     `;
   /*

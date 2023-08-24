@@ -3,6 +3,7 @@ import { getAuth, onAuthStateChanged } from 'firebase/auth';
 import home from './views/home';
 import login from './views/login';
 import error from './views/error';
+// eslint-disable-next-line import/no-unresolved
 import signUp from './views/signUp';
 import feed from './views/feed';
 

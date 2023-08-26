@@ -28,6 +28,10 @@
     "jest/valid-expect": "error",
     "no-console": "off",
     "no-alert": "off",
-    "object-curly-newline": "off"
+    "object-curly-newline": "off",
+    "prefer-regex-literals": "off",
+    "implicit-arrow-linebreak": "off",
+    "import/no-extraneous-dependencies": "off"
+    
   }
 }

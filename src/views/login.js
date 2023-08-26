@@ -23,7 +23,7 @@ function login(navigateTo) {
         required
         />
       <button class="button-login" type="submit">Log in</button>
-      <p class="paragraf">Or</p>
+      <p class="paragraf">O</p>
       <button class="button-google" type="submit">
       <i class="fa-brands fa-google"></i>Continue with Google
       </button>

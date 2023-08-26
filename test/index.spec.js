@@ -3,7 +3,12 @@
 import home from '../src/views/home';
 import login from '../src/views/login';
 import feed from '../src/views/feed';
-import { signUpUser, loginUser, loginWithGoogle, validateUserSession } from '../src/lib/auth'; // auth.js
+import {
+  signUpUser,
+  loginUser,
+  loginWithGoogle,
+  validateUserSession,
+} from '../src/lib/auth'; // auth.js
 
 /* --------- home.js --------------*/
 describe('home', () => {

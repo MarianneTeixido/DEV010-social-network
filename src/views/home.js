@@ -1,6 +1,3 @@
-// file home.js
-// file main.js finished
-
 function home(navigateTo) {
   // <section class="section-home">
   //     <div class="titles ">
@@ -41,7 +38,8 @@ function home(navigateTo) {
   const homeText = document.createElement('h3');
   homeText.innerHTML = 'Because we belive in balance ...';
   const homeText2 = document.createElement('p');
-  homeText2.innerHTML = 'Share your recipes and exercise routines in a healthy environment.';
+  homeText2.innerHTML =
+    'Share your recipes and exercise routines in a healthy environment.';
   divImg.appendChild(img);
   divTitle.append(button, welcome, divImg, homeText, homeText2);
 

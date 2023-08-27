@@ -5,6 +5,7 @@ import error from './views/error';
 // eslint-disable-next-line import/no-unresolved
 import signUp from './views/signUp';
 import feed from './views/feed';
+import resetPassword from './views/resetPassword';
 
 import { validateUserSession } from './lib/auth';
 
@@ -16,6 +17,7 @@ const routes = [
   { path: '/error', component: error },
   { path: '/signUp', component: signUp },
   { path: '/feed', component: feed },
+  { path: '/resetPassword', component: resetPassword },
 ];
 
 const defaultRoute = '/';

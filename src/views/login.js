@@ -39,7 +39,10 @@ function login(navigateTo) {
   const password = divContainer.querySelector('input[name="password"]');
   const loginForm = divContainer.querySelector('#login-form');
   const buttonGoogle = divContainer.querySelector('.button-google');
-  // const buttonForgetPassword = divContainer.querySelector('.button-forget');
+  const buttonForgetPassword = divContainer.querySelector('.button-forget');
+  buttonForgetPassword.addEventListener('click', () => {
+    navigateTo('/resetPassword');
+  });
   const buttonRegister = divContainer.querySelector('.button-register');
   buttonRegister.addEventListener('click', () => {
     navigateTo('/signUp');

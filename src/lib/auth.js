@@ -4,8 +4,10 @@ import {
   onAuthStateChanged,
   signInWithEmailAndPassword,
   signInWithPopup,
+  sendPasswordResetEmail,
 } from 'firebase/auth';
 import { auth } from '../firebase';
+
 // Funcion para crear nuevos usuarios, recibe el email y la contraseña
 const signUpUser = async (email, password) => {
   try {
@@ -86,4 +88,24 @@ const validateUserSession = (navigateTo) => {
     }
   });
 };
-export { signUpUser, loginUser, loginWithGoogle, validateUserSession };
+
+// Funcion pra resetear la contraseña del usuario
+const resetPasswordUser = async (email) => {
+  try {
+    // Invocamos al metodo resetPasswordResetEmail, el cual envia un link
+    // al correo del usuario para resetear su contraseña
+    await sendPasswordResetEmail(auth, email);
+    return true;
+  } catch (error) {
+    console.log(error);
+
+    return undefined;
+  }
+};
+export {
+  signUpUser,
+  loginUser,
+  loginWithGoogle,
+  validateUserSession,
+  resetPasswordUser,
+};

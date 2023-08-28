@@ -52,7 +52,7 @@ describe('view signUp', () => {
     const password = getByTestId(container, 'password');
     const confirmPassword = getByTestId(container, 'confirmPassword');
     // Vamos llenando cada campo del formulario con esos valores por medio del evento change
-    // que simula estar escribiendo con el teclado
+    // que simula estar escribiendo con el teclado en el input
     fireEvent.change(name, { target: { value: 'marysela' } });
     fireEvent.change(lastName, { target: { value: 'vasques' } });
     fireEvent.change(email, { target: { value: 'correoprueba@gmail.com' } });

@@ -89,7 +89,7 @@ const validateUserSession = (navigateTo) => {
   });
 };
 
-// Funcion pra resetear la contraseña del usuario
+// Funcion para resetear la contraseña del usuario
 const resetPasswordUser = async (email) => {
   try {
     // Invocamos al metodo resetPasswordResetEmail, el cual envia un link

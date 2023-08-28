@@ -27,7 +27,7 @@ function login(navigateTo) {
       <button class="button-google" type="submit">
       <i class="fa-brands fa-google"></i>Continue with Google
       </button>
-      <a href=""class="button-forget">Forgot my password</a>
+      <a href="" class="button-forget">Forgot my password</a>
       <a class="button-register">Don't you have an account? Sign up! </a>
     </form>
     `;

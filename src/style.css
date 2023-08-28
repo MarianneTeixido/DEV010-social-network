@@ -8,9 +8,6 @@
   font-family: 'Lato', sans-serif;
   box-sizing: border-box;
 }
-body{
-  background-image: linear-gradient(to top, #209cff 0%, #68e0cf 100%);
-}
 
 .titles {
   width: 100%;
@@ -63,7 +60,6 @@ p {
 
 /* Responsive  Desktop*/
 @media (min-width: 768px) {
- 
   .img {
     max-width: 100%;
     height: 250px;
@@ -104,7 +100,8 @@ p {
 
 /* Inicia estilos login */
 
-.login-container {
+.login-container,
+.contraseña-container {
   width: 100%;
   max-width: 400px;
   height: 100vh;
@@ -131,7 +128,8 @@ h1 {
   position: absolute;
   top: 60px;
 }
-#login-form {
+#login-form,
+#contraseña-form {
   display: grid;
   text-align: center;
 }
@@ -153,7 +151,6 @@ input {
   width: 300px;
   height: 40px;
   margin: 10px auto;
- 
 }
 
 .button-login,
@@ -204,7 +201,8 @@ input {
 /* Termina estilos de login */
 /* Empieza responsive  de login*/
 @media (min-width: 768px) {
-  .login-container {
+  .login-container,
+  .contraseña-container {
     width: 100%;
     max-width: 400px;
     height: 90vh;
@@ -212,8 +210,7 @@ input {
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
-   margin-top: 60px;
-
+    margin-top: 60px;
   }
   .fa-user {
     font-size: 3vw;
@@ -231,7 +228,7 @@ input {
   }
   #login-form {
     position: absolute;
-   top: 120px;
+    top: 120px;
   }
   .fa-google {
     position: absolute;
@@ -240,7 +237,7 @@ input {
     font-size: 16px;
   }
   .button-register {
-margin-top: 40px;
+    margin-top: 40px;
   }
 }
 /* Termina responsive de login */
@@ -283,12 +280,8 @@ margin-top: 40px;
   margin-top: 20px;
 }
 
-/* input {
-  width: 300px;
-  border-radius: 6px;
-  margin: 10px auto;
-} */
-#button-signup {
+#button-signup,
+.button-contraseña {
   width: 100%;
   max-width: 100%;
   height: 6vh;
@@ -311,7 +304,6 @@ margin-top: 40px;
   }
 }
 
-
 /*-------- Comienza estilo de feed------------*/
 /* .individual-post {
   margin: 10px;
@@ -319,95 +311,12 @@ margin-top: 40px;
 } */
 
 
-/* Empieza los estilos de olvide mi contraseña */
-.contraseña-container {
-    width: 100%;
-    max-width: 400px;
-    height: 100vh;
-    border: 1px solid #e5e8e8;
-    display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: center;
-    background: #f8f9f9;
-    position: relative;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    text-align: center;
- 
-}
-.icon-reset {
-  font-size: 10vw;
-  position: absolute;
-  top: 20px;
-  bottom: 0;
-  color: #00bcd4;
-}
-
-
-.label-password {
-display: block;
-margin-right: 230px;
-}
-#reset-password::placeholder {
-text-align: center;
-font-weight: bolder;
-}
-
-#reset-password {
-background-color: #d6dbdf;
-border: none;
-outline: none;
-font-size: 14px;
-border-radius: 6px;
-width: 300px;
-height: 40px;
-margin: 10px auto;
-
-}
-
-.button-contraseña
- {
-width: 100%;
-max-width: 80%;
-height: 6vh;
-border-radius: 10px;
-border: none;
-font-size: 16px;
-margin-top: 15px;
-position: relative;
-font-weight: bold;
-cursor: pointer;
-background: #00bcd4;
-}
-
-.contraseña{
-    margin-top: 30px;
+/* ---------Estilos de resetPassword ------------*/
+.subtitle {
+  margin-bottom: 100px;
+  text-align: center;
 }
 .contraseña-container p {
   margin-top: 20px;
-}
-a{
-    text-decoration: none;
-    
-}
-
-/* Empieza responsive */
-@media (min-width: 768px) {
-  .contraseña-container {
-    width: 100%;
-    max-width: 400px;
-    height: 80vh;
-    margin-top: 100px;
-    position: relative;
-    border-radius: 8px;
-  }
-  .icon-reset {
-    font-size: 5vw;
-    position: absolute;
-    top: 10px;
-  }
-}
-.contraseña-form {
-  margin-top: 50px;
+  cursor: pointer;
 }

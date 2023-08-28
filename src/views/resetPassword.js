@@ -29,7 +29,6 @@ function resetPassword(navigateTo) {
   const iconReset = document.createElement('i');
   iconReset.classList.add('fa-solid');
   iconReset.classList.add('fa-user');
-  iconReset.classList.add('icon-reset');
   contraseñaContainer.appendChild(iconReset);
   const subtitle = document.createElement('p');
   subtitle.classList.add('subtitle');

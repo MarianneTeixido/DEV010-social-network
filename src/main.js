@@ -6,7 +6,9 @@ import error from './views/error';
 import signUp from './views/signUp';
 import feed from './views/feed';
 import resetPassword from './views/resetPassword';
-
+import recipes from './views/recipes';
+import workout from './views/workout';
+import profile from './views/profile';
 import { validateUserSession } from './lib/auth';
 
 /* -------------Navegación----------------------------------------*/
@@ -18,6 +20,9 @@ const routes = [
   { path: '/signUp', component: signUp },
   { path: '/feed', component: feed },
   { path: '/resetPassword', component: resetPassword },
+  { path: '/recipes', component: recipes },
+  { path: '/workout', component: workout },
+  { path: '/profile', component: profile },
 ];
 
 const defaultRoute = '/';

@@ -6,24 +6,24 @@ function signUp(navigateTo) {
   divContainer.classList.add('container-input');
   divContainer.innerHTML = `
     <button class="return">Volver</button>
-        <h2 class="title">Welcome!</h2>
-        <form class="form-input" action="" onsubmit="" data-testid="form-input">
-            <label for="">First name</label>
-            <input type="text" name="name" placeholder="Write you first name" required  data-testid="name"/>
+        <h2 class="title">¡Bienvenid@!</h2>
+        <form class="form-input" action="" onsubmit="">
+            <label for="">Nombre</label>
+            <input type="text" name="name" placeholder="Escribe tu Nombre" required />
           
-            <label for="">Last name</label>
-            <input type="text" name="lastName" placeholder="Write your last name" required data-testid="lastName"/>
+            <label for="">Apellido</label>
+            <input type="text" name="lastName" placeholder="Escribe tu Apellido" required />
           
             <label for="">Email</label>
-            <input type="email" name="email" placeholder="Write your email"  required  data-testid="email"/>
+            <input type="email" name="email" placeholder="Escribe tu Email"  required />
           
-            <label for="">Password</label>
-            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Write your password" required data-testid="password"/>
+            <label for="">Contraseña</label>
+            <input type="password" name="password" minlength="6" maxlength="10" placeholder="Escribe tu contraseña" required />
           
-            <label for="">Confirm your password</label>
-            <input type="password" name="confirmPassword" minlength="6" maxlength="10" placeholder="Write your password again" required data-testid="confirmPassword"/>
+            <label for="">Confirma tu contraseña</label>
+            <input type="password" name="confirmPassword" minlength="6" maxlength="10" placeholder="Ingresa tu contraseña nuevamente" required />
           <div>
-            <button id="button-signup" type="submit">Sign up!</button> 
+            <button id="button-signup" type="submit">Unirme</button> 
         </div>
           </form>
     `;
@@ -46,8 +46,6 @@ function signUp(navigateTo) {
     const emailValue = inputEmail.value;
     const passwordValue = inputPassword.value;
     const passwordConfirmValue = inputConfirmPassword.value;
-
-    // Validamos que ambas contraseñas sean iguales
     if (passwordValue !== passwordConfirmValue) {
       formInput.reset();
       return alert('Passwords are not the same');

@@ -11,6 +11,7 @@ function feed(navigateTo) {
   const body = document.createElement('body'); // body del feed
   const header = document.createElement('header'); // header del feed
   const titleFeed = document.createElement('h2');
+  const footer = document.createElement('footer');
   titleFeed.textContent = 'Feed';
   header.append(titleFeed);
   const titlePosts = document.createElement('h4');
@@ -39,7 +40,8 @@ function feed(navigateTo) {
     });
     // console.log(posts);
     sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
-    body.append(sectionPosts, navigationBar(navigateTo)); // se añade contenedor padre a body
+    footer.appendChild(navigationBar(navigateTo));
+    body.append(sectionPosts, footer); // se añade contenedor padre a body
     return body;
   });
 

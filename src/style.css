@@ -305,10 +305,10 @@ input {
 }
 
 /*-------- Comienza estilo de feed------------*/
-/* .individual-post {
+.individual-post {
   margin: 10px;
   padding: 10px;
-} */
+}
 
 
 /* ---------Estilos de resetPassword ------------*/
@@ -319,4 +319,29 @@ input {
 .contraseña-container p {
   margin-top: 20px;
   cursor: pointer;
+}
+
+/*------------------ footer -------------------*/
+/*Provisional, previsualización de la barra de navegación*/
+
+footer {
+  position: fixed;
+  bottom: 0;
+  height: 10%;
+  width: 100%
+}
+
+.buttons-container {
+  background-color: white;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  height: 100%;
+  width: 100%; 
+}
+
+.navigation-buttons {
+  background: transparent;
+  border: transparent;
+  font-style: bold;
 }

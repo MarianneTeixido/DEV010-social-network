@@ -5,8 +5,9 @@ import { db } from '../firebase.js';
 // import { setUpPosts } from './post.js';
 // import { setUpPosts } from './post.js';
 import addPost from './addPost.js'; // textarea y botón de submit
+import navigationBar from './navigationBar.js';
 
-function feed(/* navigateTo */) {
+function feed(navigateTo) {
   const body = document.createElement('body'); // body del feed
   const header = document.createElement('header'); // header del feed
   const titleFeed = document.createElement('h2');
@@ -38,7 +39,7 @@ function feed(/* navigateTo */) {
     });
     // console.log(posts);
     sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
-    body.appendChild(sectionPosts); // se añade contenedor padre a body
+    body.append(sectionPosts, navigationBar(navigateTo)); // se añade contenedor padre a body
     return body;
   });
 

@@ -1,6 +1,6 @@
 import { collection, query, onSnapshot, orderBy } from 'firebase/firestore';
 // import { onAuthStateChanged } from 'firebase/auth';
-import { db } from '../firebase.js';
+import { db, auth } from '../firebase.js';
 // eslint-disable-next-line import/no-unresolved
 // import { setUpPosts } from './post.js';
 // import { setUpPosts } from './post.js';
@@ -8,6 +8,10 @@ import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
+  const user = auth.currentUser;
+  // const uid = auth.uid; user id para acceder
+  console.log(user);
+  console.log(user.displayName);
   const body = document.createElement('body'); // body del feed
   const header = document.createElement('header'); // header del feed
   const titleFeed = document.createElement('h2');

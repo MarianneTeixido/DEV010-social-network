@@ -15,7 +15,7 @@ function feed(navigateTo) {
   titleFeed.textContent = 'Feed';
   header.append(titleFeed);
   const titlePosts = document.createElement('h4');
-  titlePosts.textContent = 'Posts';
+  //titlePosts.textContent = 'Posts';
   body.appendChild(header);
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));

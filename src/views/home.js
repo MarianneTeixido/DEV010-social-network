@@ -19,6 +19,11 @@ function home(navigateTo) {
   // section.classList.add('section-home');
   const divTitle = document.createElement('div');
   divTitle.classList.add('titles');
+  const img3 = document.createElement('img');
+  img3.classList.add('img2');
+  img3.src = '../assets/img/logo-vitalhub.png';
+  img3.alt = 'logo vitalHub';
+  divTitle.appendChild(img3);
   const button = document.createElement('button');
   button.setAttribute('id', 'button');
   button.innerHTML = 'SKIP';

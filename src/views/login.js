@@ -5,8 +5,11 @@ function login(navigateTo) {
   const divContainer = document.createElement('div');
   divContainer.classList.add('login-container');
   divContainer.innerHTML = `
-      <i class="fa-solid fa-user"></i>
-      <h1>VitalHub</h1>
+  <img
+    class="img1"
+        src="../assets/img/logo-vitalhub (1)2.png" 
+        alt="imagen logo red social"
+        />
     <form id="login-form">
       <label for="">Email</label>
       <input
@@ -35,6 +38,11 @@ function login(navigateTo) {
   invocamos a divContainer en lugar de document, por que el divContainer aun no existe en el DOM
   Existira en el DOM hasta que retornemos divContainer
   */
+  // const img = document.createElement('img');
+  // img.classList.add('img1');
+  // img.src = '../assets/img/logo-vitalhub (1).png';
+  // img.alt = 'logoVitalHub';
+
   const email = divContainer.querySelector('input[name="email"]');
   const password = divContainer.querySelector('input[name="password"]');
   const loginForm = divContainer.querySelector('#login-form');

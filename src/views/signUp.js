@@ -6,6 +6,11 @@ function signUp(navigateTo) {
   divContainer.classList.add('container-input');
   divContainer.innerHTML = `
     <button class="return">Volver</button>
+    <img
+    class="img2"
+        src="../assets/img/logo-vitalhub (1)2.png" 
+        alt="imagen logo red social"
+        />
         <h2 class="title">Welcome!</h2>
         <form class="form-input" action="" onsubmit="" data-testid="form-input">
             <label for="">First name</label>

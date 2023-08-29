@@ -1,4 +1,4 @@
-import feed from "./feed";
+// import feed from "./feed";
 
 function navigationBar(navigateTo) {
   const barContainer = document.createElement('section');

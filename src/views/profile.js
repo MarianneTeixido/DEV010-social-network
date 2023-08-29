@@ -2,12 +2,14 @@ import navigationBar from './navigationBar';
 
 function profile(navigateTo) {
   const body = document.createElement('body');
+  const header = document.createElement('header');
+  const title = document.createElement('h1');
+  title.textContent = 'Profile';
+  header.appendChild(title);
   const footer = document.createElement('footer');
-  const profileTitle = document.createElement('h1');
-  profileTitle.textContent = 'Profile';
-  console.log('Profile');
-  footer.append(navigationBar(navigateTo));
-  body.append(profileTitle, footer);
+  footer.appendChild(navigationBar(navigateTo));
+  body.append(header, footer);
+  return body;
 }
 
 export default profile;

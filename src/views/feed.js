@@ -14,9 +14,12 @@ function feed(navigateTo) {
   const footer = document.createElement('footer');
   titleFeed.textContent = 'Feed';
   header.append(titleFeed);
-  const titlePosts = document.createElement('h4');
-  //titlePosts.textContent = 'Posts';
-  body.appendChild(header);
+  const img3 = document.createElement('img');
+  img3.classList.add('img2');
+  img3.src = '../assets/img/logo-vitalhub.png';
+  img3.alt = 'logo vitalHub';
+  divTitle.appendChild(img3);
+  body.append(header,divTitle);
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');

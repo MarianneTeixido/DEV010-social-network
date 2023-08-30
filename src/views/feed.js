@@ -1,4 +1,4 @@
-import { collection, query, onSnapshot, orderBy, DocumentReference } from 'firebase/firestore';
+import { collection, query, onSnapshot, orderBy, updateDoc, increment, DocumentReference } from 'firebase/firestore';
 // import { onAuthStateChanged } from 'firebase/auth';
 import { db } from '../firebase.js';
 // eslint-disable-next-line import/no-unresolved
@@ -6,22 +6,26 @@ import { db } from '../firebase.js';
 // import { setUpPosts } from './post.js';
 import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
+import { async } from 'regenerator-runtime';
 
 function feed(navigateTo) {
   const body = document.createElement('body'); // body del feed
-  //const divHead = document.createElement('div');
+  const divTitle = document.createElement('div');
+  divTitle.classList.add('divFeed');
   const header = document.createElement('header'); // header del feed
   const titleFeed = document.createElement('h4');
+  const img3 = document.createElement('img');
   const footer = document.createElement('footer');
+  
   titleFeed.textContent = 'Feed';
   titleFeed.className = 'titleFeed';
   header.className = "header";
-  const img3 = document.createElement('img');
   img3.className = 'img3';
   img3.src = '../assets/img/logo-vitalhub.png';
   img3.alt = 'logo vitalHub';
+
   header.append(titleFeed, img3)
-  body.appendChild(header);
+  //body.appendChild(header);
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');
@@ -52,9 +56,18 @@ function feed(navigateTo) {
       likeContainer.className = 'likeContainer';
       likeContainer.append(likeButton);
 
-      likeButton.addEventListener('click', () => {
-      // Aquí implementar la lógica para incrementar un contador de likes 
-       });
+      likeButton.addEventListener('click', async() => {
+        const postId = doc.id; // Obtener el ID del post
+        const postRef = doc.ref; 
+        
+        await updateDoc(postRef, {
+          Likes: increment(1)
+        });
+        console.log(increment);
+        console.log(doc.id, " => ", doc.data());
+
+
+      });
       
       const postLikeContainer = document.createElement('section');
       
@@ -66,7 +79,8 @@ function feed(navigateTo) {
     // console.log(posts);
     sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
     footer.appendChild(navigationBar(navigateTo));
-    body.append(sectionPosts, footer); // se añade contenedor padre a body
+    divTitle.append(header,sectionPosts,footer)
+    body.append(divTitle); // se añade contenedor padre a body
     return body;
   });
 

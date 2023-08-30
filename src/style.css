@@ -312,7 +312,7 @@ input {
 /*-------- Comienza estilo de feed------------*/
 
 
-.divFeed {
+.divTitle {
   position: relative;
   margin: 0 auto;
   width: 100%;
@@ -322,6 +322,11 @@ input {
   background: #f8f9f9;
   border-radius: 8px;
   background-color: #00bcd4;
+}
+
+.sectionPosts{
+  background-color: red;
+  height: 100vh;
 }
 
 

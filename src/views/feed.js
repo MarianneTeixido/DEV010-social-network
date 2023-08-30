@@ -9,9 +9,8 @@ import navigationBar from './navigationBar.js';
 import { async } from 'regenerator-runtime';
 
 function feed(navigateTo) {
-  const body = document.createElement('body'); // body del feed
   const divTitle = document.createElement('div');
-  divTitle.classList.add('divFeed');
+  divTitle.classList.add('divTitle');
   const header = document.createElement('header'); // header del feed
   const titleFeed = document.createElement('h4');
   const img3 = document.createElement('img');
@@ -29,12 +28,12 @@ function feed(navigateTo) {
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');
+  sectionPosts.classList = 'sectionPosts';
   sectionPosts.append(addPost()); // addPost() imprime el textarea y submit
   
 
   
   const postsContainer = document.createElement('section');
-  postsContainer.classList = 'postsContainer';
   onSnapshot(q, (querySnapshot) => {
     postsContainer.innerHTML = ''; // para evitar que se dupliquen las publicaciones con el submit
     querySnapshot.forEach((doc) => {
@@ -87,14 +86,13 @@ function feed(navigateTo) {
     });     
 
     // console.log(posts);
-    sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
+    sectionPosts.append(postsContainer); // se añade contenedor de posts
     footer.appendChild(navigationBar(navigateTo));
     divTitle.append(header,sectionPosts,footer)
-    body.append(divTitle); // se añade contenedor padre a body
-    return body;
+    //return divTitle;
   });
 
-  return body;
+  return divTitle;
 }
 
 export default feed;

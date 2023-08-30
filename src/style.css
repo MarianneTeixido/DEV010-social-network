@@ -314,8 +314,6 @@ input {
 }
 
 /*-------- Comienza estilo de feed------------*/
-
-
 .header {
   position: relative;
   width: 100%;
@@ -330,13 +328,11 @@ input {
 
 .individual-post {
   margin: 10px;
-  /*margin-bottom: 50px;*/
   padding: 10px;
   border-width: 1px;
   border-style: solid;
   border-color: black;  
 }
-
 .img3 {
   width: 100%;
   max-width: 80px;
@@ -357,7 +353,6 @@ input {
    margin-bottom: 10px;
    margin-left: 30px;
 }
-
 
 /* ---------Estilos de resetPassword ------------*/
 .subtitle {

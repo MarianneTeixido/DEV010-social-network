@@ -31,7 +31,10 @@ function feed(navigateTo) {
   const sectionPosts = document.createElement('section');
   sectionPosts.append(addPost()); // addPost() imprime el textarea y submit
   
+
+  
   const postsContainer = document.createElement('section');
+  postsContainer.classList = 'postsContainer';
   onSnapshot(q, (querySnapshot) => {
     postsContainer.innerHTML = ''; // para evitar que se dupliquen las publicaciones con el submit
     querySnapshot.forEach((doc) => {
@@ -51,6 +54,10 @@ function feed(navigateTo) {
       likeButton.src = '../assets/img/like.png';
       likeButton.alt = 'Like';
       likeButton.className = 'likeButton';
+
+      //const likesCount = document.createElement('span');
+      //likesCount.className = 'likesCount';
+      //likesCount.textContent = doc.data().Likes.toString();
       
       const likeContainer = document.createElement('section');
       likeContainer.className = 'likeContainer';
@@ -66,6 +73,9 @@ function feed(navigateTo) {
         console.log(increment);
         console.log(doc.id, " => ", doc.data());
 
+        //const likesCountElement = postLikeContainer.querySelector('.likesButton');
+        //const currentLikes = parseInt(likesCountElement.textContent, 10);
+        //likesCountElement.textContent = (currentLikes + 1).toString();
 
       });
       

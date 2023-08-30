@@ -1,6 +1,6 @@
-import { collection, query, onSnapshot, orderBy, DocumentReference } from 'firebase/firestore';
+import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'; // DocumentReference
 // import { onAuthStateChanged } from 'firebase/auth';
-import { db, auth } from '../firebase.js';
+import { db } from '../firebase.js';
 // eslint-disable-next-line import/no-unresolved
 // import { setUpPosts } from './post.js';
 // import { setUpPosts } from './post.js';
@@ -8,10 +8,10 @@ import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
-  const user = auth.currentUser;
-  // const uid = auth.uid; user id para acceder
-  console.log(user);
-  console.log(user.displayName);
+  // const user = auth.currentUser;
+  // const userID = user.uid;
+  // console.log(userID);
+  // console.log(user.displayName);
   const body = document.createElement('body'); // body del feed
   // const divHead = document.createElement('div');
   const header = document.createElement('header'); // header del feed
@@ -42,7 +42,9 @@ function feed(navigateTo) {
       const datePost = document.createElement('p'); // fecha del post (cambiar formato)
       const postContent = document.createElement('p'); // contenido del post
       const userName = document.createElement('p'); // usuario que crea el post
-      userName.textContent = doc.data().User;
+      // db.ref('users').child(userID).once('value')
+
+      userName.textContent = doc.data().UserName;
       typePost.textContent = doc.data().Type;
       datePost.textContent = doc.data().Date;
       postContent.textContent = doc.data().Content;
@@ -61,7 +63,7 @@ function feed(navigateTo) {
       });
 
       const postLikeContainer = document.createElement('section');
-      onePost.append(typePost, datePost, postContent); // se añaden elementos a post individual
+      onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post indiv
       postLikeContainer.append(onePost, likeContainer);
       postsContainer.append(postLikeContainer); // se añaden posts individuales a section
     });

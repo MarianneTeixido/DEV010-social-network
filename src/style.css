@@ -371,6 +371,9 @@ input {
 
 /*------------------ footer -------------------*/
 /*Provisional, previsualización de la barra de navegación*/
+body {
+  margin-bottom: 20%; /* para que no se encima la navigation bar con el final del body en las views*/
+}
 
 footer {
   position: fixed;

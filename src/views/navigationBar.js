@@ -40,24 +40,28 @@ function navigationBar(navigateTo) {
 
   if (window.location.pathname === '/feed') {
     feedButton.style.color = '#00bcd4';
+    feedButton.innerHTML = '<b>Feed</b>';
     recipesButton.style.color = 'black';
     workoutButton.style.color = 'black';
     profileButton.style.color = 'black';
   } else if (window.location.pathname === '/recipes') {
     feedButton.style.color = 'black';
     recipesButton.style.color = '#00bcd4';
+    recipesButton.innerHTML = '<b>Recipes</b>';
     workoutButton.style.color = 'black';
     profileButton.style.color = 'black';
   } else if (window.location.pathname === '/workout') {
     feedButton.style.color = 'black';
     recipesButton.style.color = 'black';
     workoutButton.style.color = '#00bcd4';
+    workoutButton.innerHTML = '<b>Workout</b>';
     profileButton.style.color = 'black';
   } else if (window.location.pathname === '/profile') {
     feedButton.style.color = 'black';
     recipesButton.style.color = 'black';
     workoutButton.style.color = 'black';
     profileButton.style.color = '#00bcd4';
+    profileButton.innerHTML = '<b>Profile</b>';
   }
 
   barContainer.append(feedButton, recipesButton, workoutButton, profileButton);

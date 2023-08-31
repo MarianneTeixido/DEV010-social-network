@@ -31,6 +31,7 @@ function addPost() {
         Date: Timestamp.now(), // agrega la fecha de creación al doc
         Content: textarea.value,
         Type: select.options[select.selectedIndex].text, // toma texto de la  opción seleccionada
+        Likes: [ ],
       });
     } else {
       alert('Please, write something to continue');

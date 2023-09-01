@@ -10,6 +10,7 @@ import recipes from './views/recipes';
 import workout from './views/workout';
 import profile from './views/profile';
 import { validateUserSession } from './lib/auth';
+import navigationBar from './views/navigationBar';
 
 /* -------------Navegación----------------------------------------*/
 
@@ -23,6 +24,7 @@ const routes = [
   { path: '/recipes', component: recipes },
   { path: '/workout', component: workout },
   { path: '/profile', component: profile },
+  { path: '/navigationBar', component: navigationBar },
 ];
 
 const defaultRoute = '/';

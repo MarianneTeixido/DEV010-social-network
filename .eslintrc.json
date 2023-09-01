@@ -32,6 +32,8 @@
     "prefer-regex-literals": "off",
     "implicit-arrow-linebreak": "off",
     "import/no-extraneous-dependencies": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "no-promise-executor-return": "off",
+    "no-throw-literal": "off"
   }
 }

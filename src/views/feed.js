@@ -20,7 +20,7 @@ function feed(navigateTo) {
   
   titleFeed.textContent = 'Feed';
   titleFeed.className = 'titleFeed';
-  header.className = "header";
+  header.className = 'header';
   img3.className = 'img3';
   img3.src = '../assets/img/logo-vitalhub.png';
   img3.alt = 'logo vitalHub';
@@ -41,7 +41,7 @@ function feed(navigateTo) {
     querySnapshot.forEach((doc) => {
       const onePost = document.createElement('section'); // sección individual post, para formato
       onePost.className += 'individual-post'; // asigna clase a posts individuales
-      
+
       const typePost = document.createElement('p'); // tipo de post (receta o ejercicio)
       const datePost = document.createElement('p'); // fecha del post (cambiar formato)
       const postContent = document.createElement('p'); // contenido del post
@@ -51,7 +51,7 @@ function feed(navigateTo) {
       typePost.textContent = doc.data().Type;
       datePost.textContent = doc.data().Date;
       postContent.textContent = doc.data().Content;
-     
+
       const likeButton = document.createElement('img');
       likeButton.src = '../assets/img/like.png';
       likeButton.alt = 'Like';
@@ -82,11 +82,10 @@ function feed(navigateTo) {
       });
       
       const postLikeContainer = document.createElement('section');
-      
-      onePost.append(typePost, datePost, postContent); // se añaden elementos a post individual
-      postLikeContainer.append(onePost,likeContainer);
+      onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post indiv
+      postLikeContainer.append(onePost, likeContainer);
       postsContainer.append(postLikeContainer); // se añaden posts individuales a section
-    });     
+    });
 
     // console.log(posts);
     sectionPosts.append(postsContainer); // se añade contenedor de posts

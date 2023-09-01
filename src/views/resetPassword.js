@@ -2,7 +2,11 @@ import { resetPasswordUser } from '../lib/auth';
 
 function resetPassword(navigateTo) {
   //   <div class="contraseña-container">
-  //     <i class="fa-solid fa-user icon-reset"></i>
+  //    <img
+  //    class="img1"
+  //    src="../assets/img/logo-vitalhub (1)2.png"
+  //    alt="imagen logo red social"
+  //    />
   //     <p class="subtitle">
   //       ¿Olvidaste tu contraseña? No te preocupes, es posible recuperarla.
   //     </p>
@@ -26,10 +30,11 @@ function resetPassword(navigateTo) {
   //   </div>;
   const contraseñaContainer = document.createElement('div');
   contraseñaContainer.classList.add('contraseña-container');
-  const iconReset = document.createElement('i');
-  iconReset.classList.add('fa-solid');
-  iconReset.classList.add('fa-user');
-  contraseñaContainer.appendChild(iconReset);
+  const img = document.createElement('img');
+  img.classList.add('img1');
+  img.src = '../assets/img/logo-vitalhub (1)2.png';
+  img.alt = 'logo vitalHub';
+  contraseñaContainer.appendChild(img);
   const subtitle = document.createElement('p');
   subtitle.classList.add('subtitle');
   subtitle.textContent =

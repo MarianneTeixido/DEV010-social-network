@@ -1,14 +1,11 @@
-import { collection, query, onSnapshot, orderBy } from 'firebase/firestore'; // DocumentReference
+import { collection, query, onSnapshot, orderBy, updateDoc, deleteDoc } from 'firebase/firestore'; // DocumentReference
 // import { onAuthStateChanged } from 'firebase/auth';
-import { db } from '../firebase.js';
-// eslint-disable-next-line import/no-unresolved
-// import { setUpPosts } from './post.js';
-// import { setUpPosts } from './post.js';
+import { db, auth } from '../firebase.js';
 import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
-  // const user = auth.currentUser;
+  const user = auth.currentUser;
   // const userID = user.uid;
   // console.log(userID);
   // console.log(user.displayName);
@@ -62,6 +59,75 @@ function feed(navigateTo) {
       // Aquí implementar la lógica para incrementar un contador de likes
       });
 
+      // prueba para editar posts
+      if (doc.data().UserName === user.displayName) {
+        const selectPost = document.createElement('select');
+        const editOption = document.createElement('option');
+        // const editButton = document.createElement('button');
+        // editButton.textContent = 'Edit post';
+        const deleteOption = document.createElement('option');
+        // const deleteButton = document.createElement('button');
+        // deleteButton.textContent = 'Delete post';
+        const placeholderOption = document.createElement('option');
+        placeholderOption.textContent = '...';
+        editOption.textContent = 'Edit post';
+        deleteOption.textContent = 'Delete post';
+        // editOption.appendChild(editButton);
+        // deleteOption.appendChild(deleteButton);
+        selectPost.append(placeholderOption, editOption, deleteOption);
+        onePost.append(selectPost);
+
+        selectPost.addEventListener('change', () => {
+          if (selectPost.selectedIndex === 1) {
+            console.log('Edit');
+            const textarea = document.createElement('textarea');
+            const saveButton = document.createElement('button');
+            textarea.textContent = doc.data().Content;
+            saveButton.textContent = 'Save changes';
+            onePost.append(textarea, saveButton);
+            saveButton.addEventListener('click', async () => {
+              await updateDoc(doc.ref, { Content: textarea.value });
+              // await doc.updateDoc({ Content: textarea.value });
+              onePost.removeChild(textarea);
+              onePost.removeChild(saveButton);
+              selectPost.selectedIndex = 0;
+            });
+          } else if (selectPost.selectedIndex === 2) {
+            console.log('Delete');
+            const dialog = document.createElement('dialog');
+            const p = document.createElement('p');
+            p.textContent = 'Are you sure you want to delete this post?';
+            const deleteButton = document.createElement('button');
+            deleteButton.textContent = 'Yes';
+            const cancelButton = document.createElement('button');
+            cancelButton.textContent = 'Cancel';
+            dialog.append(p, deleteButton, cancelButton);
+            postsContainer.appendChild(dialog);
+            dialog.showModal();
+
+            deleteButton.addEventListener('click', async (e) => {
+              e.preventDefault();
+              await deleteDoc(doc.ref);
+              onePost.remove();
+              dialog.close();
+            });
+
+            cancelButton.addEventListener('click', (e) => {
+              e.preventDefault();
+              dialog.close();
+            });
+          }
+        });
+
+        // if (selectPost.selectedIndex === 1) {
+        //   console.log('Edit post');
+        // }
+
+        // if (selectPost.selectedIndex === 2) {
+        //   console.log('Delete post');
+        // }
+      }
+      // termina prueba para editar posts
       const postLikeContainer = document.createElement('section');
       onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post indiv
       postLikeContainer.append(onePost, likeContainer);

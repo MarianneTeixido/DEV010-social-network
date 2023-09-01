@@ -103,12 +103,14 @@ const resetPasswordUser = async (email) => {
   }
 };
 
-signOut(auth).then(() => {
+// función para cierre de sesión, no testeada aún
+signOut(auth).then(() => { // función para cierre de sesión, no testeada aún
   // Sign-out successful.
 }).catch((error) => {
   console.log(error);
   return alert('Something wrong happened, please try again.');
 });
+// termina función de cierre de sesión
 
 export {
   signUpUser,

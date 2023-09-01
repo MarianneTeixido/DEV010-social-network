@@ -12,9 +12,10 @@ function profile(navigateTo) {
   logoutButton.textContent = 'Log out';
 
   logoutButton.addEventListener('click', (e) => {
+    console.log('hola');
     e.preventDefault(e);
     signOut(auth);
-    navigateTo('/home');
+    navigateTo('/');
     // logout(); // función
   });
 

@@ -27,7 +27,7 @@ function addPost() {
     e.preventDefault();
     if (textarea.value !== '') {
       addDoc(colRef, {
-      // User: auth.currentUser.userValue,
+        // User: auth.currentUser.userValue,
         Date: Timestamp.now(), // agrega la fecha de creación al doc
         Content: textarea.value,
         Type: select.options[select.selectedIndex].text, // toma texto de la  opción seleccionada
@@ -38,7 +38,7 @@ function addPost() {
 
     textarea.value = ''; // limpiar el contenido del textarea con el click en submit
   });
-  addPostContainer.append(select,textarea,submitButton);
+  addPostContainer.append(select, textarea, submitButton);
   section.appendChild(addPostContainer);
   return section;
 }

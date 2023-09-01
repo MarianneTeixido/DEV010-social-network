@@ -19,8 +19,8 @@ jest.mock('firebase/auth', () => {
   // container for attached callbacks and state variables
   const authChangeCallbacks = [];
   let authCurrentUserInfo = mockedUserInfo;
-  let authTimer = null;
-  let authTimerCompleted = false;
+  // let authTimer = null;
+  // let authTimerCompleted = false;
 
   // invoke all callbacks with current data
   const fireOnChangeCallbacks = () => {
@@ -32,7 +32,7 @@ jest.mock('firebase/auth', () => {
         console.error('Error invoking callback', err);
       }
     });
-    authTimerCompleted = true;
+    // authTimerCompleted = true;
   };
 
   authInstance.signOut = () => {
@@ -44,23 +44,20 @@ jest.mock('firebase/auth', () => {
   return {
     getAuth: jest.fn(() => authInstance),
     onAuthStateChanged: jest.fn((authMock, onChangeCallback) => {
-      if (!authTimer) {
-        // increase this delay to emulate slower connections
-        authTimer = setTimeout(fireOnChangeCallbacks, 2000);
-      }
-
-      authChangeCallbacks.push(onChangeCallback);
-      const unsubscriber = () => {
-        const foundIndex = authChangeCallbacks.indexOf(onChangeCallback);
-        if (foundIndex > -1) authChangeCallbacks.splice(foundIndex, 1);
-      };
-
-      if (authTimerCompleted) {
-        // auth is "resolved" already, fire callback immediately
-        onChangeCallback(mockedUserInfo);
-      }
-
-      return unsubscriber;
+      // if (!authTimer) {
+      //   // increase this delay to emulate slower connections
+      //   authTimer = setTimeout(fireOnChangeCallbacks, 2000);
+      // }
+      // authChangeCallbacks.push(onChangeCallback);
+      // const unsubscriber = () => {
+      //   const foundIndex = authChangeCallbacks.indexOf(onChangeCallback);
+      //   if (foundIndex > -1) authChangeCallbacks.splice(foundIndex, 1);
+      // };
+      // if (authTimerCompleted) {
+      //   // auth is "resolved" already, fire callback immediately
+      onChangeCallback(mockedUserInfo);
+      // }
+      // return unsubscriber;
     }),
   };
 });

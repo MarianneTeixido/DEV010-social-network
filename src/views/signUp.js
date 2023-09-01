@@ -1,4 +1,6 @@
+import { updateProfile } from '@firebase/auth';
 import { signUpUser } from '../lib/auth';
+import { auth } from '../firebase';
 
 // file error.js
 function signUp(navigateTo) {
@@ -44,6 +46,8 @@ function signUp(navigateTo) {
   const inputConfirmPassword = divContainer.querySelector(
     'input[name="confirmPassword"]',
   );
+  const inputUserName = divContainer.querySelector('input[name="name"]');
+  const inputUserLastName = divContainer.querySelector('input[name="lastName"]');
 
   const formInput = divContainer.querySelector('.form-input');
   formInput.addEventListener('submit', async (e) => {
@@ -51,6 +55,14 @@ function signUp(navigateTo) {
     const emailValue = inputEmail.value;
     const passwordValue = inputPassword.value;
     const passwordConfirmValue = inputConfirmPassword.value;
+    const userName = inputUserName.value.toString();
+    console.log(userName);
+    const userLastName = inputUserLastName.value.toString();
+    const space = ' ';
+    const completeUserName = userName + space + userLastName;
+    console.log(userLastName);
+
+    // const colRef = collection(db, 'Post');
 
     // Validamos que ambas contraseñas sean iguales
     if (passwordValue !== passwordConfirmValue) {
@@ -59,7 +71,10 @@ function signUp(navigateTo) {
     }
     const newUser = await signUpUser(emailValue, passwordValue);
     if (newUser !== undefined) {
-      navigateTo('/feed');
+      // navigateTo('/feed');
+      await updateProfile(auth.currentUser, { displayName: completeUserName });
+      alert('Now, you are signed up, please login to continue');
+      navigateTo('/login'); // navega a login para que el usuario inicie sesión
     }
     return formInput.reset();
   });

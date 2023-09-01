@@ -9,7 +9,7 @@ export const setUpPosts = (data) => {
       const h4 = document.createElement('h4');
       const p = document.createElement('p');
 
-      h4.textContent = post.Type;
+      h4.textContent = post.Title;
       p.textContent = post.Content;
 
       li.append(h4, p);

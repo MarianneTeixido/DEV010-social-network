@@ -4,40 +4,38 @@ import {
   onSnapshot,
   orderBy,
   updateDoc,
-  increment,
 } from 'firebase/firestore';
-// import { onAuthStateChanged } from 'firebase/auth';
+// import { updateCurrentUser } from 'firebase/auth';
 import { db } from '../firebase.js';
-// eslint-disable-next-line import/no-unresolved
-// import { setUpPosts } from './post.js';
-// import { setUpPosts } from './post.js';
 import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
-  const divTitle = document.createElement('div');
+  const divTitle = document.createElement('section');
   divTitle.classList.add('divTitle');
   const header = document.createElement('header'); // header del feed
-  const titleFeed = document.createElement('h4');
-  const img3 = document.createElement('img');
-  const footer = document.createElement('footer');
+  header.className = 'header';
 
+  const titleFeed = document.createElement('h1');
   titleFeed.textContent = 'Feed';
   titleFeed.className = 'titleFeed';
-  header.className = 'header';
+
+  const img3 = document.createElement('img');
   img3.className = 'img3';
   img3.src = '../assets/img/logo-vitalhub.png';
   img3.alt = 'logo vitalHub';
 
+  const footer = document.createElement('footer');
+
   header.append(titleFeed, img3);
-  // body.appendChild(header);
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');
-  sectionPosts.classList = 'sectionPosts';
+  sectionPosts.className = 'sectionPosts';
   sectionPosts.append(addPost()); // addPost() imprime el textarea y submit
 
   const postsContainer = document.createElement('section');
+  postsContainer.className = 'postsContainer';
   onSnapshot(q, (querySnapshot) => {
     postsContainer.innerHTML = ''; // para evitar que se dupliquen las publicaciones con el submit
     querySnapshot.forEach((doc) => {
@@ -48,6 +46,7 @@ function feed(navigateTo) {
       const datePost = document.createElement('p'); // fecha del post (cambiar formato)
       const postContent = document.createElement('p'); // contenido del post
       const userName = document.createElement('p'); // usuario que crea el post
+
       userName.textContent = doc.data().User;
       typePost.textContent = doc.data().Type;
       datePost.textContent = doc.data().Date;
@@ -58,32 +57,30 @@ function feed(navigateTo) {
       likeButton.alt = 'Like';
       likeButton.className = 'likeButton';
 
-      // const likesCount = document.createElement('span');
-      // likesCount.className = 'likesCount';
-      // likesCount.textContent = doc.data().Likes.toString();
+      const likesText = document.createElement('span');
+      const likesCount = document.createElement('span');
+      likesCount.textContent = '0';
+      likesText.textContent = ' Likes';
 
       const likeContainer = document.createElement('section');
       likeContainer.className = 'likeContainer';
-      likeContainer.append(likeButton);
+      likeContainer.append(likeButton, likesCount, likesText);
 
       likeButton.addEventListener('click', async () => {
         // const postId = doc.id; // Obtener el ID del post
         const postRef = doc.ref;
+        // const findUser = updateCurrentUser.email;
 
         await updateDoc(postRef, {
-          Likes: increment(1),
+          // Likes: increment(1) //tienen
         });
-        console.log(increment);
         console.log(doc.id, ' => ', doc.data());
 
-        // const likesCountElement = postLikeContainer.querySelector('.likesButton');
-        // const currentLikes = parseInt(likesCountElement.textContent, 10);
         // likesCountElement.textContent = (currentLikes + 1).toString();
       });
 
       const postLikeContainer = document.createElement('section');
-
-      onePost.append(typePost, datePost, postContent); // se añaden elementos a post individual
+      onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post indiv
       postLikeContainer.append(onePost, likeContainer);
       postsContainer.append(postLikeContainer); // se añaden posts individuales a section
     });

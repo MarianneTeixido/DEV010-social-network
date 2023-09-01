@@ -1,15 +1,16 @@
 import navigationBar from './navigationBar';
+import filter from './filter';
 
 function recipes(navigateTo) {
-  const body = document.createElement('body');
+  const section = document.createElement('section');
   const header = document.createElement('header');
   const title = document.createElement('h1');
   title.textContent = 'Recipes';
   header.appendChild(title);
   const footer = document.createElement('footer');
   footer.appendChild(navigationBar(navigateTo));
-  body.append(header, footer);
-  return body;
+  section.append(header, filter(), footer);
+  return section;
 }
 
 export default recipes;

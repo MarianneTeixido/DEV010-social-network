@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   sendPasswordResetEmail,
+  signOut,
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -101,10 +102,19 @@ const resetPasswordUser = async (email) => {
     return undefined;
   }
 };
+
+signOut(auth).then(() => {
+  // Sign-out successful.
+}).catch((error) => {
+  console.log(error);
+  return alert('Something wrong happened, please try again.');
+});
+
 export {
   signUpUser,
   loginUser,
   loginWithGoogle,
   validateUserSession,
   resetPasswordUser,
+  signOut,
 };

@@ -29,9 +29,9 @@
   width: 15vw;
   height: 5vh;
   left: 70%;
- top: 20px;
+  top: 20px;
   border-radius: 10px;
-  background-color: #3f51b5;
+  background-color: #00bcd4;
   position: absolute;
   color: white;
   border: none;
@@ -83,13 +83,14 @@ p {
   }
   .titles {
     width: 100%;
-    max-width: 400px;
+    max-width: 40%;
     height: 100vh;
     display: flex;
     justify-content: center;
     margin: 0 auto;
     flex-direction: column;
     align-items: center;
+    margin-top: 10px;
   }
   #button {
     width: 5vw;
@@ -189,6 +190,11 @@ input {
   text-decoration: none;
   color: gray;
 }
+.button-forget:hover {
+  margin-top: 20px;
+  text-decoration: none;
+  color: #00bcd4;
+}
 
 .button-register {
   display: block;
@@ -202,13 +208,13 @@ input {
   .login-container,
   .contraseña-container {
     width: 100%;
-    max-width: 400px;
-    height: 90vh;
+    max-width: 40%;
+    height: 100vh;
     position: relative;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 60px;
+    margin-top: 10px;
   }
   .fa-user {
     font-size: 3vw;
@@ -315,6 +321,20 @@ input {
 
 /*-------- Comienza estilo de feed------------*/
 
+.divTitle {
+  margin: 0 auto;
+  width: 100%;
+  max-width: 500px;
+  height: 100%;
+  background: #f8f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.sectionPosts {
+  margin: 5%;
+  height: 100%;
+}
 
 .header {
   position: relative;
@@ -330,13 +350,11 @@ input {
 
 .individual-post {
   margin: 10px;
-  /*margin-bottom: 50px;*/
   padding: 10px;
   border-width: 1px;
   border-style: solid;
-  border-color: black;  
+  border-color: black;
 }
-
 .img3 {
   width: 100%;
   max-width: 80px;
@@ -346,18 +364,81 @@ input {
   right: 8%;
 }
 
-.likeButton{
+.likeButton {
   width: 100%;
   max-width: 30px;
-
 }
 
 .likeContainer {
-   margin-top: 5px;
-   margin-bottom: 10px;
-   margin-left: 30px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 2%;
+  padding: 0 1px 3% 0;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  margin-left: 30px;
 }
 
+/* Empieza responsive  de feed*/
+@media (min-width: 768px) {
+  .divTitle {
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 40%;
+    height: 100%;
+    background: #f8f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  }
+}
+
+/* ---------Estilos de addPost ------------*/
+.postContainer {
+  display: flex;
+  flex-direction: column;
+}
+
+.sizeSelect {
+  width: 100%;
+  max-width: 90px;
+  height: 40px;
+  margin-left: 70%;
+  font-size: 16px;
+}
+
+.sizeSelect:hover {
+  background-color: #00bcd4;
+  width: 100%;
+  max-width: 90px;
+  height: 40px;
+  margin-left: 70%;
+  color: white;
+}
+
+.sizeButton {
+  width: 100%;
+  max-width: 90px;
+  height: 40px;
+  margin-left: 70%;
+  font-size: 16px;
+}
+.textPost {
+  margin: 10px;
+  /* margin-bottom: 50px; */
+  padding: 10px;
+  width: 95%;
+  height: 80px;
+  border-width: 1px;
+  border-style: solid;
+  border-color: black;
+  font-size: 20px;
+}
+
+.textPost::placeholder {
+  font-size: 16px;
+}
 
 /* ---------Estilos de resetPassword ------------*/
 .subtitle {
@@ -371,12 +452,17 @@ input {
 
 /*------------------ footer -------------------*/
 /*Provisional, previsualización de la barra de navegación*/
+body {
+  margin-bottom: 20%; /* para que no se encima la navigation bar con el final del body en las views*/
+}
 
 footer {
   position: fixed;
   bottom: 0;
-  height: 10%;
   width: 100%;
+  max-width: 500px;
+  height: 10%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .buttons-container {
@@ -384,10 +470,32 @@ footer {
   display: flex;
   justify-content: space-around;
   height: 100%;
+  max-width: 500px;
   width: 100%;
 }
 
 .navigation-buttons {
   background: transparent;
   border: transparent;
+}
+
+@media (min-width: 768px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    max-width: 40%;
+    height: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .buttons-container {
+    background-color: white;
+    display: flex;
+    justify-content: space-around;
+    position: relative;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 100%;
+    height: 100%;
+  }
 }

@@ -1,15 +1,20 @@
 import navigationBar from './navigationBar';
 
 function workout(navigateTo) {
-  const body = document.createElement('body');
+  const divTitle = document.createElement('section');
+  divTitle.className = 'divTitle';
   const header = document.createElement('header');
   const title = document.createElement('h1');
   title.textContent = 'Workout';
-  header.appendChild(title);
+  const img3 = document.createElement('img');
+  img3.className = 'img3';
+  img3.src = '../assets/img/logo-vitalhub.png';
+  img3.alt = 'logo vitalHub';
+  header.append(title, img3);
   const footer = document.createElement('footer');
   footer.appendChild(navigationBar(navigateTo));
-  body.append(header, footer);
-  return body;
+  divTitle.append(header, footer);
+  return divTitle;
 }
 
 export default workout;

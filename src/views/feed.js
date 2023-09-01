@@ -6,6 +6,7 @@ import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
   const user = auth.currentUser;
+  const currentUserName = user.displayName;
   // const userID = user.uid;
   // console.log(userID);
   // console.log(user.displayName);
@@ -60,7 +61,8 @@ function feed(navigateTo) {
       });
 
       // empieza editar y borrar posts
-      if (doc.data().UserName === user.displayName) { // si el post pertenece al usuario loggeado
+      // const currentUserName = user.displayName;
+      if (doc.data().UserName === currentUserName) { // si el post pertenece al usuario loggeado
         const selectPost = document.createElement('select'); // desplegable
         const editOption = document.createElement('option'); // opción de editar
         const deleteOption = document.createElement('option'); // opción de borrar
@@ -74,17 +76,19 @@ function feed(navigateTo) {
 
         selectPost.addEventListener('change', () => { // listener para el desplegable
           if (selectPost.selectedIndex === 1) { // cuando se elige editar
+            const editSection = document.createElement('section');
+            editSection.className = 'editSection';
             const textarea = document.createElement('textarea'); // crea textarea en el post
             const saveButton = document.createElement('button'); // botón de guardar
             textarea.textContent = doc.data().Content; // se coloca contenido del post en textarea
             saveButton.textContent = 'Save changes';
-            onePost.append(textarea, saveButton); // se añaden botón y textarea al post en cuestión
+            editSection.append(textarea, saveButton);
+            onePost.append(editSection); // se añaden botón y textarea al post en cuestión
 
             saveButton.addEventListener('click', async () => { // listener botón de guardar
               await updateDoc(doc.ref, { Content: textarea.value }); // se actualiza el contenido
               // await doc.updateDoc({ Content: textarea.value });
-              onePost.removeChild(textarea); // se elimina textarea del post
-              onePost.removeChild(saveButton); // se elimina botón del post
+              onePost.removeChild(editSection); // se elimina textarea y botón del post
               selectPost.selectedIndex = 0; // se regresa el desplegable a la opción '...'
             });
           } else if (selectPost.selectedIndex === 2) { // cuando se elige borrar

@@ -11,20 +11,22 @@ import { updateCurrentUser } from 'firebase/auth';
 
 
 function feed(navigateTo) {
-  const divTitle = document.createElement('div');
+  const divTitle = document.createElement('section');
   divTitle.classList.add('divTitle');
   const header = document.createElement('header'); // header del feed
-  const titleFeed = document.createElement('h4');
-  const img3 = document.createElement('img');
-  const footer = document.createElement('footer');
-  
+  header.className = 'header';
+
+  const titleFeed = document.createElement('h1');
   titleFeed.textContent = 'Feed';
   titleFeed.className = 'titleFeed';
-  header.className = 'header';
+
+  const img3 = document.createElement('img');
   img3.className = 'img3';
   img3.src = '../assets/img/logo-vitalhub.png';
   img3.alt = 'logo vitalHub';
 
+  const footer = document.createElement('footer');
+  
   header.append(titleFeed, img3)
   //body.appendChild(header);
 

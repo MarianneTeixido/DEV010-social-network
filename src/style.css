@@ -83,7 +83,7 @@ p {
   }
   .titles {
     width: 100%;
-    max-width: 500px;
+    max-width: 40%;
     height: 100vh;
     display: flex;
     justify-content: center;
@@ -208,7 +208,7 @@ input {
   .login-container,
   .contraseña-container {
     width: 100%;
-    max-width: 500px;
+    max-width: 40%;
     height: 100vh;
     position: relative;
     border-radius: 8px;
@@ -333,6 +333,7 @@ input {
 }
 
 .sectionPosts{
+  margin: 5%;
   height: 100%;
 }
 
@@ -374,6 +375,11 @@ input {
 }
 
 .likeContainer {
+   display: flex;
+   justify-content: flex-start;
+   align-items: center;
+   gap: 2%;
+   padding: 0 1px 3% 0 ;
    margin-top: 5px;
    margin-bottom: 10px;
    margin-left: 30px;

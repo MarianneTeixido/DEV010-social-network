@@ -59,82 +59,68 @@ function feed(navigateTo) {
       // Aquí implementar la lógica para incrementar un contador de likes
       });
 
-      // prueba para editar posts
-      if (doc.data().UserName === user.displayName) {
-        const selectPost = document.createElement('select');
-        const editOption = document.createElement('option');
-        // const editButton = document.createElement('button');
-        // editButton.textContent = 'Edit post';
-        const deleteOption = document.createElement('option');
-        // const deleteButton = document.createElement('button');
-        // deleteButton.textContent = 'Delete post';
-        const placeholderOption = document.createElement('option');
+      // empieza editar y borrar posts
+      if (doc.data().UserName === user.displayName) { // si el post pertenece al usuario loggeado
+        const selectPost = document.createElement('select'); // desplegable
+        const editOption = document.createElement('option'); // opción de editar
+        const deleteOption = document.createElement('option'); // opción de borrar
+        const placeholderOption = document.createElement('option'); // placeholder
         placeholderOption.textContent = '...';
         editOption.textContent = 'Edit post';
         deleteOption.textContent = 'Delete post';
-        // editOption.appendChild(editButton);
-        // deleteOption.appendChild(deleteButton);
-        selectPost.append(placeholderOption, editOption, deleteOption);
-        onePost.append(selectPost);
 
-        selectPost.addEventListener('change', () => {
-          if (selectPost.selectedIndex === 1) {
-            console.log('Edit');
-            const textarea = document.createElement('textarea');
-            const saveButton = document.createElement('button');
-            textarea.textContent = doc.data().Content;
+        selectPost.append(placeholderOption, editOption, deleteOption); // opciones al select
+        onePost.append(selectPost); // se añade desplegable a cada post
+
+        selectPost.addEventListener('change', () => { // listener para el desplegable
+          if (selectPost.selectedIndex === 1) { // cuando se elige editar
+            const textarea = document.createElement('textarea'); // crea textarea en el post
+            const saveButton = document.createElement('button'); // botón de guardar
+            textarea.textContent = doc.data().Content; // se coloca contenido del post en textarea
             saveButton.textContent = 'Save changes';
-            onePost.append(textarea, saveButton);
-            saveButton.addEventListener('click', async () => {
-              await updateDoc(doc.ref, { Content: textarea.value });
+            onePost.append(textarea, saveButton); // se añaden botón y textarea al post en cuestión
+
+            saveButton.addEventListener('click', async () => { // listener botón de guardar
+              await updateDoc(doc.ref, { Content: textarea.value }); // se actualiza el contenido
               // await doc.updateDoc({ Content: textarea.value });
-              onePost.removeChild(textarea);
-              onePost.removeChild(saveButton);
-              selectPost.selectedIndex = 0;
+              onePost.removeChild(textarea); // se elimina textarea del post
+              onePost.removeChild(saveButton); // se elimina botón del post
+              selectPost.selectedIndex = 0; // se regresa el desplegable a la opción '...'
             });
-          } else if (selectPost.selectedIndex === 2) {
-            console.log('Delete');
-            const dialog = document.createElement('dialog');
-            const p = document.createElement('p');
+          } else if (selectPost.selectedIndex === 2) { // cuando se elige borrar
+            const dialog = document.createElement('dialog'); // se crea diálogo
+            const p = document.createElement('p'); // texto del diálogo
             p.textContent = 'Are you sure you want to delete this post?';
-            const deleteButton = document.createElement('button');
+            const deleteButton = document.createElement('button'); // botón de borrar
             deleteButton.textContent = 'Yes';
-            const cancelButton = document.createElement('button');
+            const cancelButton = document.createElement('button'); // botón cancelar
             cancelButton.textContent = 'Cancel';
             dialog.append(p, deleteButton, cancelButton);
             postsContainer.appendChild(dialog);
-            dialog.showModal();
+            dialog.showModal(); // se cierra el modal (diálogo)
 
-            deleteButton.addEventListener('click', async (e) => {
+            deleteButton.addEventListener('click', async (e) => { // botón de borrar
               e.preventDefault();
-              await deleteDoc(doc.ref);
-              onePost.remove();
-              dialog.close();
+              await deleteDoc(doc.ref); // se borra el documento de la colección
+              onePost.remove(); // se borra post de la view
+              dialog.close(); // se cierra el diálogo
             });
 
-            cancelButton.addEventListener('click', (e) => {
+            cancelButton.addEventListener('click', (e) => { // botón de cancelar
               e.preventDefault();
-              dialog.close();
+              dialog.close(); // sólo se cierra el diálogo
             });
           }
         });
-
-        // if (selectPost.selectedIndex === 1) {
-        //   console.log('Edit post');
-        // }
-
-        // if (selectPost.selectedIndex === 2) {
-        //   console.log('Delete post');
-        // }
       }
-      // termina prueba para editar posts
+      // termina editar y borrar posts
+
       const postLikeContainer = document.createElement('section');
       onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post indiv
       postLikeContainer.append(onePost, likeContainer);
       postsContainer.append(postLikeContainer); // se añaden posts individuales a section
     });
 
-    // console.log(posts);
     sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
     footer.appendChild(navigationBar(navigateTo));
     body.append(sectionPosts, footer); // se añade contenedor padre a body

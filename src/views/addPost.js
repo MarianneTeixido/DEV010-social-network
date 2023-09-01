@@ -5,6 +5,9 @@ const colRef = collection(db, 'Post');
 
 function addPost() {
   const section = document.createElement('section'); // contiene textarea, select y submit button
+  const addPostContainer = document.createElement('div');
+  addPostContainer.className = 'postContainer';
+
   if (auth.currentUser != null) { // se ejecuta sólo si hay usuario loggeado
     const user = auth.currentUser;
     console.log(user);
@@ -12,6 +15,7 @@ function addPost() {
     console.log(userID);
 
     const select = document.createElement('select'); // para seleccionar tipo de post
+    select.className = 'sizeSelect';
     const option1 = document.createElement('option');
     option1.textContent = 'Recipe';
     option1.value = 'Recipe';
@@ -20,8 +24,10 @@ function addPost() {
     option2.value = 'Workout';
     select.append(option1, option2);
     const textarea = document.createElement('textarea');
+    textarea.className = 'textPost';
     textarea.placeholder = 'Write your post here...';
     const submitButton = document.createElement('button');
+    submitButton.className = 'sizeButton';
     submitButton.textContent = 'Submit';
 
     submitButton.addEventListener('click', (e) => {
@@ -51,7 +57,8 @@ function addPost() {
       navigateTo.preventDefault();
       navigateTo('/login');
     });
-    section.append(p, button);
+    addPostContainer.append(select,textarea,submitButton);
+    section.appendChild(addPostContainer);
   }
   return section;
 }

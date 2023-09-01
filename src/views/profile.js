@@ -1,6 +1,7 @@
 import { signOut } from 'firebase/auth';
 import navigationBar from './navigationBar';
 import { auth } from '../firebase';
+import filter from './filter';
 
 function profile(navigateTo) {
   const section = document.createElement('section');
@@ -22,7 +23,7 @@ function profile(navigateTo) {
   header.append(title, logoutButton);
   const footer = document.createElement('footer');
   footer.appendChild(navigationBar(navigateTo));
-  section.append(header, footer);
+  section.append(header, filter(), footer);
   return section;
 }
 

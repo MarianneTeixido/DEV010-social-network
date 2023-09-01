@@ -5,28 +5,32 @@ import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
-  const user = auth.currentUser;
-  const currentUserName = user.displayName;
+  const user = auth.currentUser; // usuario loggeado
+  const currentUserName = user.displayName; // nombre el usuario loggeado
   // const userID = user.uid;
   // console.log(userID);
   // console.log(user.displayName);
-  const body = document.createElement('body'); // body del feed
-  // const divHead = document.createElement('div');
+  const divTitle = document.createElement('divTitle'); // body del feed
+  divTitle.classList.add('divTitle');
   const header = document.createElement('header'); // header del feed
-  const titleFeed = document.createElement('h4');
-  const footer = document.createElement('footer');
+  header.className = 'header';
+
+  const titleFeed = document.createElement('h1');
   titleFeed.textContent = 'Feed';
   titleFeed.className = 'titleFeed';
-  header.className = 'header';
+
   const img3 = document.createElement('img');
   img3.className = 'img3';
   img3.src = '../assets/img/logo-vitalhub.png';
   img3.alt = 'logo vitalHub';
+
+  const footer = document.createElement('footer');
+
   header.append(titleFeed, img3);
-  body.appendChild(header);
 
   const q = query(collection(db, 'Post'), orderBy('Date', 'desc'));
   const sectionPosts = document.createElement('section');
+  sectionPosts.className = 'sectionPosts';
   sectionPosts.append(addPost()); // addPost() imprime el textarea y submit
 
   const postsContainer = document.createElement('section');
@@ -40,7 +44,6 @@ function feed(navigateTo) {
       const datePost = document.createElement('p'); // fecha del post (cambiar formato)
       const postContent = document.createElement('p'); // contenido del post
       const userName = document.createElement('p'); // usuario que crea el post
-      // db.ref('users').child(userID).once('value')
 
       userName.textContent = doc.data().UserName;
       typePost.textContent = doc.data().Type;
@@ -127,11 +130,11 @@ function feed(navigateTo) {
 
     sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
     footer.appendChild(navigationBar(navigateTo));
-    body.append(sectionPosts, footer); // se añade contenedor padre a body
-    return body;
+    divTitle.append(header, sectionPosts, footer); // se añade contenedor padre a body
+    return divTitle;
   });
 
-  return body;
+  return divTitle;
 }
 
 export default feed;

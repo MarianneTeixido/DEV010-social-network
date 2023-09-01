@@ -41,24 +41,6 @@ function addPost() {
       }
       textarea.value = ''; // limpiar el contenido del textarea con el click en submit
     });
-    // prueba para editar post en el mismo textarea
-    // importar la opción seleccionada en una variable
-    // if (doc.data().UserName === auth.currentUser.displayName) {
-    //   const selectPost = document.createElement('select'); // mover esto a feed por cada post
-    //   const editOption = document.createElement('option'); // mover esto a feed por cada post
-    //   const deleteOption = document.createElement('option'); // mover esto a feed por cada post
-    //   selectPost.placeholder = '...'; // mover esto a feed por cada post
-    //   editOption.textContent = 'Edit post'; // mover esto a feed por cada post
-    //   deleteOption.textContent = 'Delete post'; // mover esto a feed por cada post
-    //   selectPost.append(editOption, deleteOption); // mover esto a feed por cada post
-
-    //   if (select.selectedIndex === 0) {
-    //     textarea.textContent = doc.data().Content;
-    //     submitButton.textContent = 'Save changes';
-    //     // updateDoc
-    //   }
-    // }
-    // termina prueba para editar post en el mismo textarea
     section.append(select, textarea, submitButton);
   } else {
     const p = document.createElement('p');

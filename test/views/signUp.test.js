@@ -12,6 +12,10 @@ jest.mock('../../src/lib/auth.js', () => ({
     new Promise((resolve) => {
       resolve({ name: 'marysela' });
     }),
+  updateCurrentUser: () =>
+    new Promise((resolve) => {
+      resolve(true);
+    }),
 }));
 
 /*

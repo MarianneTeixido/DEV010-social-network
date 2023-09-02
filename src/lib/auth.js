@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   sendPasswordResetEmail,
   signOut,
+  updateProfile,
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -75,24 +76,13 @@ const validateUserSession = (navigateTo) => {
   // Este observador de firebase nos sirve para validar si el usuario ya habia iniciado sesion
   // o ya se habia registrado, en este caso navegamos a feed.
   onAuthStateChanged(auth, (user) => {
-    if (user && window.location.pathname === '/feed') {
+    console.log('user:', user);
+    if (user) {
       // que no mande siempre a feed con usuario loggeado
       navigateTo('/feed');
-    } else if (!user && window.location.pathname === '/feed') {
-      // manda a login sin usuario loggeado en feed
-      alert('Please, sign in to see posts');
-      navigateTo('/login');
-    } else if (!user && window.location.pathname === '/recipes') {
-      // manda a login sin usuario loggeado en recetas
-      alert('Please, sign in to see posts');
-      navigateTo('/login');
-    } else if (!user && window.location.pathname === '/workout') {
-      // manda a login sin usuario loggeado en ejercicio
-      alert('Please, sign in to see posts');
-      navigateTo('/login');
-    } else if (!user && window.location.pathname === '/profile') {
+    } else {
       // manda a login sin usuario loggeado en perfil
-      alert('Please, sign in to see posts');
+      alert('Please, sign in to the app');
       navigateTo('/login');
     }
   });
@@ -110,20 +100,28 @@ const resetPasswordUser = async (email) => {
   }
 };
 
-// función para cierre de sesión, no testeada aún
-signOut(auth).then(() => { // función para cierre de sesión, no testeada aún
-  // Sign-out successful.
-}).catch((error) => {
-  console.log(error);
-  return alert('Something wrong happened, please try again.');
-});
-// termina función de cierre de sesión
+const signOutUser = async () => {
+  // función para cierre de sesión, no testeada aún
 
+  try {
+    // función para cierre de sesión, no testeada aún
+    return await signOut(auth);
+  } catch (error) {
+    return alert('Something wrong happened, please try again.');
+  }
+  // termina función de cierre de sesión
+};
+
+// Funcion para actualizar el usuario
+const updateCurrentUser = async (completeUserName) => {
+  await updateProfile(auth.currentUser, { displayName: completeUserName });
+};
 export {
   signUpUser,
   loginUser,
   loginWithGoogle,
   validateUserSession,
   resetPasswordUser,
-  signOut,
+  signOutUser,
+  updateCurrentUser,
 };

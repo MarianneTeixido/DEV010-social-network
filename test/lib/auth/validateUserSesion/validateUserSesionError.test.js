@@ -8,9 +8,7 @@ jest.mock('firebase/auth', () => {
     currentUser: null,
   };
 
-  const mockedUserInfo = Object.freeze({
-    email: 'example@example.com',
-  });
+  const mockedUserInfo = Object.freeze({});
 
   // container for attached callbacks and state variables
   const authChangeCallbacks = [];
@@ -21,7 +19,7 @@ jest.mock('firebase/auth', () => {
     authInstance.currentUser = authCurrentUserInfo;
     authChangeCallbacks.forEach((cb) => {
       try {
-        cb(mockedUserInfo); // invoke any active listeners
+        cb(undefined); // invoke any active listeners
       } catch (err) {
         console.error('Error invoking callback', err);
       }
@@ -44,7 +42,7 @@ jest.mock('firebase/auth', () => {
 
 global.console = { log: jest.fn() };
 describe('lib auth', () => {
-  it('validateUserSession user exists', () => {
+  it('validateUserSession user no exists', () => {
     const navigateTo = jest.fn();
     const user = validateUserSession(navigateTo);
     expect(user).toBeUndefined();

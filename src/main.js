@@ -44,8 +44,8 @@ function navigateTo(hash) {
       root.removeChild(root.firstChild);
     }
     root.appendChild(route.component(navigateTo));
-    // } // else {
-    //   navigateTo('/error');
+  } else {
+    navigateTo('/error');
   }
 }
 

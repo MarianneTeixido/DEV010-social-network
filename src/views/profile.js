@@ -1,4 +1,7 @@
+import { signOut } from 'firebase/auth';
 import navigationBar from './navigationBar';
+import { auth } from '../firebase';
+import filter from './filter';
 
 function profile(navigateTo) {
   const profileContainer = document.createElement('div');

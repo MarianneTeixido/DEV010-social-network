@@ -16,7 +16,7 @@ function addPost() {
     console.log(userID);
 
     const select = document.createElement('select'); // para seleccionar tipo de post
-    select.className = 'sizeSelect';
+    select.placeholder = 'Choose one';
     const option1 = document.createElement('option');
     option1.textContent = 'Recipe';
     option1.value = 'Recipe';
@@ -46,7 +46,6 @@ function addPost() {
       } else {
         alert('Please, write something to continue');
       }
-
       textarea.value = ''; // limpiar el contenido del textarea con el click en submit
     });
     section.append(select, textarea, submitButton);

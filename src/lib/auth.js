@@ -85,6 +85,18 @@ const validateUserSession = (navigateTo) => {
       // que no mande siempre a login sin usuario logeado
       alert('Please, sign in to see posts');
       navigateTo('/login');
+    } else if (!user && window.location.pathname === '/recipes') {
+      // que no mande siempre a login sin usuario logeado
+      alert('Please, sign in to see posts');
+      navigateTo('/login');
+    } else if (!user && window.location.pathname === '/workout') {
+      // que no mande siempre a login sin usuario logeado
+      alert('Please, sign in to see posts');
+      navigateTo('/login');
+    } else if (!user && window.location.pathname === '/profile') {
+      // que no mande siempre a login sin usuario logeado
+      alert('Please, sign in to see posts');
+      navigateTo('/login');
     }
   });
 };

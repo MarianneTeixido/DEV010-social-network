@@ -47,7 +47,7 @@ function feed(navigateTo) {
 
       userName.textContent = doc.data().UserName;
       typePost.textContent = doc.data().Type;
-      datePost.textContent = doc.data().Date;
+      datePost.textContent = doc.data().Date.toDate().toLocaleDateString();
       postContent.textContent = doc.data().Content;
 
       const likeButton = document.createElement('img');

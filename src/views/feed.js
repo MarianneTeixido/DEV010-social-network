@@ -14,7 +14,7 @@ function feed(navigateTo) {
   const divTitle = document.createElement('section');
   divTitle.classList.add('divTitle');
   const header = document.createElement('header'); // header del feed
-  header.className = 'header';
+  header.classList.add('header');
 
   const titleFeed = document.createElement('h1');
   titleFeed.textContent = 'Feed';

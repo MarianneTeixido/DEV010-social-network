@@ -84,13 +84,15 @@ p {
   .titles {
     width: 100%;
     max-width: 40%;
-    height: 100vh;
-    display: flex;
+    height: 90vh;
+    /* display: flex;
     justify-content: center;
     margin: 0 auto;
     flex-direction: column;
-    align-items: center;
+    align-items: center; */
     margin-top: 10px;
+    margin-left: 30%;
+    position: fixed;
   }
   #button {
     width: 5vw;
@@ -209,12 +211,13 @@ input {
   .contraseña-container {
     width: 100%;
     max-width: 40%;
-    height: 100vh;
-    position: relative;
+    height: 90vh;
+    position: fixed;
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
+    margin-left: 30%;
   }
   .fa-user {
     font-size: 3vw;
@@ -309,6 +312,15 @@ input {
 /* Termina estilos de signup */
 /* Responsive  signup*/
 @media (min-width: 768px) {
+  .container-input{
+    width: 100%;
+    max-width: 40%;
+    height: 100vh;
+    position: fixed;
+    border-radius: 8px;
+    margin-top: 10px;
+    margin-left: 30%;
+  }
   .title {
     font-size: 3vw;
     margin-top: 60px;
@@ -499,3 +511,79 @@ footer {
     height: 100%;
   }
 }
+
+/* ---------------------------Estilos de Profile --------------------*/
+.profile-container {
+  width: 100%;
+  max-width: 400px;
+  height: 90vh;
+  border: 1px solid #e5e8e8;
+  background: #f8f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.profile-title {
+ position: absolute;
+ left: 0;
+}
+.signOut {
+  position: absolute;
+  top: 30px;
+  right: 50px;
+  width: 100%;
+  max-width: 60px;
+  height: 5vh;
+  border: none;
+  border-radius: 8px;
+  background-color: #00bcd4;
+  cursor: pointer;
+}
+.img4 {
+  max-width: 130px;
+  margin-top: 80px;
+}
+.name-profile {
+  margin-top: 20px;
+  color: #00bcd4;
+}
+.email {
+  width: 300px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 1px solid black;
+  text-align: center;
+  background: transparent;
+}
+
+/* ---------Tamaño Desktop ----------- */
+@media (min-width: 768px) {
+  .profile-container {
+    width: 100%;
+    max-width: 40%;
+    height: 90vh;
+    border: 1px solid #e5e8e8;
+    background: #f8f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  .profile-title {
+    position: absolute;
+    font-size: 1.8rem;
+    left: 0;
+   }
+   .name-profile{
+font-size: 1.5rem;
+   }
+} 

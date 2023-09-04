@@ -1,22 +1,4 @@
 function home(navigateTo) {
-  // <section class="section-home">
-  //     <div class="titles ">
-  //     <button id="button">SKIP</button>
-  //     <h2 class="welcome">¡Welcome to VitalHub!</h2>
-  //     <div>
-  //       <img
-  //         class="img"
-  //         src="./assets/img/entrenando-azul.png"
-  //         alt="imagen entrenando-azul"
-  //       />
-  //     </div>
-  //     <h3>Because we belive in banlance ...</h3>
-  //     <p>Share your recipes and exercise routines in a healthy environment.</p>
-
-  //   </div>
-  //   </section>
-  // const section = document.createElement('section');
-  // section.classList.add('section-home');
   const divTitle = document.createElement('div');
   divTitle.classList.add('titles');
   const img3 = document.createElement('img');

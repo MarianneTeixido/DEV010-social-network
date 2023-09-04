@@ -9,7 +9,7 @@ import resetPassword from './views/resetPassword';
 import recipes from './views/recipes';
 import workout from './views/workout';
 import profile from './views/profile';
-import { validateUserSession } from './lib/auth';
+// import { validateUserSession } from './lib/auth';
 import navigationBar from './views/navigationBar';
 
 /* -------------Navegación----------------------------------------*/
@@ -62,4 +62,4 @@ window.onpopstate = () => {
 navigateTo(window.location.pathname || defaultRoute);
 
 // Observador de la sesion del usuario
-validateUserSession(navigateTo);
+// validateUserSession(navigateTo);

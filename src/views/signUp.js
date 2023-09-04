@@ -1,6 +1,5 @@
 import { signUpUser, updateCurrentUser } from '../lib/auth';
 
-// file error.js
 function signUp(navigateTo) {
   const divContainer = document.createElement('div');
   divContainer.classList.add('container-input');

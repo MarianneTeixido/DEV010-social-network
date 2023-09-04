@@ -82,8 +82,8 @@ const validateUserSession = (navigateTo) => {
       navigateTo('/feed');
     } else {
       // manda a login sin usuario loggeado en perfil
-      alert('Please, sign in to the app');
-      navigateTo('/login');
+      // alert('Please, sign in to the app');
+      navigateTo('/');
     }
   });
 };

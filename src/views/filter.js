@@ -32,7 +32,7 @@ function filter() {
 
           userName.textContent = doc.data().UserName;
           typePost.textContent = doc.data().Type;
-          datePost.textContent = doc.data().Date;
+          datePost.textContent = doc.data().Date.toDate().toLocaleDateString();
           postContent.textContent = doc.data().Content;
 
           onePost.append(userName, typePost, datePost, postContent);
@@ -84,7 +84,7 @@ function filter() {
 
           userName.textContent = doc.data().UserName;
           typePost.textContent = doc.data().Type;
-          datePost.textContent = doc.data().Date;
+          datePost.textContent = doc.data().Date.toDate().toLocaleDateString();
           postContent.textContent = doc.data().Content;
 
           onePost.append(userName, typePost, datePost, postContent);

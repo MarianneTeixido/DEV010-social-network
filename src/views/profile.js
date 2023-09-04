@@ -4,8 +4,8 @@ import { auth } from '../firebase';
 import filter from './filter';
 
 function profile(navigateTo) {
-  const divTitle = document.createElement('section');
-  divTitle.className = 'divTitle';
+  const profileContainer = document.createElement('section');
+  profileContainer.className = 'profileContainer';
   const header = document.createElement('header');
   const title = document.createElement('h1');
   const logoutButton = document.createElement('button');
@@ -24,8 +24,8 @@ function profile(navigateTo) {
   header.append(title, logoutButton);
   const footer = document.createElement('footer');
   footer.appendChild(navigationBar(navigateTo));
-  divTitle.append(header, filter(), footer);
-  return divTitle;
+  profileContainer.append(header, filter(), footer);
+  return profileContainer;
 }
 
 export default profile;

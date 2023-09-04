@@ -1,33 +1,6 @@
 import { resetPasswordUser } from '../lib/auth';
 
 function resetPassword(navigateTo) {
-  //   <div class="contraseña-container">
-  //    <img
-  //    class="img1"
-  //    src="../assets/img/logo-vitalhub (1)2.png"
-  //    alt="imagen logo red social"
-  //    />
-  //     <p class="subtitle">
-  //       ¿Olvidaste tu contraseña? No te preocupes, es posible recuperarla.
-  //     </p>
-  //     <form id="contraseña-form" data-testid="form-reset">
-  //       <label class="label-password">Email</label>
-  //       <input
-  //         id="reset-password"
-  //         type="email"
-  //         name="email"
-  //         placeholder="White your email"
-  //         data-testid="input-reset"
-  //         required
-  //       />
-  //       <button class="button-contraseña" type="submit">
-  //         Recuperar Contraseña
-  //       </button>
-  //       <p>
-  //         <a href="">Olvidalo, la he recordado</a>
-  //       </p>
-  //     </form>
-  //   </div>;
   const contraseñaContainer = document.createElement('div');
   contraseñaContainer.classList.add('contraseña-container');
   const img = document.createElement('img');

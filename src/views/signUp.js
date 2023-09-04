@@ -1,8 +1,5 @@
-import { updateProfile } from '@firebase/auth';
-import { signUpUser } from '../lib/auth';
-import { auth } from '../firebase';
+import { signUpUser, updateCurrentUser } from '../lib/auth';
 
-// file error.js
 function signUp(navigateTo) {
   const divContainer = document.createElement('div');
   divContainer.classList.add('container-input');
@@ -47,7 +44,9 @@ function signUp(navigateTo) {
     'input[name="confirmPassword"]',
   );
   const inputUserName = divContainer.querySelector('input[name="name"]');
-  const inputUserLastName = divContainer.querySelector('input[name="lastName"]');
+  const inputUserLastName = divContainer.querySelector(
+    'input[name="lastName"]',
+  );
 
   const formInput = divContainer.querySelector('.form-input');
   formInput.addEventListener('submit', async (e) => {
@@ -72,7 +71,7 @@ function signUp(navigateTo) {
     const newUser = await signUpUser(emailValue, passwordValue);
     if (newUser !== undefined) {
       // navigateTo('/feed');
-      await updateProfile(auth.currentUser, { displayName: completeUserName });
+      await updateCurrentUser(completeUserName);
       alert('Now, you are signed up, please login to continue');
       navigateTo('/login'); // navega a login para que el usuario inicie sesión
     }

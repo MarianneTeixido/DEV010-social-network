@@ -1,4 +1,4 @@
-import { validateUserSession } from '../../../../src/lib/auth';
+import { updateCurrentUser } from '../../../src/lib/auth';
 
 /**
  * Firebase Auth Module
@@ -35,18 +35,19 @@ jest.mock('firebase/auth', () => {
   };
 
   return {
+    // Mock para currentUser
     getAuth: jest.fn(() => authInstance),
     onAuthStateChanged: jest.fn((authMock, onChangeCallback) => {
       onChangeCallback(mockedUserInfo);
     }),
+    // mock para updateProfile
+    updateProfile: () => new Promise((resolve) => resolve(true)),
   };
 });
 
-global.console = { log: jest.fn() };
 describe('lib auth', () => {
-  it('validateUserSession user exists', () => {
-    const navigateTo = jest.fn();
-    const user = validateUserSession(navigateTo);
-    expect(user).toBeUndefined();
+  it('updateCurrentUser', () => {
+    const user = updateCurrentUser();
+    expect(user).not.toBeUndefined();
   });
 });

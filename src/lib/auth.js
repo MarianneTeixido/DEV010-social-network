@@ -5,6 +5,7 @@ import {
   signInWithEmailAndPassword,
   signInWithPopup,
   sendPasswordResetEmail,
+  signOut,
 } from 'firebase/auth';
 import { auth } from '../firebase';
 
@@ -75,10 +76,22 @@ const validateUserSession = (navigateTo) => {
   // o ya se habia registrado, en este caso navegamos a feed.
   onAuthStateChanged(auth, (user) => {
     if (user && window.location.pathname === '/feed') {
-      // que no mande siempre a feed con usuario logeado
+      // que no mande siempre a feed con usuario loggeado
       navigateTo('/feed');
     } else if (!user && window.location.pathname === '/feed') {
-      // que no mande siempre a login sin usuario logeado
+      // manda a login sin usuario loggeado en feed
+      alert('Please, sign in to see posts');
+      navigateTo('/login');
+    } else if (!user && window.location.pathname === '/recipes') {
+      // manda a login sin usuario loggeado en recetas
+      alert('Please, sign in to see posts');
+      navigateTo('/login');
+    } else if (!user && window.location.pathname === '/workout') {
+      // manda a login sin usuario loggeado en ejercicio
+      alert('Please, sign in to see posts');
+      navigateTo('/login');
+    } else if (!user && window.location.pathname === '/profile') {
+      // manda a login sin usuario loggeado en perfil
       alert('Please, sign in to see posts');
       navigateTo('/login');
     }
@@ -96,10 +109,21 @@ const resetPasswordUser = async (email) => {
     return undefined;
   }
 };
+
+// función para cierre de sesión, no testeada aún
+signOut(auth).then(() => { // función para cierre de sesión, no testeada aún
+  // Sign-out successful.
+}).catch((error) => {
+  console.log(error);
+  return alert('Something wrong happened, please try again.');
+});
+// termina función de cierre de sesión
+
 export {
   signUpUser,
   loginUser,
   loginWithGoogle,
   validateUserSession,
   resetPasswordUser,
+  signOut,
 };

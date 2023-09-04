@@ -11,10 +11,16 @@ import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
-  const divTitle = document.createElement('section');
-  divTitle.classList.add('divTitle');
-  const header = document.createElement('header'); // header del feed
-  header.className = 'header';
+  const user = auth.currentUser; // usuario loggeado
+  const divTitle = document.createElement('divTitle'); // body del feed
+  if (!user) {
+    alert('Log in to see posts');
+    navigateTo('/login');
+  } else {
+    const currentUserName = user.displayName; // nombre el usuario loggeado
+    divTitle.classList.add('divTitle');
+    const header = document.createElement('header'); // header del feed
+    header.className = 'header';
 
   const titleFeed = document.createElement('h1');
   titleFeed.textContent = 'Feed';
@@ -79,12 +85,86 @@ function feed(navigateTo) {
         // likesCountElement.textContent = (currentLikes + 1).toString();
       });
 
-      const postLikeContainer = document.createElement('section');
-      onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post indiv
-      postLikeContainer.append(onePost, likeContainer);
-      postsContainer.append(postLikeContainer); // se añaden posts individuales a section
-    });
+        const likeContainer = document.createElement('section');
+        likeContainer.className = 'likeContainer';
+        likeContainer.append(likeButton);
 
+        likeButton.addEventListener('click', () => {
+        // Aquí implementar la lógica para incrementar un contador de likes
+        });
+
+        // empieza editar y borrar posts
+        // const currentUserName = user.displayName;
+        if (doc.data().UserName === currentUserName) { // si el post pertenece al usuario loggeado
+          const selectPost = document.createElement('select'); // desplegable
+          const editOption = document.createElement('option'); // opción de editar
+          const deleteOption = document.createElement('option'); // opción de borrar
+          const placeholderOption = document.createElement('option'); // placeholder
+          placeholderOption.textContent = '...';
+          editOption.textContent = 'Edit post';
+          deleteOption.textContent = 'Delete post';
+
+          selectPost.append(placeholderOption, editOption, deleteOption); // opciones al select
+          onePost.append(selectPost); // se añade desplegable a cada post
+
+          selectPost.addEventListener('change', () => { // listener para el desplegable
+            if (selectPost.selectedIndex === 1) { // cuando se elige editar
+              const editSection = document.createElement('section');
+              editSection.className = 'editSection';
+              const textarea = document.createElement('textarea'); // crea textarea en el post
+              const saveButton = document.createElement('button'); // botón de guardar
+              textarea.textContent = doc.data().Content; // se coloca contenido del post en textarea
+              saveButton.textContent = 'Save changes';
+              editSection.append(textarea, saveButton);
+              onePost.append(editSection); // se añaden botón y textarea al post en cuestión
+
+              saveButton.addEventListener('click', async () => { // listener botón de guardar
+                await updateDoc(doc.ref, { Content: textarea.value }); // se actualiza el contenido
+                // await doc.updateDoc({ Content: textarea.value });
+                onePost.removeChild(editSection); // se elimina textarea y botón del post
+                selectPost.selectedIndex = 0; // se regresa el desplegable a la opción '...'
+              });
+            } else if (selectPost.selectedIndex === 2) { // cuando se elige borrar
+              const dialog = document.createElement('dialog'); // se crea diálogo
+              const p = document.createElement('p'); // texto del diálogo
+              p.textContent = 'Are you sure you want to delete this post?';
+              const deleteButton = document.createElement('button'); // botón de borrar
+              deleteButton.textContent = 'Yes';
+              const cancelButton = document.createElement('button'); // botón cancelar
+              cancelButton.textContent = 'Cancel';
+              dialog.append(p, deleteButton, cancelButton);
+              postsContainer.appendChild(dialog);
+              dialog.showModal(); // se cierra el modal (diálogo)
+
+              deleteButton.addEventListener('click', async (e) => { // botón de borrar
+                e.preventDefault();
+                await deleteDoc(doc.ref); // se borra el documento de la colección
+                onePost.remove(); // se borra post de la view
+                dialog.close(); // se cierra el diálogo
+              });
+
+              cancelButton.addEventListener('click', (e) => { // botón de cancelar
+                e.preventDefault();
+                dialog.close(); // sólo se cierra el diálogo
+              });
+            }
+          });
+        }
+        // termina editar y borrar posts
+
+        const postLikeContainer = document.createElement('section');
+        onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post ind
+        postLikeContainer.append(onePost, likeContainer);
+        postsContainer.append(postLikeContainer); // se añaden posts individuales a section
+      });
+
+      sectionPosts.appendChild(postsContainer); // se añade contenedor de posts
+      footer.appendChild(navigationBar(navigateTo));
+      divTitle.append(header, sectionPosts, footer); // se añade contenedor padre a body
+      // return divTitle;
+    });
+    // return divTitle;
+  }
     // console.log(posts);
     sectionPosts.append(postsContainer); // se añade contenedor de posts
     footer.appendChild(navigationBar(navigateTo));

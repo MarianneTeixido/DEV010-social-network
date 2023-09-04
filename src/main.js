@@ -40,9 +40,15 @@ function navigateTo(hash) {
       window.location.origin + route.path,
     );
 
-    if (root.firstChild) {
-      root.removeChild(root.firstChild);
+    // Mientras la nueva ruta tenga hijos o nodos, borralos todos y agrega un nuevo y unico hijo
+    while (root.firstChild) {
+      root.firstChild.remove();
     }
+    // if (root.firstChild) {
+    //   root.removeChild(root.firstChild);
+    // }
+
+    // Agrega la nueva ruta
     root.appendChild(route.component(navigateTo));
   } else {
     navigateTo('/error');

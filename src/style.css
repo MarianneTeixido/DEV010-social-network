@@ -312,7 +312,7 @@ input {
 /* Termina estilos de signup */
 /* Responsive  signup*/
 @media (min-width: 768px) {
-  .container-input{
+  .container-input {
     width: 100%;
     max-width: 40%;
     height: 100vh;
@@ -344,7 +344,7 @@ input {
 }
 
 .sectionPosts {
-  margin: 5%;
+  margin: 3%;
   height: 100%;
 }
 
@@ -412,40 +412,38 @@ input {
   flex-direction: column;
 }
 
-.sizeSelect {
+.sectionPosts select {
+  margin-left: 63%;
   width: 100%;
-  max-width: 90px;
-  height: 40px;
-  margin-left: 70%;
+  max-width: 100px;
+  height: 30px;
   font-size: 16px;
+  border-radius: 6px;
 }
 
 .sizeSelect:hover {
   background-color: #00bcd4;
-  width: 100%;
-  max-width: 90px;
-  height: 40px;
-  margin-left: 70%;
   color: white;
 }
 
 .sizeButton {
   width: 100%;
-  max-width: 90px;
-  height: 40px;
-  margin-left: 70%;
+  max-width: 100px;
+  height: 30px;
+  margin-left: 63%;
   font-size: 16px;
+  border-radius: 6px;
+  border: none;
+  background-color: #00bcd4;
+  cursor: pointer;
 }
 .textPost {
   margin: 10px;
-  /* margin-bottom: 50px; */
   padding: 10px;
   width: 95%;
   height: 80px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
-  font-size: 20px;
+  border: 1px solid grey;
+  font-size: 16px;
 }
 
 .textPost::placeholder {
@@ -516,7 +514,7 @@ footer {
 .profile-container {
   width: 100%;
   max-width: 400px;
-  height: 90vh;
+  height: 100%;
   border: 1px solid #e5e8e8;
   background: #f8f9f9;
   border-radius: 8px;
@@ -528,8 +526,8 @@ footer {
   flex-direction: column;
 }
 .profile-title {
- position: absolute;
- left: 0;
+  position: absolute;
+  left: 0;
 }
 .boton-signOut {
   position: absolute;
@@ -567,7 +565,7 @@ footer {
   .profile-container {
     width: 100%;
     max-width: 40%;
-    height: 90vh;
+    height: 100%;
     border: 1px solid #e5e8e8;
     background: #f8f9f9;
     border-radius: 8px;
@@ -582,8 +580,47 @@ footer {
     position: absolute;
     font-size: 1.8rem;
     left: 0;
-   }
-   .name-profile{
-font-size: 1.5rem;
-   }
-} 
+  }
+  .name-profile {
+    font-size: 1.5rem;
+  }
+}
+
+
+/* ---------Tamaño Desktop RecipesContainer ----------- */
+@media (min-width: 768px) {
+  .recipes-container {
+    width: 100%;
+    max-width: 40%;
+    height: 100%;
+    border: 1px solid #e5e8e8;
+    background: #f8f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    
+  }
+  
+}
+
+/* ---------Tamaño Desktop sectionWorkout ----------- */
+@media (min-width: 768px) {
+  .section-workout {
+    width: 100%;
+    max-width: 40%;
+    height: 100%;
+    border: 1px solid #e5e8e8;
+    background: #f8f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+}

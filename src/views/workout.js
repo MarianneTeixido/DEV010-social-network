@@ -4,7 +4,8 @@ import filter from './filter';
 
 function workout(navigateTo) {
   const user = auth.currentUser;
-  const section = document.createElement('section');
+  const sectionWorkout = document.createElement('section');
+  sectionWorkout.classList.add('section-workout');
   if (!user) {
     alert('Log in to see posts');
     navigateTo('/login');
@@ -15,9 +16,9 @@ function workout(navigateTo) {
     header.appendChild(title);
     const footer = document.createElement('footer');
     footer.appendChild(navigationBar(navigateTo));
-    section.append(header, filter(), footer);
+    sectionWorkout.append(header, filter(), footer);
   }
-  return section;
+  return sectionWorkout;
 }
 
 export default workout;

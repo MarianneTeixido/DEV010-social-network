@@ -11,7 +11,7 @@ function resetPassword(navigateTo) {
   const subtitle = document.createElement('p');
   subtitle.classList.add('subtitle');
   subtitle.textContent =
-    '¿Olvidaste tu contraseña? No te preocupes, es posible recuperarla.';
+    'Did you forget your password? Do not worry, we can help you!';
   contraseñaContainer.appendChild(subtitle);
   const form = document.createElement('form');
   form.setAttribute('id', 'contraseña-form');
@@ -31,11 +31,11 @@ function resetPassword(navigateTo) {
   const buttonContraseña = document.createElement('button');
   buttonContraseña.classList.add('button-contraseña');
   buttonContraseña.setAttribute('type', 'submit');
-  buttonContraseña.textContent = 'Recuperar Contraseña';
+  buttonContraseña.textContent = 'Recover my password';
   form.appendChild(buttonContraseña);
   const p = document.createElement('p');
   const a = document.createElement('a');
-  a.textContent = 'Olvidalo, la he recordado';
+  a.textContent = 'I remembered my password';
   a.addEventListener('click', () => {
     navigateTo('/login');
   });
@@ -48,11 +48,11 @@ function resetPassword(navigateTo) {
     const passwordReset = await resetPasswordUser(input.value);
     // Si todo sale bien navegamos al login
     if (passwordReset !== undefined) {
-      alert('Hemos enviado un link a tu correo para recuperar tu contraseña');
+      alert('We have sent a link to your email for recover your password');
       navigateTo('/login');
     } else {
       // Si hubo un error reseteamos el formulario
-      alert('Hubo un error al recuperar tu contraseña');
+      alert('Oh, no! Please try again');
       form.reset();
     }
   });

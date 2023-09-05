@@ -14,6 +14,8 @@ import navigationBar from './navigationBar.js';
 function feed(navigateTo) {
   // Usamos el operador ternario para que no marque error cuando user sea nullo
   const user = auth?.currentUser; // usuario loggeado
+  const userID = user.uid;
+  console.log(userID);
   const divTitle = document.createElement('div'); // body del feed o contenedor padre
 
   const currentUserName = user?.displayName; // nombre el usuario loggeado
@@ -68,16 +70,34 @@ function feed(navigateTo) {
 
       const likesText = document.createElement('span');
       const likesCount = document.createElement('span');
-      likesCount.textContent = '0';
       likesText.textContent = ' Likes';
+      const likesArray = doc.data().Likes;
 
       const likeContainer = document.createElement('section');
-      likeContainer.classList.add('likeContainer');
-      likeContainer.append(likeButton);
+      if (!likesArray) {
+        likesCount.textContent = '0';
+      }
 
-      likeButton.addEventListener('click', () => {
-        // Aquí implementar la lógica para incrementar un contador de likes
-      });
+      // likeButton.addEventListener('click', async (e) => {
+      //   e.preventDefault();
+      //   // eslint-disable-next-line no-plusplus
+      //   if (doc.data().Likes.includes(userID) === true) { // si el usuario ya dio like
+      //    await updateDoc(doc.ref, { Likes: likesArray.filter((element) => element !== userID) });
+      //     console.log(doc.data.Likes());
+      //     console.log(doc.data.Likes().length);
+      //     likesCount.textContent = doc.data.Likes().length; // se actualiza el textcontent
+      //   } else { // si el usuario no ha dado like
+      //     // likesArray.push(userID); // se añade userID a array de likes del post
+      //     await updateDoc(doc.ref, { Likes: likesArray.push(userID) });
+      //     console.log(doc.data.Likes());
+      //     console.log(doc.data.Likes().length);
+      //     likesCount.textContent = doc.data.Likes().length; // se actualiza textcontent
+      //   }
+      //   // Aquí implementar la lógica para incrementar un contador de likes
+      // });
+
+      likeContainer.classList.add('likeContainer');
+      likeContainer.append(likeButton, likesCount);
 
       // empieza editar y borrar posts
       // const currentUserName = user.displayName;

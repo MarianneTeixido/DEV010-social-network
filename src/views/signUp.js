@@ -4,7 +4,7 @@ function signUp(navigateTo) {
   const divContainer = document.createElement('div');
   divContainer.classList.add('container-input');
   divContainer.innerHTML = `
-    <button class="return">Volver</button>
+    <button class="return">Back</button>
     <img
     class="img2"
         src="../assets/img/logo-vitalhub (1)2.png" 

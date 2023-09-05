@@ -1,11 +1,11 @@
 function home(navigateTo) {
-  const divTitle = document.createElement('div');
-  divTitle.classList.add('titles');
+  const homeContainer = document.createElement('div');
+  homeContainer.classList.add('home-container');
   const img3 = document.createElement('img');
-  img3.classList.add('img2');
+  img3.classList.add('img3');
   img3.src = '../assets/img/logo-vitalhub.png';
   img3.alt = 'logo vitalHub';
-  divTitle.appendChild(img3);
+  homeContainer.appendChild(img3);
   const button = document.createElement('button');
   button.setAttribute('id', 'button');
   button.innerHTML = 'SKIP';
@@ -19,7 +19,7 @@ function home(navigateTo) {
   const divImg = document.createElement('div');
   const img = document.createElement('img');
   img.classList.add('img');
-  img.src = '../assets/img/entrenando-azul.png';
+  img.src = '../assets/img/img-home.jpg';
   img.alt = 'imagen entrenando-azul';
 
   const homeText = document.createElement('h3');
@@ -28,9 +28,9 @@ function home(navigateTo) {
   homeText2.innerHTML =
     'Share your recipes and exercise routines in a healthy environment.';
   divImg.appendChild(img);
-  divTitle.append(button, welcome, divImg, homeText, homeText2);
+  homeContainer.append(button, welcome, divImg, homeText, homeText2);
 
-  return divTitle;
+  return homeContainer;
 }
 
 export default home;

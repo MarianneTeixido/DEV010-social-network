@@ -15,16 +15,20 @@ function recipes(navigateTo) {
     const titleRecipes = document.createElement('h1');
     titleRecipes.classList.add('title-recipes');
     titleRecipes.textContent = 'Recipes';
-    const img5 = document.createElement('img');
-    img5.classList.add('img');
-    img5.src = '../assets/img/logo-vitalhub.png';
+    const img3 = document.createElement('img');
+    img3.classList.add('img3');
+    img3.src = '../assets/img/logo-vitalhub.png';
     // img3.setAtributte('src', '../assets/img/logo-vitalhub.png')
-    img5.alt = 'logo vitalHub';
+    img3.alt = 'logo vitalHub';
     // img3.setAtributte('alt', 'logo vitalHub')
-    headerRecipes.append(titleRecipes, img5);
+    headerRecipes.append(titleRecipes, img3);
+    const img5 = document.createElement('img');
+    img5.classList.add('img5');
+    img5.src = '../assets/img/recipe.png';
+    img5.alt = 'img recipe';
     const footer = document.createElement('footer');
     footer.appendChild(navigationBar(navigateTo));
-    recipesContainer.append(headerRecipes, filter(), footer);
+    recipesContainer.append(headerRecipes, img5, filter(), footer);
   }
   return recipesContainer;
 }

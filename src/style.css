@@ -9,7 +9,8 @@
   box-sizing: border-box;
 }
 
-.titles {
+
+.home-container {
   width: 100%;
   max-width: 400px;
   height: 100vh;
@@ -28,7 +29,7 @@
 #button {
   width: 15vw;
   height: 5vh;
-  left: 70%;
+  left: 80%;
   top: 20px;
   border-radius: 10px;
   background-color: #00bcd4;
@@ -37,16 +38,21 @@
   border: none;
   cursor: pointer;
 }
+.home-container .img3{
+  position: absolute;
+  top: 0;
+  left: 0;
+}
 
 h2,
 h3 {
-  font-size: 8vw;
+  font-size: 7vw;
   padding: 30px;
   color: #00bcd4;
 }
 .welcome {
   color: #00bcd4;
-  font-size: 10vw;
+  font-size: 8vw;
 }
 p {
   font-size: 5vw;
@@ -60,6 +66,7 @@ p {
   padding: 0 10% 0 10%;
   object-fit: cover;
 }
+
 
 /* Responsive  Desktop*/
 @media (min-width: 768px) {
@@ -77,20 +84,12 @@ p {
     font-size: 1.5vw;
     margin-top: 20px;
   }
-  .section-home {
-    width: 100%;
-    height: auto;
-  }
-  .titles {
+ 
+  .home-container {
     width: 100%;
     max-width: 40%;
     height: 90vh;
-    /* display: flex;
-    justify-content: center;
-    margin: 0 auto;
-    flex-direction: column;
-    align-items: center; */
-    margin-top: 10px;
+    margin-top: 40px;
     margin-left: 30%;
     position: fixed;
   }
@@ -216,7 +215,7 @@ input {
     border-radius: 8px;
     display: flex;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 40px;
     margin-left: 30%;
   }
   .fa-user {
@@ -358,6 +357,7 @@ input {
   position: absolute;
   top: 30px;
   left: 20px;
+  color: #00bcd4;
 }
 
 .individual-post {
@@ -403,6 +403,7 @@ input {
     background: #f8f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    
   }
 }
 
@@ -462,9 +463,7 @@ input {
 
 /*------------------ footer -------------------*/
 /*Provisional, previsualización de la barra de navegación*/
-body {
-  margin-bottom: 20%; /* para que no se encima la navigation bar con el final del body en las views*/
-}
+
 
 footer {
   position: fixed;
@@ -575,6 +574,7 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-left: 30%;
   }
   .profile-title {
     position: absolute;
@@ -585,7 +585,27 @@ footer {
     font-size: 1.5rem;
   }
 }
-
+/* -----------Estilos de RecipesContainer----------*/
+.header-recipes {
+  position: relative;
+  width: 100%;
+  height: 80px;
+}
+ .title-recipes {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  font-size: 1.8rem;
+  color: #00bcd4;
+}
+.img5{
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  padding: 0 10% 0 10%;
+  object-fit: cover;
+}
+ 
 
 /* ---------Tamaño Desktop RecipesContainer ----------- */
 @media (min-width: 768px) {
@@ -602,9 +622,43 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
-    
+    margin-left: 30%;
   }
-  
+}
+/* -----------Estilos de SectionWorkout----------*/
+.section-workout{
+  width: 100%;
+  max-width: 400px;
+  height: 100%;
+  border: 1px solid #e5e8e8;
+  background: #f8f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.header-workout {
+  position: relative;
+  width: 100%;
+  height: 80px;
+
+}
+ .title-workout {
+  position: absolute;
+  top: 22px;
+  left: 20px;
+  font-size: 1.8rem;
+  color: #00bcd4;
+}
+.img6{
+  width: 100%;
+  height: auto;
+  margin-top: 30px;
+  padding: 0 10% 0 10%;
+  object-fit: cover;
 }
 
 /* ---------Tamaño Desktop sectionWorkout ----------- */
@@ -622,5 +676,6 @@ footer {
     display: flex;
     align-items: center;
     flex-direction: column;
+    margin-left: 30%;
   }
 }

@@ -37,7 +37,7 @@ describe('view signUp', () => {
     // Referenciamos una nueva variable button con getByText, usando testing-library
     // La funcion getByText recibe un contenedor que es todo nuestro signUp del DOM
     // y un texto por el cual buscar, buscamos el button llamado Volver
-    const button = getByText(container, 'Volver');
+    const button = getByText(container, 'Back');
     // Utilizamos fireEvent para lanzar un evento de tipo click, aplicamos este evento al button
     fireEvent(button, new MouseEvent('click', {}));
     expect(container).not.toBeUndefined();

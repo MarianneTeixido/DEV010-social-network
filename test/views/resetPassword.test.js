@@ -32,7 +32,7 @@ describe('view resetPassword', () => {
     // Referenciamos una nueva variable button con getByText, usando testing-library
     // La funcion getByText recibe un contenedor que es todo nuestro signUp del DOM
     // y un texto por el cual buscar, buscamos el button llamado Volver
-    const button = getByText(container, 'Olvidalo, la he recordado');
+    const button = getByText(container, 'I remembered my password');
     // Utilizamos fireEvent para lanzar un evento de tipo click, aplicamos este evento al button
     fireEvent(button, new MouseEvent('click', {}));
     expect(container).not.toBeUndefined();

@@ -38,7 +38,15 @@
   border: none;
   cursor: pointer;
 }
-.home-container .img3{
+.img3 {
+  width: 100%;
+  max-width: 80px;
+  height: auto;
+  position: absolute;
+  object-fit: cover;
+  right: 8%;
+}
+.home-container .img3 {
   position: absolute;
   top: 0;
   left: 0;
@@ -367,14 +375,7 @@ input {
   border-style: solid;
   border-color: black;
 }
-.img3 {
-  width: 100%;
-  max-width: 80px;
-  height: auto;
-  position: absolute;
-  object-fit: cover;
-  right: 8%;
-}
+
 
 .likeButton {
   width: 100%;
@@ -420,6 +421,7 @@ input {
   height: 30px;
   font-size: 16px;
   border-radius: 6px;
+  border: 1px solid #00bcd4;
 }
 
 .sizeSelect:hover {

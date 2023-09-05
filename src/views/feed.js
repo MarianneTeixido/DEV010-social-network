@@ -5,14 +5,17 @@ import {
   orderBy,
   updateDoc,
   deleteDoc,
-} from 'firebase/firestore'; // DocumentReference
+} from 'firebase/firestore';
+// import { updateCurrentUser } from 'firebase/auth';
 import { db, auth } from '../firebase.js';
-import addPost from './addPost.js'; // textarea y botón de submit
+import addPost from './addPost.js';// textarea y botón de submit
 import navigationBar from './navigationBar.js';
 
 function feed(navigateTo) {
   // Usamos el operador ternario para que no marque error cuando user sea nullo
   const user = auth?.currentUser; // usuario loggeado
+  const userID = user.uid;
+  console.log(userID);
   const divTitle = document.createElement('div'); // body del feed o contenedor padre
 
   const currentUserName = user?.displayName; // nombre el usuario loggeado
@@ -31,7 +34,6 @@ function feed(navigateTo) {
   img3.alt = 'logo vitalHub';
   // img3.setAtributte('alt', 'logo vitalHub')
   const footer = document.createElement('footer');
-
   header.append(titleFeed, img3);
 
   // Query a firestore a la tabla o coleccion Post ordenando por descendente
@@ -42,13 +44,12 @@ function feed(navigateTo) {
   sectionPosts.appendChild(addPost()); // addPost() es la vista para agregar post
 
   const postsContainer = document.createElement('section');
-  // Observador o listener que se ejecutará cada vez que la tabla o coleccion Post cambie
+
   onSnapshot(q, (querySnapshot) => {
     postsContainer.innerHTML = ''; // para evitar que se dupliquen las publicaciones con el submit
-    // En querySnapshot viene la data de la BD de Post en un array
     querySnapshot.forEach((doc) => {
       const onePost = document.createElement('section'); // sección individual post, para formato
-      onePost.classList.add('individual-post'); // asigna clase a posts individuales
+      onePost.className += 'individual-post'; // asigna clase a posts individuales
 
       const typePost = document.createElement('p'); // tipo de post (receta o ejercicio)
       const datePost = document.createElement('p'); // fecha del post (cambiar formato)
@@ -67,13 +68,36 @@ function feed(navigateTo) {
       likeButton.alt = 'Like';
       likeButton.classList.add('likeButton');
 
-      const likeContainer = document.createElement('section');
-      likeContainer.classList.add('likeContainer');
-      likeContainer.append(likeButton);
+      const likesText = document.createElement('span');
+      const likesCount = document.createElement('span');
+      likesText.textContent = ' Likes';
+      const likesArray = doc.data().Likes;
 
-      likeButton.addEventListener('click', () => {
-        // Aquí implementar la lógica para incrementar un contador de likes
-      });
+      const likeContainer = document.createElement('section');
+      if (!likesArray) {
+        likesCount.textContent = '0';
+      }
+
+      // likeButton.addEventListener('click', async (e) => {
+      //   e.preventDefault();
+      //   // eslint-disable-next-line no-plusplus
+      //   if (doc.data().Likes.includes(userID) === true) { // si el usuario ya dio like
+      //    await updateDoc(doc.ref, { Likes: likesArray.filter((element) => element !== userID) });
+      //     console.log(doc.data.Likes());
+      //     console.log(doc.data.Likes().length);
+      //     likesCount.textContent = doc.data.Likes().length; // se actualiza el textcontent
+      //   } else { // si el usuario no ha dado like
+      //     // likesArray.push(userID); // se añade userID a array de likes del post
+      //     await updateDoc(doc.ref, { Likes: likesArray.push(userID) });
+      //     console.log(doc.data.Likes());
+      //     console.log(doc.data.Likes().length);
+      //     likesCount.textContent = doc.data.Likes().length; // se actualiza textcontent
+      //   }
+      //   // Aquí implementar la lógica para incrementar un contador de likes
+      // });
+
+      likeContainer.classList.add('likeContainer');
+      likeContainer.append(likeButton, likesCount);
 
       // empieza editar y borrar posts
       // const currentUserName = user.displayName;

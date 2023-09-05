@@ -22,11 +22,11 @@ function login(navigateTo) {
       <input
         type="password"
         name="password"
-        placeholder="password"
+        placeholder="Write your password"
         required
         />
       <button class="button-login" type="submit">Log in</button>
-      <p class="paragraf">O</p>
+      <p class="paragraf">Or</p>
       <button class="button-google" type="submit">
       <i class="fa-brands fa-google"></i>Continue with Google
       </button>

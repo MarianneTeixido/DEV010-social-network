@@ -19,7 +19,7 @@ function home(navigateTo) {
   const divImg = document.createElement('div');
   const img = document.createElement('img');
   img.classList.add('img');
-  img.src = '../assets/img/img-home.jpg';
+  img.src = '../assets/img/home2.png';
   img.alt = 'imagen entrenando-azul';
 
   const homeText = document.createElement('h3');

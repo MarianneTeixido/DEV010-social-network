@@ -24,7 +24,7 @@ function workout(navigateTo) {
     headerWorkout.append(titleWorkout, img3);
     const img6 = document.createElement('img');
     img6.classList.add('img6');
-    img6.src = '../assets/img/workout.jpg';
+    img6.src = '../assets/img/imagenSinFondo.png';
     img6.alt = 'img Workout';
     const footer = document.createElement('footer');
     footer.appendChild(navigationBar(navigateTo));

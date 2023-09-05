@@ -404,6 +404,7 @@ input {
     background: #f8f9f9;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    margin-bottom: 80px;
     
   }
 }
@@ -602,8 +603,8 @@ footer {
 }
 .img5{
   width: 100%;
-  height: auto;
-  margin-top: 30px;
+  height: 200px;
+  margin-top: 10px;
   padding: 0 10% 0 10%;
   object-fit: cover;
 }
@@ -657,8 +658,8 @@ footer {
 }
 .img6{
   width: 100%;
-  height: auto;
-  margin-top: 30px;
+  height: 300px;
+  margin-top: 10px;
   padding: 0 10% 0 10%;
   object-fit: cover;
 }

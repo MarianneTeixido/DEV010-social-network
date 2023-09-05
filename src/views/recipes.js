@@ -24,7 +24,7 @@ function recipes(navigateTo) {
     headerRecipes.append(titleRecipes, img3);
     const img5 = document.createElement('img');
     img5.classList.add('img5');
-    img5.src = '../assets/img/recipe.png';
+    img5.src = '../assets/img/imagenreceta.png';
     img5.alt = 'img recipe';
     const footer = document.createElement('footer');
     footer.appendChild(navigationBar(navigateTo));

@@ -5,6 +5,8 @@ import {
   orderBy,
   updateDoc,
   deleteDoc,
+  arrayRemove,
+  arrayUnion,
 } from 'firebase/firestore';
 // import { updateCurrentUser } from 'firebase/auth';
 import { db, auth } from '../firebase.js';
@@ -89,7 +91,8 @@ function feed(navigateTo) {
         if (doc.data().Likes.includes(userID)) {
           // si el usuario ya dio like
           await updateDoc(doc.ref, {
-            Likes: likesArray.filter((element) => element !== userID),
+            // Likes: likesArray.filter((element) => element !== userID),
+            Likes: arrayRemove(userID),
           });
           console.log(doc.data.Likes());
           console.log(doc.data.Likes().length);
@@ -97,7 +100,7 @@ function feed(navigateTo) {
         } else {
           // si el usuario no ha dado like
           // likesArray.push(userID); // se añade userID a array de likes del post
-          await updateDoc(doc.ref, { Likes: likesArray.push(userID) });
+          await updateDoc(doc.ref, { Likes: arrayUnion(userID) });
           console.log(doc.data.Likes());
           console.log(doc.data.Likes().length);
           likesCount.textContent = doc.data.Likes().length; // se actualiza textcontent

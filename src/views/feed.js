@@ -120,6 +120,7 @@ function feed(navigateTo) {
         const deleteOption = document.createElement('option'); // opción de borrar
         const placeholderOption = document.createElement('option'); // placeholder
         placeholderOption.textContent = '...';
+        // placeholderOption.disabled = true;
         editOption.textContent = 'Edit post';
         deleteOption.textContent = 'Delete post';
 
@@ -172,6 +173,7 @@ function feed(navigateTo) {
               // botón de cancelar
               e.preventDefault();
               dialog.close(); // sólo se cierra el diálogo
+              selectPost.selectedIndex = 0; // se regresa el desplegable a la opción '...'
             });
           }
         });

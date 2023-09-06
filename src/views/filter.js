@@ -26,6 +26,7 @@ function filter() {
           const onePost = document.createElement('section');
           onePost.className = 'individual-post';
           const typePost = document.createElement('p');
+          typePost.classList.add('tipe-post');
           const datePost = document.createElement('p');
           const postContent = document.createElement('p');
           const userName = document.createElement('p');

@@ -40,28 +40,32 @@ function navigationBar(navigateTo) {
 
   if (window.location.pathname === '/feed') {
     feedButton.style.color = '#00bcd4';
-    feedButton.innerHTML = '<b>Feed</b>';
+    feedButton.style.fontSize = '1.2rem';
+    feedButton.innerHTML = '<b>FEED</b>';
     recipesButton.style.color = 'black';
+    feedButton.style.fontSize = '1.2rem';
     workoutButton.style.color = 'black';
     profileButton.style.color = 'black';
   } else if (window.location.pathname === '/recipes') {
     feedButton.style.color = 'black';
+    feedButton.style.fontSize = '1.2rem';
     recipesButton.style.color = '#00bcd4';
-    recipesButton.innerHTML = '<b>Recipes</b>';
+    recipesButton.style.fontSize = '1.2rem';
+    recipesButton.innerHTML = '<b>RECIPES</b>';
     workoutButton.style.color = 'black';
     profileButton.style.color = 'black';
   } else if (window.location.pathname === '/workout') {
     feedButton.style.color = 'black';
     recipesButton.style.color = 'black';
     workoutButton.style.color = '#00bcd4';
-    workoutButton.innerHTML = '<b>Workout</b>';
+    workoutButton.innerHTML = '<b>WORKOUT</b>';
     profileButton.style.color = 'black';
   } else if (window.location.pathname === '/profile') {
     feedButton.style.color = 'black';
     recipesButton.style.color = 'black';
     workoutButton.style.color = 'black';
     profileButton.style.color = '#00bcd4';
-    profileButton.innerHTML = '<b>Profile</b>';
+    profileButton.innerHTML = '<b>PROFILE</b>';
   }
 
   barContainer.append(feedButton, recipesButton, workoutButton, profileButton);

@@ -9,7 +9,6 @@
   box-sizing: border-box;
 }
 
-
 .home-container {
   width: 100%;
   max-width: 400px;
@@ -75,7 +74,6 @@ p {
   object-fit: cover;
 }
 
-
 /* Responsive  Desktop*/
 @media (min-width: 768px) {
   .img {
@@ -92,7 +90,7 @@ p {
     font-size: 1.5vw;
     margin-top: 20px;
   }
- 
+
   .home-container {
     width: 100%;
     max-width: 40%;
@@ -349,6 +347,20 @@ input {
   border-radius: 8px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
+.type-post {
+  color: #cddc39;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.date-post {
+  color: black;
+  font-size: 14px;
+}
+.post-content{
+  color: black;
+  font-size: 16px;
+  font-weight: bold;
+}
 
 .sectionPosts {
   margin: 3%;
@@ -363,23 +375,21 @@ input {
 
 .titleFeed {
   position: absolute;
-  top: 30px;
+  top: 20px;
   left: 20px;
-  color: #00bcd4;
+  color: #cddc39;
 }
 
 .individual-post {
   margin: 10px;
   padding: 10px;
-  border-width: 1px;
-  border-style: solid;
-  border-color: black;
+  border: 1px solid gray;
+  border-radius: 5px;
 }
 
-
 .likeButton {
-  width: 100%;
-  max-width: 30px;
+  font-size: 25px;
+  color: #cddc39;
 }
 
 .likeContainer {
@@ -405,7 +415,6 @@ input {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     margin-bottom: 80px;
-    
   }
 }
 
@@ -425,11 +434,6 @@ input {
   border: 1px solid #00bcd4;
 }
 
-.sizeSelect:hover {
-  background-color: #00bcd4;
-  color: white;
-}
-
 .sizeButton {
   width: 100%;
   max-width: 100px;
@@ -442,16 +446,14 @@ input {
   cursor: pointer;
 }
 .textPost {
-  margin: 10px;
+  margin: 8px;
   padding: 10px;
   width: 95%;
   height: 80px;
   border: 1px solid grey;
   font-size: 16px;
-}
-
-.textPost::placeholder {
-  font-size: 16px;
+  border-radius: 6px;
+  background: #e5e8e8;
 }
 
 /* ---------Estilos de resetPassword ------------*/
@@ -466,7 +468,6 @@ input {
 
 /*------------------ footer -------------------*/
 /*Provisional, previsualización de la barra de navegación*/
-
 
 footer {
   position: fixed;
@@ -530,6 +531,7 @@ footer {
 .profile-title {
   position: absolute;
   left: 0;
+  color: #cddc39;
 }
 .boton-signOut {
   position: absolute;
@@ -549,7 +551,7 @@ footer {
 }
 .name-profile {
   margin-top: 20px;
-  color: #00bcd4;
+  color: #cddc39;
 }
 .email {
   width: 300px;
@@ -583,6 +585,7 @@ footer {
     position: absolute;
     font-size: 1.8rem;
     left: 0;
+    color: #cddc39;
   }
   .name-profile {
     font-size: 1.5rem;
@@ -594,21 +597,20 @@ footer {
   width: 100%;
   height: 80px;
 }
- .title-recipes {
+.title-recipes {
   position: absolute;
   top: 22px;
   left: 20px;
   font-size: 1.8rem;
-  color: #00bcd4;
+  color: #cddc39;
 }
-.img5{
+.img5 {
   width: 100%;
   height: 200px;
   margin-top: 10px;
   padding: 0 10% 0 10%;
   object-fit: cover;
 }
- 
 
 /* ---------Tamaño Desktop RecipesContainer ----------- */
 @media (min-width: 768px) {
@@ -629,7 +631,7 @@ footer {
   }
 }
 /* -----------Estilos de SectionWorkout----------*/
-.section-workout{
+.section-workout {
   width: 100%;
   max-width: 400px;
   height: 100%;
@@ -647,16 +649,15 @@ footer {
   position: relative;
   width: 100%;
   height: 80px;
-
 }
- .title-workout {
+.title-workout {
   position: absolute;
   top: 22px;
   left: 20px;
   font-size: 1.8rem;
-  color: #00bcd4;
+  color: #cddc39;
 }
-.img6{
+.img6 {
   width: 100%;
   height: 300px;
   margin-top: 10px;

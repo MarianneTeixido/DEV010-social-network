@@ -54,9 +54,13 @@ function feed(navigateTo) {
       onePost.className += 'individual-post'; // asigna clase a posts individuales
 
       const typePost = document.createElement('p'); // tipo de post (receta o ejercicio)
-      const datePost = document.createElement('p'); // fecha del post (cambiar formato)
-      const postContent = document.createElement('p'); // contenido del post
+      typePost.classList.add('type-post');
+      const datePost = document.createElement('p');
+      datePost.classList.add('date-post'); // fecha del post (cambiar formato)
+      const postContent = document.createElement('p');
+      postContent.classList.add('post-content'); // contenido del post
       const userName = document.createElement('p'); // usuario que crea el post
+      userName.classList.add('user-name');
 
       // a traves de la funcion data() obtenemos el valor de UserName
       userName.textContent = doc.data().UserName;
@@ -65,9 +69,10 @@ function feed(navigateTo) {
       postContent.textContent = doc.data().Content;
 
       // Componente likes
-      const likeButton = document.createElement('img');
-      likeButton.src = '../assets/img/like.png';
-      likeButton.alt = 'Like';
+      const likeButton = document.createElement('i');
+
+      likeButton.classList.add('fa-regular');
+      likeButton.classList.add('fa-heart');
       likeButton.classList.add('likeButton');
 
       const likesText = document.createElement('span');
@@ -94,15 +99,11 @@ function feed(navigateTo) {
             Likes: arrayRemove(userID),
             // Likes: likesArray.filter((element) => element !== userID),
           });
-          // console.log(doc.data.Likes());
-          // console.log(doc.data.Likes().length);
           likesCount.textContent = likesArray.length; // se actualiza el textcontent
         } else {
           // si el usuario no ha dado like
-          // likesArray.push(userID); // se añade userID a array de likes del post
+          // se añade userID a array de likes del post
           await updateDoc(doc.ref, { Likes: arrayUnion(userID) });
-          // console.log(doc.data.Likes());
-          // console.log(doc.data.Likes().length);
           likesCount.textContent = likesArray.length; // se actualiza textcontent
         }
         // Aquí implementar la lógica para incrementar un contador de likes

@@ -10,19 +10,19 @@ function login(navigateTo) {
         src="../assets/img/logo-vitalhub (1)2.png" 
         alt="imagen logo red social"
         />
-    <form id="login-form">
+    <form id="login-form" data-testid="form-input">
       <label for="">Email</label>
       <input
         type="email"
         name="email"
-        placeholder="Write your email"
+        placeholder="Write your email" data-testid="email"
         required
         />
       <label for="">Password</label>
       <input
         type="password"
         name="password"
-        placeholder="Write your password"
+        placeholder="Write your password" data-testid="password"
         required
         />
       <button class="button-login" type="submit">Log in</button>

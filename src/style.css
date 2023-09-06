@@ -683,3 +683,62 @@ footer {
     margin-left: 30%;
   }
 }
+
+
+/*------------toast style-----------------*/
+.toastContainer {
+  background: black;
+  width: 100%;
+  max-width: 300px;
+  /* position: fixed; */
+  position: relative;
+  bottom: 0px;
+  right: 0px;
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  animation-name: apertura;
+  animation-duration: 400ms;
+  animation-timing-function: ease-out;
+}
+
+.singleToast {
+  margin: 5px;
+  padding: 5px;
+}
+
+.toastContainer.cerrando {
+  animation-name: cierre;
+  animation-duration: 400ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+.singleToast.cerrando {
+  animation-name: cierre;
+  animation-duration: 400ms;
+  animation-timing-function: ease-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes apertura {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes cierre {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(150%);
+  }
+}

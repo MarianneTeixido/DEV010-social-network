@@ -99,11 +99,15 @@ function feed(navigateTo) {
             Likes: arrayRemove(userID),
             // Likes: likesArray.filter((element) => element !== userID),
           });
+          // console.log(doc.data.Likes());
+          // console.log(doc.data.Likes().length);
           likesCount.textContent = likesArray.length; // se actualiza el textcontent
         } else {
           // si el usuario no ha dado like
-          // se añade userID a array de likes del post
+          // likesArray.push(userID); // se añade userID a array de likes del post
           await updateDoc(doc.ref, { Likes: arrayUnion(userID) });
+          // console.log(doc.data.Likes());
+          // console.log(doc.data.Likes().length);
           likesCount.textContent = likesArray.length; // se actualiza textcontent
         }
         // Aquí implementar la lógica para incrementar un contador de likes

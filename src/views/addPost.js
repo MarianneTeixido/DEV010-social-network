@@ -1,5 +1,6 @@
 import { addDoc, collection, Timestamp } from 'firebase/firestore'; // falta  deleteDoc
 import { db, auth } from '../firebase.js';
+import toast from './toast.js';
 
 const colRef = collection(db, 'Post');
 
@@ -36,19 +37,37 @@ function addPost() {
   submitButton.addEventListener('click', (e) => {
     e.preventDefault();
     if (textarea.value !== '') {
-      addDoc(colRef, {
-        // User: auth.currentUser.userValue,
-        Date: Timestamp.now(), // agrega la fecha de creación al doc
-        Content: textarea.value,
-        Type: select.options[select.selectedIndex].text, // toma texto de la  opción seleccionada
-        UserID: userID, // guarda el ID del usuario que escribió el post
-        UserName: user?.displayName,
-        Likes: [],
-      });
+      if (select.selectedIndex === 0) {
+        // const typeDialog = document.createElement('dialog');
+        // const closeButton = document.createElement('button');
+        // const p = document.createElement('p');
+        // p.textContent = 'Please select a type post';
+        // closeButton.textContent = 'Ok';
+        // typeDialog.append(p, closeButton);
+        // section.appendChild(typeDialog);
+        // typeDialog.showModal();
+        // closeButton.addEventListener('click', () => {
+        //   typeDialog.close();
+        // });
+        const content = 'Please select a type post';
+        section.append(toast(content));
+        // alert('Please select a type post');
+      } else {
+        addDoc(colRef, {
+          // User: auth.currentUser.userValue,
+          Date: Timestamp.now(), // agrega la fecha de creación al doc
+          Content: textarea.value,
+          Type: select.options[select.selectedIndex].text, // toma texto de la  opción seleccionada
+          UserID: userID, // guarda el ID del usuario que escribió el post
+          UserName: user?.displayName,
+          Likes: [],
+        });
+        textarea.value = ''; // limpiar el contenido del textarea con el click en submit
+      }
     } else {
-      alert('Please, write something to continue');
+      const content = 'Please, write something to continue';
+      section.append(toast(content));
     }
-    textarea.value = ''; // limpiar el contenido del textarea con el click en submit
   });
   section.append(select, textarea, submitButton);
 

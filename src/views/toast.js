@@ -5,17 +5,21 @@ function toast(content) {
   singleToast.classList.add('singleToast');
   const toastContent = document.createElement('p');
   toastContent.textContent = content;
-  const closeButton = document.createElement('button');
-  closeButton.textContent = 'Close';
+  const closeToastButton = document.createElement('button');
+  closeToastButton.textContent = ' Ok ';
+  closeToastButton.classList.add('closeToastButton');
 
-  closeButton.addEventListener('click', async (e) => {
+  closeToastButton.addEventListener('click', (e) => {
     e.preventDefault();
-    await singleToast.classList.add('cerrando');
-    await toastContainer.classList.add('cerrando');
-    toastContainer.removeChild(singleToast);
+    singleToast.classList.add('cerrando');
+    toastContainer.classList.add('cerrando');
+    // setTimeout(toastContainer.removeChild(singleToast), 400);
+    setTimeout(() => {
+      toastContainer.removeChild(singleToast);
+    }, 400);
   });
 
-  singleToast.append(toastContent, closeButton);
+  singleToast.append(toastContent, closeToastButton);
   toastContainer.append(singleToast);
   return toastContainer;
 }

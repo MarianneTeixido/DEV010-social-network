@@ -706,7 +706,8 @@ footer {
 
 /*------------toast style-----------------*/
 .toastContainer {
-  background: black;
+  /* background: #cddc39;*/
+  background-color: rgba(205, 220, 57, 0.6);
   width: 100%;
   max-width: 300px;
   /* position: fixed; */
@@ -721,11 +722,18 @@ footer {
   animation-name: apertura;
   animation-duration: 400ms;
   animation-timing-function: ease-out;
+  padding: 1px;
 }
 
 .singleToast {
   margin: 5px;
   padding: 5px;
+}
+
+.closeToastButton {
+  border-color: #00bcd4;
+  background-color: #f8f9f9;
+  color: black;
 }
 
 .toastContainer.cerrando {

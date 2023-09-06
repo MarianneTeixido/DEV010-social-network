@@ -11,9 +11,7 @@ function addPost() {
 
   // se ejecuta sólo si hay usuario loggeado
   const user = auth?.currentUser;
-  console.log(user);
   const userID = user?.uid;
-  console.log(userID);
 
   const select = document.createElement('select'); // para seleccionar tipo de post
   // select.placeholder = 'Choose one';
@@ -63,6 +61,7 @@ function addPost() {
           Likes: [],
         });
         textarea.value = ''; // limpiar el contenido del textarea con el click en submit
+        select.selectedIndex = 0;
       }
     } else {
       const content = 'Please, write something to continue';

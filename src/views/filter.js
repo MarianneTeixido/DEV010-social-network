@@ -26,10 +26,13 @@ function filter() {
           const onePost = document.createElement('section');
           onePost.className = 'individual-post';
           const typePost = document.createElement('p');
-          typePost.classList.add('tipe-post');
+          typePost.classList.add('type-post');
           const datePost = document.createElement('p');
+          datePost.classList.add('date-post');
           const postContent = document.createElement('p');
+          postContent.classList.add('post-content');
           const userName = document.createElement('p');
+          userName.classList.add('user-name');
 
           userName.textContent = doc.data().UserName;
           typePost.textContent = doc.data().Type;
@@ -53,9 +56,13 @@ function filter() {
           const onePost = document.createElement('section');
           onePost.className = 'individual-post';
           const typePost = document.createElement('p');
+          typePost.classList.add('type-post');
           const datePost = document.createElement('p');
+          datePost.classList.add('date-post');
           const postContent = document.createElement('p');
+          postContent.classList.add('post-content');
           const userName = document.createElement('p');
+          userName.classList.add('user-name');
 
           userName.textContent = doc.data().UserName;
           typePost.textContent = doc.data().Type;
@@ -79,9 +86,13 @@ function filter() {
           const onePost = document.createElement('section');
           onePost.className = 'individual-post';
           const typePost = document.createElement('p');
+          typePost.classList.add('type-post');
           const datePost = document.createElement('p');
+          datePost.classList.add('date-post');
           const postContent = document.createElement('p');
+          postContent.classList.add('post-content');
           const userName = document.createElement('p');
+          userName.classList.add('user-name');
 
           userName.textContent = doc.data().UserName;
           typePost.textContent = doc.data().Type;

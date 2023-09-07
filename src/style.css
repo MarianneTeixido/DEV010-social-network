@@ -76,6 +76,10 @@ p {
 
 /* Responsive  Desktop*/
 @media (min-width: 768px) {
+  body {
+    background-color: rgba(205, 220, 57, 0.6);
+  }
+
   .img {
     max-width: 100%;
     height: 250px;
@@ -766,6 +770,6 @@ footer {
     transform: translateX(0);
   }
   to {
-    transform: translateX(150%);
+    transform: translateX(400%);
   }
 }

@@ -1,6 +1,19 @@
-// import { fireEvent, getByText } from '@testing-library/dom';
 import feed from '../../src/views/feed';
-// import { signInWithCustomToken } from 'firebase/auth';
+
+// Mock firebase/firestore
+jest.mock('firebase/firestore', () => ({
+  collection: jest.fn().mockResolvedValue({}),
+  orderBy: jest.fn().mockResolvedValue(true),
+  query: jest.fn().mockResolvedValue(true),
+  getFirestore: jest.fn().mockResolvedValue(true),
+  onSnapshot: jest.fn().mockResolvedValue(true),
+}));
+
+/*
+Realizamos el mock de la funcion alert
+ */
+global.alert = jest.fn();
+global.console = { log: jest.fn() };
 
 describe('Feed', () => {
   it('Renderiza feed', () => {

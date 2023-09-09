@@ -22,6 +22,7 @@ jest.mock('../../src/lib/auth.js', () => ({
 Realizamos el mock de la funcion alert
  */
 global.alert = jest.fn();
+global.console = { log: jest.fn() };
 
 describe('view signUp', () => {
   it('renderiza signUp', () => {

@@ -144,13 +144,21 @@ function feed(navigateTo, user) {
           } else if (selectPost.selectedIndex === 2) {
             // cuando se elige borrar
             const dialog = document.createElement('dialog'); // se crea diálogo
+            dialog.classList.add('dialog-modal');
             const p = document.createElement('p'); // texto del diálogo
             p.textContent = 'Are you sure you want to delete this post?';
             const deleteButton = document.createElement('button'); // botón de borrar
+            deleteButton.classList.add('delete-button');
             deleteButton.textContent = 'Yes';
             const cancelButton = document.createElement('button'); // botón cancelar
+            cancelButton.classList.add('cancel-button');
             cancelButton.textContent = 'Cancel';
-            dialog.append(p, deleteButton, cancelButton);
+
+            const containerButtons = document.createElement('div');
+            containerButtons.classList.add('container-buttons');
+            containerButtons.append(deleteButton, cancelButton);
+
+            dialog.append(p, containerButtons);
             postsContainer.appendChild(dialog);
             dialog.showModal(); // se cierra el modal (diálogo)
 

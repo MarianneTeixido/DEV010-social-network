@@ -48,7 +48,7 @@ function profile(navigateTo, user) {
     nameProfile,
     email,
     h3,
-    filter(),
+    filter(user, '/profile'),
     footer,
   );
 

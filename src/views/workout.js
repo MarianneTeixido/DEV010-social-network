@@ -23,7 +23,7 @@ function workout(navigateTo, user) {
   img6.alt = 'img Workout';
   const footer = document.createElement('footer');
   footer.appendChild(navigationBar(navigateTo));
-  sectionWorkout.append(headerWorkout, img6, filter(), footer);
+  sectionWorkout.append(headerWorkout, img6, filter(user, '/workout'), footer);
 
   return sectionWorkout;
 }

@@ -23,7 +23,7 @@ function recipes(navigateTo, user) {
   img5.alt = 'img recipe';
   const footer = document.createElement('footer');
   footer.appendChild(navigationBar(navigateTo));
-  recipesContainer.append(headerRecipes, img5, filter(), footer);
+  recipesContainer.append(headerRecipes, img5, filter(user, '/recipes'), footer);
 
   return recipesContainer;
 }

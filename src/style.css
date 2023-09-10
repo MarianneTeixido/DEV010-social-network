@@ -396,6 +396,21 @@ input {
   border-radius: 6px;
 }
 
+
+.dialog-modal{
+  margin: 0 auto;
+  border: 1px solid #00bcd4;
+  border-radius: 6px;
+}
+.container-buttons{
+  display: flex;
+  justify-content: space-around;
+
+}
+.delete-button, .cancel-button{
+ 
+  width: 60px;
+}
 .likeButton {
   font-size: 25px;
   color: #cddc39;
@@ -428,10 +443,7 @@ input {
 }
 
 /* ---------Estilos de addPost ------------*/
-.dialog{
-  display: block;
-  margin: 0 auto;
-}
+
 .sectionPosts select {
   margin-left: 63%;
   width: 100%;

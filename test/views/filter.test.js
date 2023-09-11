@@ -1,5 +1,32 @@
 import filter from '../../src/views/filter';
 
+jest.mock('firebase/firestore', () => ({
+  collection: jest.fn(),
+  orderBy: jest.fn(),
+  query: jest.fn(),
+  getFirestore: jest.fn(),
+  onSnapshot: jest.fn((query, callback) => {
+    const querySnapshot = [
+      {
+        data: () => ({
+          Content: 'Este es un ejemplo',
+          Date: {
+            seconds: 1694173047,
+            nanoseconds: 712000000,
+            toDate: () => new Date(),
+          },
+          Type: 'Recipe',
+          UserID: '1',
+          UserName: 'maricela fuentes',
+          Likes: ['1'],
+        }),
+      },
+    ];
+    return callback(querySnapshot); // Call the callback with the querySnapshot
+  }),
+  where: jest.fn(),
+}));
+
 describe('filter', () => {
   it('renderiza a filter con la ruta recipes ', () => {
     const user = {

@@ -52,7 +52,7 @@ function navigateTo(hash) {
     //   root.removeChild(root.firstChild);
     // }
 
-    // Agrega la nueva ruta
+    // Agrega la nueva ruta, le pasa navigateTo y el usuario global
     root.appendChild(route.component(navigateTo, userGlobal));
   } else {
     navigateTo('/error');

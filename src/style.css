@@ -79,7 +79,7 @@ p {
     background-image: url('./assets/img/img-fondo\ \(1\).jpg');
     background-position: center;
     background-size: cover;
-   background-attachment: fixed;
+    background-attachment: fixed;
   }
 
   .img {
@@ -129,7 +129,6 @@ p {
   align-items: center;
   background: #f8f9f9;
   position: relative;
-  
 }
 
 .img1 {
@@ -395,22 +394,6 @@ input {
   border: 1px solid #00bcd4;
   border-radius: 6px;
 }
-
-
-.dialog-modal{
-  margin: 0 auto;
-  border: 1px solid #00bcd4;
-  border-radius: 6px;
-}
-.container-buttons{
-  display: flex;
-  justify-content: space-around;
-
-}
-.delete-button, .cancel-button{
- 
-  width: 60px;
-}
 .likeButton {
   font-size: 25px;
   color: #cddc39;
@@ -441,7 +424,65 @@ input {
     margin-bottom: 80px;
   }
 }
+/* estilos del modal de delet */
+.dialog-modal {
+  margin: 200px auto;
+  background-color: #cddc39;
+  border-radius: 6px;
+  border: none;
+}
+.text-modal {
+  text-align: center;
+  font-size: 1rem;
+  margin-bottom: 10px;
+  color: #000;
+}
+.container-buttons {
+  display: flex;
+  justify-content: space-around;
+}
+.delete-button,
+.cancel-button {
+  border: 1px solid #00bcd4;
+  width: 60px;
+  margin-bottom: 5px;
+  border-radius: 3px;
+}
+.delete-button:hover {
+  background-color: #00bcd4;
+}
+.cancel-button:hover {
+  background-color: #00bcd4;
+}
+/* Termina estilos del modal */
 
+/* Estilos de la ventana de editar post */
+.editSection {
+  margin: 10px auto;
+ 
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  padding: 5px;
+  border-radius: 6px;
+}
+.editSection textarea {
+  margin: 10px;
+  border-radius: 4px;
+  padding: 5px;
+  background-color: #cddc39;
+  border: none;
+}
+.editSection button {
+  max-width: 100px;
+  margin: 0 auto;
+  border-radius: 4px;
+  padding: 3px;
+  border: 2px solid #00bcd4;
+}
+.editSection button:hover {
+  background-color: #00bcd4;
+}
 /* ---------Estilos de addPost ------------*/
 
 .sectionPosts select {
@@ -650,7 +691,6 @@ footer {
     flex-direction: column;
     margin-left: 30%;
   }
-  
 }
 /* -----------Estilos de SectionWorkout----------*/
 .section-workout {

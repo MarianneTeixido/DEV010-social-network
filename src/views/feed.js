@@ -71,6 +71,8 @@ function feed(navigateTo, user) {
       likeButton.classList.add('fa-regular');
       likeButton.classList.add('fa-heart');
       likeButton.classList.add('likeButton');
+      // Agregamos atributo testId para testear
+      likeButton.setAttribute('data-testid', 'likeButton');
       const likesText = document.createElement('span');
       const likesCount = document.createElement('span');
       likesText.textContent = ' Likes';
@@ -87,6 +89,7 @@ function feed(navigateTo, user) {
 
       likeButton.addEventListener('click', async (e) => {
         e.preventDefault();
+
         // eslint-disable-next-line no-plusplus
         if (likesArray.includes(userID)) {
           // si el usuario ya dio like
@@ -112,6 +115,8 @@ function feed(navigateTo, user) {
       if (doc.data().UserName === currentUserName) {
         // si el post pertenece al usuario loggeado
         const selectPost = document.createElement('select'); // desplegable
+        // agregue un plaheholder para poder testear
+        selectPost.setAttribute('placeholder', 'Options Post');
         const editOption = document.createElement('option'); // opción de editar
         const deleteOption = document.createElement('option'); // opción de borrar
         const placeholderOption = document.createElement('option'); // placeholder
@@ -160,7 +165,7 @@ function feed(navigateTo, user) {
 
             dialog.append(p, containerButtons);
             postsContainer.appendChild(dialog);
-            dialog.showModal(); // se cierra el modal (diálogo)
+            dialog.showModal(); // se muestra el modal (diálogo)
 
             deleteButton.addEventListener('click', async (e) => {
               // botón de borrar

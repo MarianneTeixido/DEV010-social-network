@@ -1,6 +1,6 @@
 import recipes from '../../src/views/recipes';
 
-global.console = { log: jest.fn() };
+global.console = { log: jest.fn() }; // testeo del console.log
 describe('recipes', () => {
   it('Renderiza recipes', () => {
     const navigateTo = jest.fn();

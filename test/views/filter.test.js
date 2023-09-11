@@ -22,7 +22,7 @@ jest.mock('firebase/firestore', () => ({
         }),
       },
     ];
-    return callback(querySnapshot); // Call the callback with the querySnapshot
+    return callback(querySnapshot); // Llame a la devolución de llamada con querySnapshot
   }),
   where: jest.fn(),
 }));

@@ -459,7 +459,6 @@ input {
 /* Estilos de la ventana de editar post */
 .editSection {
   margin: 10px auto;
- 
   display: flex;
   flex-direction: column;
   width: 80%;
@@ -483,6 +482,8 @@ input {
 .editSection button:hover {
   background-color: #00bcd4;
 }
+
+/* --------------se termino estilos de ventana editar post----*/
 /* ---------Estilos de addPost ------------*/
 
 .sectionPosts select {

@@ -395,21 +395,22 @@ input {
   border-radius: 6px;
 }
 
-i {
+/* i {
   color: initial;
-}
+} */
 
 .fa-regular.fa-heart.likeButton {
   font-size: 25px;
   color: #cddc39;
 }
 
-.fa-regular.fa-heart.likeButton.liked {
-  color: #00bcd4;
+.fa-solid.fa-heart.likeButton {
+  font-size: 25px;
+  color: #cddc39;
 }
 
-.fa-regular.fa-heart.likeButton.unliked {
-  color: #cddc39;
+.fa-regular.fa-heart.likeButton.liked {
+  color: #00bcd4;
 }
 
 .likeContainer {

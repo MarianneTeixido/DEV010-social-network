@@ -70,8 +70,9 @@ function feed(navigateTo, user) {
       const likeButton = document.createElement('i');
       likeButton.classList.add('fa-regular');
       likeButton.classList.add('fa-heart');
+      // PRUEBA MARI
       likeButton.classList.add('likeButton');
-      // likeButton.style.color = '#cddc39';
+      // likeButton.style.color = '#CDDC39';
       likeButton.style.fontSize = '25px';
       // likeButton.classList.add('unliked');
       // Agregamos atributo testId para testear
@@ -81,31 +82,52 @@ function feed(navigateTo, user) {
       likesText.textContent = ' Likes';
       // puse ?, para que sino trae la propiedad Likes no quiebre el codigo
       const likesArray = doc.data()?.Likes;
+      // Renderizamos icono, de acuerdo a si el usuario dio like o no dio like
+      if (likesArray.includes(userID)) {
+        // Icono lleno
+        likeButton.classList.add('fa-solid');
+        likeButton.classList.add('fa-heart');
+        likeButton.classList.add('liked');
+      } else {
+        // icono vacio
+        likeButton.classList.add('fa-regular');
+        likeButton.classList.add('fa-heart');
+        likeButton.classList.add('unliked');
+      }
       const likeContainer = document.createElement('section');
       // Si el array de likes es undefined, osea no existe o esta vacio le ponemos 0 likes
       if (likesArray === undefined || likesArray.length === 0) {
         likesCount.textContent = '0';
       } else {
-      // si no esta vacio, le ponemos el conteo de likes
+        // si no esta vacio, le ponemos el conteo de likes
         likesCount.textContent = likesArray.length;
       }
-
       likeContainer.append(likeButton, likesCount);
-
       likeButton.addEventListener('click', async (e) => {
         e.preventDefault();
         if (likesArray.includes(userID)) {
-          // si el usuario ya dio like
+          // si el usuario ya dio like, quitamos el icono font awsome
           likeButton.classList.add('unliked');
+          // quitamos icono lleno
+          likeButton.classList.remove('fa-solid');
+          likeButton.classList.remove('fa-heart');
+          // Agregamos el vacio
+          likeButton.classList.add('fa-regular');
+          likeButton.classList.add('fa-heart');
           console.log(likeButton);
-          // likeButton.style.color = '#cddc39';
+          // likeButton.style.color = '#CDDC39';
           await updateDoc(doc.ref, {
             Likes: arrayRemove(userID),
           });
           likesCount.textContent = likesArray.length; // se actualiza el textcontent
         } else {
           likeButton.classList.add('liked');
-          // likeButton.style.color = '#00bcd4';
+          // Agregamos el like del corazon lleno
+          likeButton.classList.remove('fa-regular');
+          likeButton.classList.remove('fa-heart');
+          likeButton.classList.add('fa-solid');
+          likeButton.classList.add('fa-heart');
+          // likeButton.style.color = '#00BCD4';
           console.log(likeButton);
           await updateDoc(doc.ref, { Likes: arrayUnion(userID) });
           likesCount.textContent = likesArray.length; // se actualiza textcontent
@@ -113,6 +135,50 @@ function feed(navigateTo, user) {
         }
         return likeButton;
       });
+      // TERMINA PRUEBA MARI
+      // likeButton.classList.add('likeButton');
+      // // likeButton.style.color = '#cddc39';
+      // likeButton.style.fontSize = '25px';
+      // // likeButton.classList.add('unliked');
+      // // Agregamos atributo testId para testear
+      // likeButton.setAttribute('data-testid', 'likeButton');
+      // const likesText = document.createElement('span');
+      // const likesCount = document.createElement('span');
+      // likesText.textContent = ' Likes';
+      // // puse ?, para que sino trae la propiedad Likes no quiebre el codigo
+      // const likesArray = doc.data()?.Likes;
+      // const likeContainer = document.createElement('section');
+      // // Si el array de likes es undefined, osea no existe o esta vacio le ponemos 0 likes
+      // if (likesArray === undefined || likesArray.length === 0) {
+      //   likesCount.textContent = '0';
+      // } else {
+      // // si no esta vacio, le ponemos el conteo de likes
+      //   likesCount.textContent = likesArray.length;
+      // }
+
+      // likeContainer.append(likeButton, likesCount);
+
+      // likeButton.addEventListener('click', async (e) => {
+      //   e.preventDefault();
+      //   if (likesArray.includes(userID)) {
+      //     // si el usuario ya dio like
+      //     likeButton.classList.add('unliked');
+      //     console.log(likeButton);
+      //     // likeButton.style.color = '#cddc39';
+      //     await updateDoc(doc.ref, {
+      //       Likes: arrayRemove(userID),
+      //     });
+      //     likesCount.textContent = likesArray.length; // se actualiza el textcontent
+      //   } else {
+      //     likeButton.classList.add('liked');
+      //     // likeButton.style.color = '#00bcd4';
+      //     console.log(likeButton);
+      //     await updateDoc(doc.ref, { Likes: arrayUnion(userID) });
+      //     likesCount.textContent = likesArray.length; // se actualiza textcontent
+      //     // Aquí implementar la lógica para incrementar un contador de likes
+      //   }
+      //   return likeButton;
+      // });
 
       likeContainer.classList.add('likeContainer');
       // likeContainer.append(likeButton, likesCount);

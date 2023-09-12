@@ -71,6 +71,9 @@ function feed(navigateTo, user) {
       likeButton.classList.add('fa-regular');
       likeButton.classList.add('fa-heart');
       likeButton.classList.add('likeButton');
+      // likeButton.style.color = '#cddc39';
+      likeButton.style.fontSize = '25px';
+      // likeButton.classList.add('unliked');
       // Agregamos atributo testId para testear
       likeButton.setAttribute('data-testid', 'likeButton');
       const likesText = document.createElement('span');
@@ -83,32 +86,36 @@ function feed(navigateTo, user) {
       if (likesArray === undefined || likesArray.length === 0) {
         likesCount.textContent = '0';
       } else {
-        // sino esta vacio, le ponemos el conteo de likes
+      // si no esta vacio, le ponemos el conteo de likes
         likesCount.textContent = likesArray.length;
       }
 
+      likeContainer.append(likeButton, likesCount);
+
       likeButton.addEventListener('click', async (e) => {
         e.preventDefault();
-
-        // eslint-disable-next-line no-plusplus
         if (likesArray.includes(userID)) {
           // si el usuario ya dio like
+          likeButton.classList.add('unliked');
+          console.log(likeButton);
+          // likeButton.style.color = '#cddc39';
           await updateDoc(doc.ref, {
             Likes: arrayRemove(userID),
           });
-
           likesCount.textContent = likesArray.length; // se actualiza el textcontent
         } else {
-          // si el usuario no ha dado like
-          // likesArray.push(userID); // se añade userID a array de likes del post
+          likeButton.classList.add('liked');
+          // likeButton.style.color = '#00bcd4';
+          console.log(likeButton);
           await updateDoc(doc.ref, { Likes: arrayUnion(userID) });
           likesCount.textContent = likesArray.length; // se actualiza textcontent
+          // Aquí implementar la lógica para incrementar un contador de likes
         }
-        // Aquí implementar la lógica para incrementar un contador de likes
+        return likeButton;
       });
 
       likeContainer.classList.add('likeContainer');
-      likeContainer.append(likeButton, likesCount);
+      // likeContainer.append(likeButton, likesCount);
 
       // empieza editar y borrar posts
       // const currentUserName = user.displayName;
@@ -150,6 +157,7 @@ function feed(navigateTo, user) {
             // cuando se elige borrar
             const dialog = document.createElement('dialog'); // se crea diálogo
             dialog.classList.add('dialog-modal');
+            dialog.setAttribute('data-testid', 'dialog');
             const p = document.createElement('p'); // texto del diálogo
             p.textContent = 'Are you sure you want to delete this post?';
             const deleteButton = document.createElement('button'); // botón de borrar

@@ -6,6 +6,10 @@ import {
 } from '@testing-library/dom';
 import feed from '../../src/views/feed';
 
+beforeAll(() => { // mock del diálogo
+  HTMLDialogElement.prototype.showModal = jest.fn();
+  HTMLDialogElement.prototype.close = jest.fn();
+});
 // Mock de la libreria firebase/firestore
 jest.mock('firebase/firestore', () => ({
   collection: jest.fn(),
@@ -130,21 +134,21 @@ describe('Feed', () => {
     expect(container).not.toBeUndefined();
   });
 
-  // it('renderiza feed, muestra post y borra un post publicado', async () => {
-  //   const navigateTo = jest.fn();
-  //   const user = {
-  //     displayName: 'maricela fuentes',
-  //     email: 'maricelafuentes100@gmail.com',
-  //     uid: 'GDuTccfHlHRvDffZM1Ctd1t0wtE2',
-  //   };
-  //   const container = feed(navigateTo, user);
+  it('renderiza feed, muestra post y borra un post publicado', async () => {
+    const navigateTo = jest.fn();
+    const user = {
+      displayName: 'maricela fuentes',
+      email: 'maricelafuentes100@gmail.com',
+      uid: 'GDuTccfHlHRvDffZM1Ctd1t0wtE2',
+    };
 
-  //   const menus = getAllByPlaceholderText(container, 'Options Post');
-  //   // Damos click al menu y seleccionamos editar post
-  //   fireEvent.change(menus[0], { target: { value: 'Delete post' } });
-  //   // gaudamos los cambios
-  //   const buttonsSave = getAllByText(container, 'Yes');
-  //   fireEvent(buttonsSave[0], new MouseEvent('click', {}));
-  //   expect(container).not.toBeUndefined();
-  // });
+    const container = feed(navigateTo, user);
+
+    const menus = getAllByPlaceholderText(container, 'Options Post');
+    fireEvent.change(menus[1], { target: { value: 'Delete post' } });
+    const dialog = getAllByTestId(container, 'dialog');
+    const deleteButton = getAllByText(dialog[0], 'Yes');
+    fireEvent(deleteButton[0], new MouseEvent('click', {}));
+    expect(container).not.toBeUndefined();
+  });
 });

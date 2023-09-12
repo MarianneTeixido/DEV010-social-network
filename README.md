@@ -2,45 +2,21 @@
 
 ## Índice
 
-* [1. Preámbulo](#1-preámbulo)
-* [2. Resumen del proyecto](#2-resumen-del-proyecto)
-* [3. Objetivos de aprendizaje](#3-objetivos-de-aprendizaje)
-* [4. Consideraciones generales](#4-consideraciones-generales)
+* [1. Resumen del proyecto](#1-resumen-del-proyecto)
+* [2. Diseño](#2-diseño)
+* [3. Funcionalidades](#3-funcionalidades)
 * [5. Criterios de aceptación mínimos del proyecto](#5-criterios-de-aceptación-mínimos-del-proyecto)
 * [6. Hacker edition](#6-hacker-edition)
 * [7. Entrega](#7-entrega)
 * [8. Pistas, tips y lecturas complementarias](#8-pistas-tips-y-lecturas-complementarias)
 
-## 1. Preámbulo
+## 1. Resumen del proyecto
 
-Instagram, Snapchat, Twitter, Facebook, Twitch, Linkedin, etc. Las redes
-sociales han invadido nuestras vidas. Las amamos u odiamos, y muchos no podemos
-vivir sin ellas.
+VitalHub es una red social para personas interesadas en formar parte de y construir en conjunto una comunidad de vida saludable.
+En VitalHub, sabemos que los hábitos son fundamentales y que el balance es clave en una vida donde no todo es fitness, es por ello que procuramos generar un entorno saludable, donde las personas puedan compartir rutinas, tips de ejercicio, recetas balanceadas y miles de ideas, fomentando e incentivando a los demás miembros de forma positiva.
 
-![adem-ay-Tk9m_HP4rgQ-unsplash](https://user-images.githubusercontent.com/110297/135544666-4efa54f1-4ff6-4c4c-b398-6df04ef56117.jpg)
+El proyecto consta de una Single-page Application (SPA) con base de datos en Firebase y fue desplegado en GitHub pages. El diseño es completamente responsivo y cuenta con tests para todas las vistas, cubriendo el (porcentaje de coverage) del código.
 
-Hay redes sociales de todo tipo y para todo tipo de intereses. Por ejemplo,
-en una ronda de financiamiento con inversionistas, se presentó una red social
-para químicos en la que los usuarios podían publicar artículos sobre sus
-investigaciones, comentar en los artículos de sus colegas, y filtrar artículos
-de acuerdo a determinadas etiquetas o su popularidad, lo más reciente, o lo
-más comentado.
-
-## 2. Resumen del proyecto
-
-En este proyecto construirás una Red Social sobre lo que decidan tú y tu equipo.
-Podría ser, por ejemplo, sobre alimentación saludable, feminismo, educación,
-salud, energías renovables, amantes de las [Empanadas](https://es.wikipedia.org/wiki/Empanada)
-o de los [Tacos de Canasta](https://es.wikipedia.org/wiki/Taco),
-de la [Feijoada](https://es.wikipedia.org/wiki/Feijoada), o de lo que sea.
-
-Tu Red Social tendrá que permitir a cualquier usuario crear una cuenta de acceso
-y loguearse con ella; crear, editar, borrar y _"likear"_ publicacciones.
-
-Por lo tanto, en este proyecto construirás una
-[Single-page Application (SPA)](https://es.wikipedia.org/wiki/Single-page_application)
-[_responsive_](https://curriculum.laboratoria.la/es/topics/css/02-responsive) (con más de una vista / página)
-en la que podamos **leer y escribir datos**.
 
 ### Los objetivos generales de este proyecto son los siguientes
 
@@ -53,9 +29,9 @@ en la que podamos **leer y escribir datos**.
 Para lograr estos objetivos, deberás aprender y hacer uso de las siguientes
 herramientas o habilidades técnicas:
 
-## 3. Objetivos de aprendizaje
+## 2. Diseño
 
-Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en tu proyecto. Piensa en eso al decidir tu estrategia de trabajo.
+
 
 ### HTML
 
@@ -313,7 +289,7 @@ Reflexiona y luego marca los objetivos que has llegado a entender y aplicar en t
   * [Obtén actualizaciones en tiempo real con Cloud Firestore - Documentación oficial](https://firebase.google.com/docs/firestore/query-data/listen?hl=es)
 </p></details>
 
-## 4. Consideraciones generales
+## 3. Funcionalidades
 
 * Este proyecto se debe trabajar en equipos de tres.
 

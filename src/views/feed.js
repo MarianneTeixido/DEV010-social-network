@@ -11,6 +11,8 @@ import {
 import { db } from '../firebase.js';
 import addPost from './addPost.js'; // textarea y botón de submit
 import navigationBar from './navigationBar.js';
+// Importamos las imagenes
+import logoVitalHub from '../assets/img/logo-vitalhub.png';
 
 function feed(navigateTo, user) {
   console.log('user desde feed:', user);
@@ -28,8 +30,8 @@ function feed(navigateTo, user) {
 
   const img3 = document.createElement('img');
   img3.classList.add('img3');
-  img3.src = '../assets/img/logo-vitalhub.png';
-  // otra forma de meter la imagen
+  img3.src = logoVitalHub;
+  // Esto es otra forma de meter la imagen
   //  img3.setAtributte('src', '../assets/img/logo-vitalhub.png')
   img3.alt = 'logo vitalHub';
   // img3.setAtributte('alt', 'logo vitalHub')

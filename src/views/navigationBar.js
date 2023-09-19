@@ -65,7 +65,7 @@ function navigationBar(navigateTo) {
     workoutButton.style.color = 'black';
     profileButton.style.color = '#00bcd4';
     profileButton.style.fontSize = '1rem';
-    profileButton.innerHTML = '<b>👤Profile</b>';
+    profileButton.innerHTML = '<b>Profile</b>';
   }
 
   barContainer.append(feedButton, recipesButton, workoutButton, profileButton);

@@ -1,4 +1,4 @@
-// file main.js finished
+// Aqui importamos las vistas del proyecto
 import { onAuthStateChanged } from 'firebase/auth';
 import home from './views/home';
 import login from './views/login';
@@ -11,10 +11,9 @@ import recipes from './views/recipes';
 import workout from './views/workout';
 import profile from './views/profile';
 import navigationBar from './views/navigationBar';
-
 import { auth } from './firebase';
 
-/* -------------Navegación----------------------------------------*/
+/* -------------Navegación o Rutas----------------------------------------*/
 
 const routes = [
   { path: '/', component: home },
@@ -33,7 +32,7 @@ const defaultRoute = '/';
 const root = document.getElementById('root');
 // variable user global
 let userGlobal;
-
+// NavigateTo nos sirve para navegar en las vistas
 function navigateTo(hash) {
   const route = routes.find((routeFound) => routeFound.path === hash);
 

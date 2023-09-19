@@ -15,7 +15,7 @@
 VitalHub es una red social para personas interesadas en formar parte de y construir en conjunto una comunidad de vida saludable.
 En VitalHub, sabemos que los hábitos son fundamentales y que el balance es clave en una vida donde no todo es fitness, es por ello que procuramos generar un entorno saludable, donde las personas puedan compartir rutinas, tips de ejercicio, recetas balanceadas y miles de ideas, fomentando e incentivando a los demás miembros de forma positiva.
 
-El proyecto consta de una Single-page Application (SPA) con base de datos en Firebase y fue desplegado en GitHub pages. El diseño es completamente responsivo y cuenta con tests para todas las vistas, cubriendo el (porcentaje de coverage) del código.
+El proyecto consta de una Single-page Application (SPA) con base de datos en Firebase y fue desplegado en Netlify. El diseño es completamente responsivo y cuenta con tests para todas las vistas, cubriendo el (porcentaje de coverage) del código.
 
 
 ### Los objetivos generales de este proyecto son los siguientes

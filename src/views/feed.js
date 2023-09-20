@@ -10,6 +10,7 @@ import {
 } from 'firebase/firestore';
 import { db } from '../firebase.js';
 import addPost from './addPost.js'; // textarea y botón de submit
+import addComment from './addComent.js';
 import navigationBar from './navigationBar.js';
 // Importamos las imagenes
 import logoVitalHub from '../assets/img/logo-vitalhub.png';
@@ -44,7 +45,9 @@ function feed(navigateTo, user) {
   const sectionPosts = document.createElement('section'); // Section para los post
   sectionPosts.classList.add('sectionPosts');
   sectionPosts.appendChild(addPost()); // addPost() es la vista para agregar post
-
+  
+  const commentContainer = document.createElement('section');
+  commentContainer.appendChild(addPost()); // addPost() es la vista para agregar post
   const postsContainer = document.createElement('section');
 
   onSnapshot(q, (querySnapshot) => {
@@ -215,7 +218,7 @@ function feed(navigateTo, user) {
 
       const postLikeContainer = document.createElement('section');
       onePost.append(userName, typePost, datePost, postContent); // se añaden elementos a post ind
-      postLikeContainer.append(onePost, likeContainer);
+      postLikeContainer.append(onePost, likeContainer,addComment());
       postsContainer.append(postLikeContainer); // se añaden posts individuales a section
     }); // Termina for each
 

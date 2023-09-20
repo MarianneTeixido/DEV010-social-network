@@ -22,6 +22,7 @@ const signUpUser = async (email, password) => {
 
     return userCredential;
   } catch (error) {
+    // Manejo de errores
     if (error.code === 'auth/email-already-in-use') {
       alert('This email is already in use');
     } else if (error.code === 'auth/invalid-email') {

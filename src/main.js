@@ -28,7 +28,6 @@ const routes = [
   { path: '/navigationBar', component: navigationBar },
 ];
 
-const defaultRoute = '/';
 const root = document.getElementById('root');
 // variable user global
 let userGlobal;
@@ -61,12 +60,26 @@ function navigateTo(hash) {
 // Observador de la sesion del usuario, obtenemos primero el usuario y despues navegamos en la app
 onAuthStateChanged(auth, (user) => {
   console.log('user desde el observador:', user);
-  if (user) {
+  const userData = localStorage.getItem('user');
+  const actualRoute = window.location.pathname;
+  if (user && userData) {
+    // Si el usuario tiene una sesion iniciada, siempre lo mandaremos al feed
     userGlobal = user;
-    navigateTo(window.location.pathname);
-  } else {
+    navigateTo('/feed');
+  } else if (
+    actualRoute === '/feed' ||
+    actualRoute === '/recipes' ||
+    actualRoute === '/workout' ||
+    actualRoute === '/profile'
+  ) {
+    // Si el usuario no tiene sesion iniciada
+    // y quiere entrar a las rutas de la app, lo mandamos a login
     userGlobal = undefined;
-    navigateTo(defaultRoute);
+    navigateTo('/login');
+  } else {
+    // Si el usuario esta en /, /login, /recoverPassword o /signUp, lo dejamos en esa misma ruta
+    userGlobal = undefined;
+    navigateTo(actualRoute);
   }
 });
 

@@ -19,6 +19,7 @@ const signUpUser = async (email, password) => {
       email,
       password,
     );
+    localStorage.setItem('user', userCredential?.user);
 
     return userCredential;
   } catch (error) {
@@ -44,6 +45,7 @@ const loginUser = async (email, password) => {
       email,
       password,
     );
+    localStorage.setItem('user', userCredential?.user);
 
     return userCredential;
   } catch (error) {
@@ -66,7 +68,7 @@ const loginWithGoogle = async () => {
     const provider = new GoogleAuthProvider();
     // Invocamos el modal de iniciar sesion con google
     const userCredential = await signInWithPopup(auth, provider);
-
+    localStorage.setItem('user', userCredential?.user);
     return userCredential;
   } catch (error) {
     return undefined;
@@ -99,7 +101,8 @@ const signOutUser = async () => {
 
   try {
     // función para cierre de sesión, no testeada aún
-    return await signOut(auth);
+    await signOut(auth);
+    return localStorage.removeItem('user');
   } catch (error) {
     return alert('Something wrong happened, please try again.');
   }

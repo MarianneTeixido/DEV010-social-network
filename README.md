@@ -2,7 +2,7 @@
 
 ![vh](/docs/vh-01.png)
 
-Acceso al whiteboard en Figma [aquí]()
+Acceso al whiteboard en Figma [aquí](https://www.figma.com/file/3rNMRouWOi2V3H2QKo9m4W/DEV010-Social-Network?type=whiteboard&node-id=0%3A1&t=syXmgUnVAqpEg67Q-1)
 
 ## Índice
 
